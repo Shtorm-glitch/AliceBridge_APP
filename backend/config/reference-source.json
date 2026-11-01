@@ -1,0 +1,5 @@
+{
+  "repository": "https://github.com/otomir23/quasar-unlock",
+  "commit": "17354b153a36a96bf99f59f1c156cc3564b904ea",
+  "purpose": "Reference platform/version metadata; not proof of downgrade compatibility."
+}

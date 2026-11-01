@@ -1,0 +1,8 @@
+certs/
+firmware/
+log/
+run/
+__pycache__/
+*.pyc
+*.key
+.env

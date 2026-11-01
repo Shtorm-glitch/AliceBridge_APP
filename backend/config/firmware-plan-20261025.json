@@ -1,0 +1,134 @@
+[
+  {
+    "platform": "bergamot",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "chiron",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 4
+  },
+  {
+    "platform": "cucumber",
+    "version": "0.369.1.46.4778262955.20261013.160",
+    "reason": "latest-before-2026-10-20",
+    "total": 67
+  },
+  {
+    "platform": "elari_a98",
+    "version": "1.3.0.21.636997245.20200324",
+    "reason": "latest-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "jbl_link_music",
+    "version": "1.80.0.228.3676124705.20251219.",
+    "reason": "latest-before-2026-10-20",
+    "total": 2
+  },
+  {
+    "platform": "jbl_link_portable",
+    "version": "1.80.0.228.3676569159.20251219.",
+    "reason": "latest-before-2026-10-20",
+    "total": 2
+  },
+  {
+    "platform": "lightcomm",
+    "version": "1.3.0.21.674396827.20200513",
+    "reason": "latest-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "linkplay_a98",
+    "version": "1.51.0.31.909833124.20210302",
+    "reason": "latest-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "magritte",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 17
+  },
+  {
+    "platform": "malevich",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 4
+  },
+  {
+    "platform": "monet",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 21
+  },
+  {
+    "platform": "pickle",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "plum",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "prestigio_smart_mate",
+    "version": "1.84.0.14.1079350230.20210920",
+    "reason": "latest-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "yandexmicro",
+    "version": "0.369.1.46.4778262442.20261013.297",
+    "reason": "confirmed-upstream",
+    "total": 267
+  },
+  {
+    "platform": "yandexmidi",
+    "version": "0.372.1.8.4790676133.20261019.298",
+    "reason": "latest-before-2026-10-20",
+    "total": 294
+  },
+  {
+    "platform": "yandexmini",
+    "version": "1.305.4.16.3237824040.20250721",
+    "reason": "confirmed-upstream",
+    "total": 302
+  },
+  {
+    "platform": "yandexmini_2",
+    "version": "0.372.1.8.4790679165.20261019.302",
+    "reason": "latest-before-2026-10-20",
+    "total": 306
+  },
+  {
+    "platform": "yandexmodule",
+    "version": "1.3.2.18.840268003.20201207",
+    "reason": "latest-before-2026-10-20",
+    "total": 1
+  },
+  {
+    "platform": "yandexmodule_2",
+    "version": null,
+    "reason": "no-version-before-2026-10-20",
+    "total": 13
+  },
+  {
+    "platform": "yandexstation",
+    "version": "2.372.5.8.4790795839.20261019.52",
+    "reason": "latest-before-2026-10-20",
+    "total": 279
+  },
+  {
+    "platform": "yandexstation_2",
+    "version": "1.149.1.35.1570445827.20221226.103",
+    "reason": "latest-before-2026-10-20",
+    "total": 77
+  }
+]

@@ -8,3 +8,8 @@ local-backend/runtime/
 private/
 .DS_Store
 *.apk
+backend/certs/
+backend/firmware/
+backend/log/
+backend/run/
+backend/**/__pycache__/
