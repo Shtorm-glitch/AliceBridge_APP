@@ -1,0 +1,49 @@
+# Generated and vendored files the hooks must not touch.
+exclude: |
+  (?x)^(
+      gradlew|
+      gradlew\.bat|
+      gradle/wrapper/.*|
+      station/src/main/assets/.*|
+      bridge/src/main/java/df/root/.*
+  )$
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^backend/
+      - id: ruff-format
+        files: ^backend/
+
+  - repo: local
+    hooks:
+      - id: ktlint
+        name: ktlint (Kotlin)
+        entry: ./gradlew --quiet ktlintFormat
+        language: system
+        files: \.kts?$
+        pass_filenames: false
+        require_serial: true
+      - id: spotless-java
+        name: spotless (Java)
+        entry: ./gradlew --quiet spotlessApply
+        language: system
+        files: \.java$
+        pass_filenames: false
+        require_serial: true
