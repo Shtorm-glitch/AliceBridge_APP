@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """dnscheck.py <server-ip> [name] — проверить, что DNS-стенд отдаёт локальный IP."""
+
 import socket
 import struct
 import sys
