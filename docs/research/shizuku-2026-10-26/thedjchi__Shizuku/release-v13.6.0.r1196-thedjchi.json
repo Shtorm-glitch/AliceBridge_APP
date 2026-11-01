@@ -1,6 +1,0 @@
-{
-  "tag_name": "v13.6.0.r1196-thedjchi",
-  "published_at": "2025-11-13T20:18:23Z",
-  "html_url": "https://github.com/thedjchi/Shizuku/releases/tag/v13.6.0.r1196-thedjchi",
-  "body": "Changelog:\r\n- Support for Android/Google TV. Entire UI is now navigable with D-Pad. Includes pairing support for TVs running Android 14+ (See #30)\r\n- Fixed Shizuku User Service not working on MediaTek devices (See RikkaApps/Shizuku [#1171](https://github.com/RikkaApps/Shizuku/issues/1171) and [#1198](https://github.com/RikkaApps/Shizuku/issues/1198))\r\n- Watchdog is now opt-in to comply with Google policies. **IMPORTANT: If you use watchdog, please go to settings and re-enable watchdog if it got disabled after the update**\r\n- Added a toggle to grant/revoke Shizuku permission for all apps at once (See #42)\r\n- Toggling TCP mode now shows a prompt to restart Shizuku if it was already running, so that the setting takes effect immediately. Shizuku will wait for Wi-Fi before restarting to minimize downtime (See #43)"
-}

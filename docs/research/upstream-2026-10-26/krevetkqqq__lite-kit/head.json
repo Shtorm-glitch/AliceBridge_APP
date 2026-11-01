@@ -1,9 +1,0 @@
-{
-  "repository": "krevetkqqq/lite-kit",
-  "url": "https://github.com/krevetkqqq/lite-kit",
-  "branch": "main",
-  "sha": "168144a79f5cbad700ee6dea4e223c37bf4cbe1c",
-  "committed_at": "2026-10-25T14:34:01Z",
-  "subject": "diag: сценарий «нет интернета» — проверка DHCP, link-local, чек-лист аренды/резервации",
-  "archived": false
-}

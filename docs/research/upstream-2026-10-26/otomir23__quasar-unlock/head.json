@@ -1,9 +1,0 @@
-{
-  "repository": "otomir23/quasar-unlock",
-  "url": "https://github.com/otomir23/quasar-unlock",
-  "branch": "main",
-  "sha": "17354b153a36a96bf99f59f1c156cc3564b904ea",
-  "committed_at": "2026-10-23T13:30:00Z",
-  "subject": "fix: set yandexstation as a fallback platform",
-  "archived": false
-}
