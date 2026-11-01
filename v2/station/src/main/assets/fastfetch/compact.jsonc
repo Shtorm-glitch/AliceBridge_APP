@@ -1,0 +1,34 @@
+{
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "color": {
+      "keys": "38;2;122;85;255"
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    {
+      "type": "cpu",
+      "temp": true
+    },
+    "memory",
+    {
+      "type": "disk",
+      "folders": "/",
+      "format": "{1} / {2} ({3})"
+    },
+    "localip",
+    "break",
+    "colors"
+  ]
+}

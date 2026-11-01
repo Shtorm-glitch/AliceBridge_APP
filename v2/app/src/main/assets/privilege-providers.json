@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-26",
+  "defaultMethod": null,
+  "automaticManagerReplacement": false,
+  "sourcesAreRecommendationsNotSupportGuarantees": true,
+  "providers": [
+    {
+      "repository": "RikkaApps/Shizuku",
+      "managerPackageFromCurrentDocs": "moe.shizuku.privileged.api",
+      "releasesUrl": "https://github.com/RikkaApps/Shizuku/releases",
+      "observedLatest": "v13.6.0",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "thedjchi/Shizuku",
+      "managerPackageFromCurrentDocs": "moe.shizuku.privileged.api",
+      "releasesUrl": "https://github.com/thedjchi/Shizuku/releases",
+      "observedLatest": "v13.7.0-thedjchi",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "HmnDev-Tech/shevery",
+      "managerPackageFromCurrentDocs": "com.hamondev.shevery",
+      "releasesUrl": "https://github.com/HmnDev-Tech/shevery/releases",
+      "observedLatest": "14.5.0",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "thejaustin/ShizukuPlus",
+      "managerPackageFromCurrentDocs": "af.shizuku.plus.api",
+      "releasesUrl": "https://github.com/thejaustin/ShizukuPlus/releases",
+      "observedLatest": "v13.6.0.r2551",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "rushiranpise/Shizuku-Next",
+      "managerPackageFromCurrentDocs": "moe.shizuku.privileged.api",
+      "releasesUrl": "https://github.com/rushiranpise/Shizuku-Next/releases",
+      "observedLatest": "v14.0.30-next",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "d4rken-org/porter",
+      "managerPackageFromCurrentDocs": "eu.darken.porter",
+      "releasesUrl": "https://github.com/d4rken-org/porter/releases",
+      "observedLatest": "v0.8.1-rc0",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    },
+    {
+      "repository": "kerneldroid/Nightzuku",
+      "managerPackageFromCurrentDocs": "kerneldroid.nightzuku",
+      "releasesUrl": "https://github.com/kerneldroid/Nightzuku/releases",
+      "observedLatest": "v13.7.1-r57",
+      "aliceBridgeClientPathTested": false,
+      "integrationStatus": "requires_device_validation",
+      "notes": "Package identity describes current documentation; inspect installed APK/provider before relying on this value."
+    }
+  ],
+  "selectionRequired": true
+}

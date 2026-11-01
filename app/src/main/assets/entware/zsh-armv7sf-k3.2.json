@@ -1,0 +1,86 @@
+{
+  "repository": "https://bin.entware.net/armv7sf-k3.2/",
+  "architecture": "armv7sf-k3.2",
+  "opkgSha256": "82d693e3c928def1cbf584a1130f37fd51bcb3338e57d4af327e342a5f19ee3a",
+  "packages": [
+    {
+      "Package": "libc",
+      "Version": "2.27-12",
+      "Filename": "libc_2.27-12_armv7-3.2.ipk",
+      "SHA256sum": "9804543763cac74b46ef12b667c346bb4639bb9db2f8a4946da848cc76d126ad",
+      "License": "GPL-3.0-with-GCC-exception"
+    },
+    {
+      "Package": "libcap",
+      "Version": "2.69-1",
+      "Filename": "libcap_2.69-1_armv7-3.2.ipk",
+      "SHA256sum": "3f8ca8ff60952ccdc1c188836fee42a25d06119256570c516cad46a8181172e2",
+      "License": "GPL-2.0-only"
+    },
+    {
+      "Package": "libgcc",
+      "Version": "8.4.0-12",
+      "Filename": "libgcc_8.4.0-12_armv7-3.2.ipk",
+      "SHA256sum": "7020bb4a3e39cf5ad590148504c3c7106c8736172725e3f34dff64168ddcf71f",
+      "License": "GPL-3.0-with-GCC-exception"
+    },
+    {
+      "Package": "libncurses",
+      "Version": "6.4-3",
+      "Filename": "libncurses_6.4-3_armv7-3.2.ipk",
+      "SHA256sum": "da0acda8abe739908876ab73f931144b5e6a9854d02073158e3e25a5be97e33a",
+      "License": "MIT"
+    },
+    {
+      "Package": "libncursesw",
+      "Version": "6.4-3",
+      "Filename": "libncursesw_6.4-3_armv7-3.2.ipk",
+      "SHA256sum": "6ead9b3ee8875f64e5e5bb0a561b980bac68f42c0862655bf3d1ba4a65671590",
+      "License": "MIT"
+    },
+    {
+      "Package": "libpcre2",
+      "Version": "10.47-1",
+      "Filename": "libpcre2_10.47-1_armv7-3.2.ipk",
+      "SHA256sum": "defd7eb41ee175587ff5d801ead2ddd4db2a81c2ff65ec76d47432616e6369a0",
+      "License": "BSD-3-Clause"
+    },
+    {
+      "Package": "libpthread",
+      "Version": "2.27-12",
+      "Filename": "libpthread_2.27-12_armv7-3.2.ipk",
+      "SHA256sum": "03192e5c3a9e91c37ce0c756343fdc1b4caa079a897f726ce5df151a606f5de1",
+      "License": "GPL-3.0-with-GCC-exception"
+    },
+    {
+      "Package": "librt",
+      "Version": "2.27-12",
+      "Filename": "librt_2.27-12_armv7-3.2.ipk",
+      "SHA256sum": "84482e1946131949e28eddf17a75ac00053d0ebd6db098c31bb8858e8e58809e",
+      "License": "GPL-3.0-with-GCC-exception"
+    },
+    {
+      "Package": "libssp",
+      "Version": "8.4.0-12",
+      "Filename": "libssp_8.4.0-12_armv7-3.2.ipk",
+      "SHA256sum": "5c967d29d059e89514c6d20875a1da36fdaae28983b329123b5c57c7fbc12a33",
+      "License": "GPL-3.0-with-GCC-exception"
+    },
+    {
+      "Package": "terminfo",
+      "Version": "6.4-3",
+      "Filename": "terminfo_6.4-3_armv7-3.2.ipk",
+      "SHA256sum": "3d39d70a6324dacc25d5021df9c705c0810eeee6b36a2305e8fe3aea7c9e708a",
+      "License": "MIT"
+    },
+    {
+      "Package": "zsh",
+      "Version": "5.9-4",
+      "Filename": "zsh_5.9-4_armv7-3.2.ipk",
+      "SHA256sum": "bd667750e82ca51338ab26ad409568d2fbff6b20176ae79391423fc9e666c314",
+      "License": "ZSH"
+    }
+  ],
+  "localeSha256": "4f526e7878a78e08d7b0887b84c80b7609a47ae885317860494f609174fc2b8f",
+  "archiveSha256": "880cb8cfb1a92434ed3293695a0b2d670e64848590e49af21ff1b306d5e1e132"
+}

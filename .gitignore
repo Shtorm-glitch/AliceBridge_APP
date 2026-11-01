@@ -1,0 +1,17 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.DS_Store
+private/
+*.p12
+*.jks
+*.keystore
+releases/
+artifacts/
+diagnostics/
+log/
+publish/
+wiki-proposal/
+agent/dist/
+*.apk

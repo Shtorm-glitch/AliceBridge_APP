@@ -1,0 +1,68 @@
+[
+  {
+    "archive": "AliceBridge-diagnostics-20261026-110106-4679043168426315575.zip",
+    "platform": "",
+    "version": "",
+    "model": "",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 705,
+    "first": 1792955905386,
+    "last": 1792957919134,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  },
+  {
+    "archive": "AliceBridge-diagnostics-20261026-163220-2476909506771577057.zip",
+    "platform": "yandexmini",
+    "version": "1.305.4.16.3237824040.20250721",
+    "model": "Amlogic",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 105,
+    "first": 1793006684138,
+    "last": 1793007138107,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  },
+  {
+    "archive": "AliceBridge-diagnostics-20261025-215212-5633688402957324294.zip",
+    "platform": "yandexmicro",
+    "version": "0.369.1.46.4778262442.20261013.297",
+    "model": "",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 836,
+    "first": 1792947242214,
+    "last": 1792953675983,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  },
+  {
+    "archive": "AliceBridge_diagnostics_20261026_120610_4248338046280992344_2 (1).zip",
+    "platform": "cucumber",
+    "version": "0.10.1.5.3927784145.20260316.factory-10",
+    "model": "Yandex Cucumber DVT2",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 1565,
+    "first": 1792962711581,
+    "last": 1793005566660,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  },
+  {
+    "archive": "AliceBridge_diagnostics_20261026_120610_4248338046280992344_2.zip",
+    "platform": "cucumber",
+    "version": "0.10.1.5.3927784145.20260316.factory-10",
+    "model": "Yandex Cucumber DVT2",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 1565,
+    "first": 1792962711581,
+    "last": 1793005566660,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  },
+  {
+    "archive": "AliceBridge-diagnostics-20261026-144650-4690969195105027466.zip",
+    "platform": "yandexmini_2",
+    "version": "0.18.1.23.1873300118.20230810.factory-4.FACTORY.factory",
+    "model": "",
+    "proof": "ADB event: adb shell id returns uid=0",
+    "proofCount": 1,
+    "first": 1793013983150,
+    "last": 1793013983150,
+    "association": "Model/version taken from final snapshot; must verify same target and session before marking model confirmed."
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "sha": "4e4a905ccdbe3251a74bd13a1f2f3e73a216cf87",
+  "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/trees/4e4a905ccdbe3251a74bd13a1f2f3e73a216cf87",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "52c22a6ad6aa2c35aa6fe5ec5fc2399da740928f",
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/trees/52c22a6ad6aa2c35aa6fe5ec5fc2399da740928f"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "66f94d66a4d27e8d41071257bd202783bf8b3af5",
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/trees/66f94d66a4d27e8d41071257bd202783bf8b3af5"
+    },
+    {
+      "path": ".github/workflows/registry.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f3cf7c3b011c50a5fcae77f89a7b17d625693d0",
+      "size": 1372,
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/blobs/8f3cf7c3b011c50a5fcae77f89a7b17d625693d0"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a60b85e148f80966a550e5ab6a762a907c69ca6",
+      "size": 19,
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/blobs/7a60b85e148f80966a550e5ab6a762a907c69ca6"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d48e85e6b382b05731b4ce2b766bb09246d14aef",
+      "size": 222,
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/blobs/d48e85e6b382b05731b4ce2b766bb09246d14aef"
+    },
+    {
+      "path": "tools",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8483c771ce039d43805b90c6b1081745bd3a340d",
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/trees/8483c771ce039d43805b90c6b1081745bd3a340d"
+    },
+    {
+      "path": "tools/build_index.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24aef1d29e4cb16d581b83f993287f1306fcdf04",
+      "size": 4387,
+      "url": "https://api.github.com/repos/nyakokitsu/yapkg/git/blobs/24aef1d29e4cb16d581b83f993287f1306fcdf04"
+    }
+  ],
+  "truncated": false
+}

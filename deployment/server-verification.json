@@ -1,0 +1,22 @@
+[
+  {
+    "platform": "yandexmicro",
+    "version": "0.369.1.46.4778262442.20261013.297",
+    "check": "FULL DOWNLOAD SHA256/CRC32 OK"
+  },
+  {
+    "platform": "yandexmini",
+    "version": "1.369.4.46.4778368993.20261013",
+    "check": "MANIFEST / HTTPS RANGE OK"
+  },
+  {
+    "platform": "cucumber",
+    "version": "0.369.1.46.4778262955.20261013.160",
+    "check": "MANIFEST / HTTPS RANGE OK"
+  },
+  {
+    "platform": "yandexmidi",
+    "version": "0.369.1.46.4793639783.20261020.295",
+    "check": "MANIFEST / HTTPS RANGE OK"
+  }
+]

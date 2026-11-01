@@ -1,0 +1,7 @@
+{
+  "version": "0.2.3",
+  "assets": {
+    "yam/yam-aarch64": "0ca82606e4e989d81d9e7fb7f9916e8dfbfcb24d38ceb0d122a0ae8039cfe7c8",
+    "yam/yam-armv7": "758ce9007ddad3209f1dceea739c3d60063c8929c2a8ae058da1a67698e4c848"
+  }
+}

@@ -1,0 +1,3400 @@
+{
+  "sha": "b844bc491f1790c72328e1a8e5b2349f8978f0ea",
+  "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/b844bc491f1790c72328e1a8e5b2349f8978f0ea",
+  "tree": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27fc7c2960688da71cf9ed71a369f692ee42c7f2",
+      "size": 52,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/27fc7c2960688da71cf9ed71a369f692ee42c7f2"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c0f6b2c072ae36b3cdb0a20527bad0a79141cf72",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/c0f6b2c072ae36b3cdb0a20527bad0a79141cf72"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9784e6f3f7aa5c9a1568d89b6cc0fbae662ba930",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9784e6f3f7aa5c9a1568d89b6cc0fbae662ba930"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7ec9fa5fa851aeb837b43fddeb4ceb8578f80c1",
+      "size": 1382,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c7ec9fa5fa851aeb837b43fddeb4ceb8578f80c1"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bf0936d27267532729295b18d1604c818532cdd",
+      "size": 185,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1bf0936d27267532729295b18d1604c818532cdd"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d4521a1a8148b8a1ab4e55a134c671918fe46566",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d4521a1a8148b8a1ab4e55a134c671918fe46566"
+    },
+    {
+      "path": ".github/workflows/app.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73f3358dc2bb54cc2fe0aec63475b49699f00c12",
+      "size": 2103,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/73f3358dc2bb54cc2fe0aec63475b49699f00c12"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9f496f9f9a52c3d5897e4156eb96519f54c2400",
+      "size": 178,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d9f496f9f9a52c3d5897e4156eb96519f54c2400"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9214c224298bc22a3dd25501cbca4b30e819af57",
+      "size": 95,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9214c224298bc22a3dd25501cbca4b30e819af57"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "size": 11357,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7a4a3ea2424c09fbe48d455aed1eaa94d9124835"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd564a44e885f40a2017e405762cc99b23f89439",
+      "size": 5244,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/bd564a44e885f40a2017e405762cc99b23f89439"
+    },
+    {
+      "path": "api",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "a27f6e4151ba7b39965ca47edb2bf0aeed7102e5"
+    },
+    {
+      "path": "build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29c460b5816ab03ad0b2b5d2b2d658f92545798c",
+      "size": 937,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/29c460b5816ab03ad0b2b5d2b2d658f92545798c"
+    },
+    {
+      "path": "common",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "99c27d29ce3f5f7a99f64d816fd7f4bea1afb1d5",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/99c27d29ce3f5f7a99f64d816fd7f4bea1afb1d5"
+    },
+    {
+      "path": "common/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42afabfd2abebf31384ca7797186a27a4b7dbee8",
+      "size": 6,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/42afabfd2abebf31384ca7797186a27a4b7dbee8"
+    },
+    {
+      "path": "common/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29c19a2ee70ef3f21273e53f35a961a371ef6ce9",
+      "size": 196,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/29c19a2ee70ef3f21273e53f35a961a371ef6ce9"
+    },
+    {
+      "path": "common/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "504b60777861cd233880e4a4387cd6d8b280420a",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/504b60777861cd233880e4a4387cd6d8b280420a"
+    },
+    {
+      "path": "common/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "496e2c0879355aa3d74ec328983890d049d1b309",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/496e2c0879355aa3d74ec328983890d049d1b309"
+    },
+    {
+      "path": "common/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8072ee00dbf16d9161b7464ef3d2194a7d659bcc",
+      "size": 52,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8072ee00dbf16d9161b7464ef3d2194a7d659bcc"
+    },
+    {
+      "path": "common/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5006a9c76c1bc5106f7b223538667125d53618a1",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5006a9c76c1bc5106f7b223538667125d53618a1"
+    },
+    {
+      "path": "common/src/main/java/moe",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4014c00bfa86ecf9f0094dd6c3c6ebc6886fb876",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/4014c00bfa86ecf9f0094dd6c3c6ebc6886fb876"
+    },
+    {
+      "path": "common/src/main/java/moe/shizuku",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "73505c8bb9e218932c68b02037c338a7ef96e7a9",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/73505c8bb9e218932c68b02037c338a7ef96e7a9"
+    },
+    {
+      "path": "common/src/main/java/moe/shizuku/common",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aae28da327e927475f07c5fa94e3139e431353bd",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/aae28da327e927475f07c5fa94e3139e431353bd"
+    },
+    {
+      "path": "common/src/main/java/moe/shizuku/common/util",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "08954003b7f819c48890ae5c42cf415cbe99295f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/08954003b7f819c48890ae5c42cf415cbe99295f"
+    },
+    {
+      "path": "common/src/main/java/moe/shizuku/common/util/BuildUtils.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2262f875e05387aaa3317906ad251703e577c960",
+      "size": 850,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2262f875e05387aaa3317906ad251703e577c960"
+    },
+    {
+      "path": "common/src/main/java/moe/shizuku/common/util/OsUtils.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f79148bb433897902131bc798894d498b2f733c",
+      "size": 679,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5f79148bb433897902131bc798894d498b2f733c"
+    },
+    {
+      "path": "gradle.properties",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ad6f7da4f30f455e969e71d75f1c5e688ae7876",
+      "size": 139,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5ad6f7da4f30f455e969e71d75f1c5e688ae7876"
+    },
+    {
+      "path": "gradle",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "24938d1322f4aa9de972038318bf0af0741ba2fc",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/24938d1322f4aa9de972038318bf0af0741ba2fc"
+    },
+    {
+      "path": "gradle/wrapper",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "35fcf56b0a312bb6d76f3be24e580ec5ecd912df",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/35fcf56b0a312bb6d76f3be24e580ec5ecd912df"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b33c55baabb587c669f562ae36f953de2481846",
+      "size": 43764,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1b33c55baabb587c669f562ae36f953de2481846"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca025c83a7cc5e4f5eb7bc7a5ff8cae62df35ffb",
+      "size": 251,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ca025c83a7cc5e4f5eb7bc7a5ff8cae62df35ffb"
+    },
+    {
+      "path": "gradlew",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "23d15a9367071145e9c79bb4ddf879d1fbe78b5d",
+      "size": 8733,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/23d15a9367071145e9c79bb4ddf879d1fbe78b5d"
+    },
+    {
+      "path": "gradlew.bat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db3a6ac207e507b0bc1635a9f2c18d3b174e682e",
+      "size": 2843,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/db3a6ac207e507b0bc1635a9f2c18d3b174e682e"
+    },
+    {
+      "path": "manager",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "792975b176d91b1d1cf14879da727cec3cb9154d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/792975b176d91b1d1cf14879da727cec3cb9154d"
+    },
+    {
+      "path": "manager/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d935e681e923e10a4c10aa088faf3805acf44fc7",
+      "size": 32,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d935e681e923e10a4c10aa088faf3805acf44fc7"
+    },
+    {
+      "path": "manager/aapt2-resources.cfg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "784b95dd10eb54e8486cd679a7798afeb769d7dd",
+      "size": 1052,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/784b95dd10eb54e8486cd679a7798afeb769d7dd"
+    },
+    {
+      "path": "manager/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49efbdcb3fc23c87cae64b5dcd8b1ec1e4e87bec",
+      "size": 6613,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/49efbdcb3fc23c87cae64b5dcd8b1ec1e4e87bec"
+    },
+    {
+      "path": "manager/proguard-rules.pro",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2443edf907ce5fee4d05ea4a49b0aab90c268d8a",
+      "size": 1605,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2443edf907ce5fee4d05ea4a49b0aab90c268d8a"
+    },
+    {
+      "path": "manager/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2b1047a5159cd4ef7c03aea032363024fd4e4280",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/2b1047a5159cd4ef7c03aea032363024fd4e4280"
+    },
+    {
+      "path": "manager/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "64d227f23c4333b1958e2d1df87920837856993f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/64d227f23c4333b1958e2d1df87920837856993f"
+    },
+    {
+      "path": "manager/src/main/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae00517c4c625d577db5a7e1a57e9fcc8dbb5d62",
+      "size": 13,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ae00517c4c625d577db5a7e1a57e9fcc8dbb5d62"
+    },
+    {
+      "path": "manager/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f9f5bf76f38e80946cc7d7252214a9421837144",
+      "size": 7458,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3f9f5bf76f38e80946cc7d7252214a9421837144"
+    },
+    {
+      "path": "manager/src/main/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8a5dde76309f1f50221acadb89e59f3833b7e21",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/f8a5dde76309f1f50221acadb89e59f3833b7e21"
+    },
+    {
+      "path": "manager/src/main/assets/rish",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccf6eb595dd789fd7ae390d9a5e59381507e02b0",
+      "size": 882,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ccf6eb595dd789fd7ae390d9a5e59381507e02b0"
+    },
+    {
+      "path": "manager/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e95cc7a4d942255c4c037ea2a0a1a937ec69a1ea",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/e95cc7a4d942255c4c037ea2a0a1a937ec69a1ea"
+    },
+    {
+      "path": "manager/src/main/java/moe",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "92a292319025a1fc16629e0b59f269977a417abe",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/92a292319025a1fc16629e0b59f269977a417abe"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9821996fadb7f59a9b47c69fdd6d632909fc4114",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9821996fadb7f59a9b47c69fdd6d632909fc4114"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "07217d83ac592dcda1f004aefd202bee0c85c435",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/07217d83ac592dcda1f004aefd202bee0c85c435"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/AppConstants.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd95d911333f4a3e04923ce9a36c0894d125e56b",
+      "size": 491,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dd95d911333f4a3e04923ce9a36c0894d125e56b"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/Helps.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c491c1b8c19b41a52e45dd1f83f281c9887c41e7",
+      "size": 2681,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c491c1b8c19b41a52e45dd1f83f281c9887c41e7"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/MainActivity.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a3da2e2e29b6f4b42033f0e035daaf336e66162",
+      "size": 128,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3a3da2e2e29b6f4b42033f0e035daaf336e66162"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/Manifest.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cd09d717104bd404237a2ce928735f547bd2f39",
+      "size": 188,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0cd09d717104bd404237a2ce928735f547bd2f39"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ShizukuApplication.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da1846330545c3b0d0deaa016cc7787bfed2270d",
+      "size": 1217,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/da1846330545c3b0d0deaa016cc7787bfed2270d"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ShizukuManagerProvider.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bc4f446d722cbcab1ab0891d155303cb8f61a34",
+      "size": 2728,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8bc4f446d722cbcab1ab0891d155303cb8f61a34"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ShizukuSettings.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62311631beeddc18b26c61d5263dba2608a17fa2",
+      "size": 3311,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/62311631beeddc18b26c61d5263dba2608a17fa2"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4df6655c6f9010b86ab9144debead914f17b4c10",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/4df6655c6f9010b86ab9144debead914f17b4c10"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbClient.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c9085f426360e984c220e6bd857743f62a20034",
+      "size": 6179,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7c9085f426360e984c220e6bd857743f62a20034"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbException.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aef8dadb7d3a9d892f57ca908bdaa632fb008d6",
+      "size": 501,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6aef8dadb7d3a9d892f57ca908bdaa632fb008d6"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbKey.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "102082dd9d21e1555b88a1b14211d9bfc0bfc34a",
+      "size": 13348,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/102082dd9d21e1555b88a1b14211d9bfc0bfc34a"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbMdns.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4494dd04280597d336349b16a98d89792599de8",
+      "size": 4031,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d4494dd04280597d336349b16a98d89792599de8"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbMessage.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64b7b3a9f334dc06a87f72ae38d180f58a196841",
+      "size": 3947,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/64b7b3a9f334dc06a87f72ae38d180f58a196841"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbPairingClient.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c03370d5f875a3c2ddb38eda9b9eb278a3f8863c",
+      "size": 9665,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c03370d5f875a3c2ddb38eda9b9eb278a3f8863c"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbPairingService.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bac10a9790d5ec0cf96406911c66a7db779687d",
+      "size": 10705,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1bac10a9790d5ec0cf96406911c66a7db779687d"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbPairingTutorialActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2bb3c57666183ba04fb8849d3d2d3829d153313",
+      "size": 4410,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d2bb3c57666183ba04fb8849d3d2d3829d153313"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/adb/AdbProtocol.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20d7b00ba137d905cd935669db827c113f19d163",
+      "size": 551,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/20d7b00ba137d905cd935669db827c113f19d163"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "17313e81d53b2b20b600a656273bb8187a5adf10",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/17313e81d53b2b20b600a656273bb8187a5adf10"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/app/AppActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6451e58c0d6e8a0b3692b9a511243f4097c5eab",
+      "size": 2183,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c6451e58c0d6e8a0b3692b9a511243f4097c5eab"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/app/AppBarActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc77b3ac7c2804e461fd5ee686c1bfcfaddb0415",
+      "size": 1935,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/cc77b3ac7c2804e461fd5ee686c1bfcfaddb0415"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/app/ThemeHelper.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71ab29e06070318dabfe1ebdcfa022ff54694019",
+      "size": 1668,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/71ab29e06070318dabfe1ebdcfa022ff54694019"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/authorization",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "92a924135c3beca62a32d2dee4ff7ae17e7c16bc",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/92a924135c3beca62a32d2dee4ff7ae17e7c16bc"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/authorization/AuthorizationManager.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f5936cd6ed396c7a04c4783b436155ae94adfc9",
+      "size": 3515,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0f5936cd6ed396c7a04c4783b436155ae94adfc9"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/authorization/RequestPermissionActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2523ade6e2d6b2b44acd29a36b2b9e99489020b0",
+      "size": 5093,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2523ade6e2d6b2b44acd29a36b2b9e99489020b0"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "740ac51a00bd68627f7982fe1c9987d764dbc661",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/740ac51a00bd68627f7982fe1c9987d764dbc661"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/AdbDialogFragment.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8dfa344daf1c8e629e305e6b424fa3ac3ae43df9",
+      "size": 3893,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8dfa344daf1c8e629e305e6b424fa3ac3ae43df9"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/AdbPairDialogFragment.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4ab6be9edd945b401a47052da2baaf9c5fb48cd",
+      "size": 7356,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b4ab6be9edd945b401a47052da2baaf9c5fb48cd"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/AdbPermissionLimitedViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccd87af1d6fff2ce4a06af514f62c2222c5f0b89",
+      "size": 1057,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ccd87af1d6fff2ce4a06af514f62c2222c5f0b89"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/HomeActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cd0228adbf7667871006806161532c395beb806",
+      "size": 5235,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6cd0228adbf7667871006806161532c395beb806"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/HomeAdapter.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39839f7003e72a89fea2d90ae9ecd005cca4caaa",
+      "size": 2529,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/39839f7003e72a89fea2d90ae9ecd005cca4caaa"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/HomeViewModel.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62b51d176dd54f9bfffa3e6244a16eb5c3522b4f",
+      "size": 2298,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/62b51d176dd54f9bfffa3e6244a16eb5c3522b4f"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/LearnMoreViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db522494e2c8c703353c8cfaa9c07aa4c9966cfd",
+      "size": 990,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/db522494e2c8c703353c8cfaa9c07aa4c9966cfd"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/ManageAppsViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "757f7755875c6bdc388b10e4e2113e9117f54de7",
+      "size": 2245,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/757f7755875c6bdc388b10e4e2113e9117f54de7"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/ServerStatusViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52f5036132caf132cc1830575eca354062a7b353",
+      "size": 3142,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/52f5036132caf132cc1830575eca354062a7b353"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/StartAdbViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4da96bd5898cb9f1f6346b7cf6c397c464bd288a",
+      "size": 3033,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4da96bd5898cb9f1f6346b7cf6c397c464bd288a"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/StartRootViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "583e7c12ea1b801cb8c0a54ba963522c184fdaef",
+      "size": 2875,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/583e7c12ea1b801cb8c0a54ba963522c184fdaef"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/StartWirelessAdbViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e6dff5575d13334363cd6acecd478a8749f5bc9",
+      "size": 4020,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6e6dff5575d13334363cd6acecd478a8749f5bc9"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/TerminalViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7691de4f1cb203655b9c50370a4dc7c16062b185",
+      "size": 1671,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7691de4f1cb203655b9c50370a4dc7c16062b185"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/home/WadbNotEnabledDialogFragment.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1fd17a63af4bee808f9a924b731b1b15257b12b",
+      "size": 813,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/e1fd17a63af4bee808f9a924b731b1b15257b12b"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "38caaffd001a60e3b707db4881bd381dce3b469f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/38caaffd001a60e3b707db4881bd381dce3b469f"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx/Context.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce55dfccb6e18c887d3dee8eb3d01b5ad49fe410",
+      "size": 787,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ce55dfccb6e18c887d3dee8eb3d01b5ad49fe410"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx/Log.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b09cde125e501f5c2f96eff1ee5d4502768fa33",
+      "size": 1488,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8b09cde125e501f5c2f96eff1ee5d4502768fa33"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx/PackageManager.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9e78c7bf0117af260f1dfebb737f137947b22c8",
+      "size": 950,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c9e78c7bf0117af260f1dfebb737f137947b22c8"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx/RecyclerView.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "050ecc056e258ae7c5e2a275a73c8aa485383a09",
+      "size": 2513,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/050ecc056e258ae7c5e2a275a73c8aa485383a09"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/ktx/String.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "845623860e22fbe2f79b0f33ef3f072141aabbdb",
+      "size": 500,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/845623860e22fbe2f79b0f33ef3f072141aabbdb"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/legacy",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "255870c6a51d37495e22b45def646369bb762ee9",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/255870c6a51d37495e22b45def646369bb762ee9"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/legacy/LegacyIsNotSupportedActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47b807efb0e1b37264d5aaf95f6d5d9280085619",
+      "size": 2992,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/47b807efb0e1b37264d5aaf95f6d5d9280085619"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/legacy/ShellRequestHandlerActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40e2b4cd9efaab242376fa671696baf3e562bcbe",
+      "size": 433,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/40e2b4cd9efaab242376fa671696baf3e562bcbe"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d809929cfe46527a3a112628032ae3477c32a701",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d809929cfe46527a3a112628032ae3477c32a701"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management/AppViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1cd7e60bdc7d45090baf61bbb0a477306e8dfc47",
+      "size": 4253,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1cd7e60bdc7d45090baf61bbb0a477306e8dfc47"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management/ApplicationManagementActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc7fd3ebb363e44d194fbc76ce2144bca7f45986",
+      "size": 2575,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dc7fd3ebb363e44d194fbc76ce2144bca7f45986"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management/AppsAdapter.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82e0ff50a74ca2aa83de98b98b33d10568b03778",
+      "size": 990,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/82e0ff50a74ca2aa83de98b98b33d10568b03778"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management/AppsViewModel.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b63b924c535ab724861072ec31aa37c67ea265e",
+      "size": 1997,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2b63b924c535ab724861072ec31aa37c67ea265e"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/management/EmptyViewHolder.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb44ee0deb3f17aa4bd75211855c4bf8dc328476",
+      "size": 1333,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/cb44ee0deb3f17aa4bd75211855c4bf8dc328476"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/model",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bbd66b65ebdc654b5b9c2bd060238fd3a338b718",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/bbd66b65ebdc654b5b9c2bd060238fd3a338b718"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/model/ServiceStatus.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86dcd13a334cc1596463af0990d56e07f1ed4e55",
+      "size": 349,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/86dcd13a334cc1596463af0990d56e07f1ed4e55"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/receiver",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c50b7cc9f54aef7ecd8d17efcc98cd0b1d650d4",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9c50b7cc9f54aef7ecd8d17efcc98cd0b1d650d4"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/receiver/BootCompleteReceiver.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "225ae3d92f7594296924c85247952e1d97b464ee",
+      "size": 3581,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/225ae3d92f7594296924c85247952e1d97b464ee"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/receiver/ShizukuReceiver.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3b9199fa2c6f2a1f56c98083dfe19cad43dc1c3",
+      "size": 474,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c3b9199fa2c6f2a1f56c98083dfe19cad43dc1c3"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/settings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0b7b1c2ffa681df421245347a02ec62b38416990",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/0b7b1c2ffa681df421245347a02ec62b38416990"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/settings/IntegerSimpleMenuPreference.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d16acc47680473494ba51827542cb333775c3e97",
+      "size": 12222,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d16acc47680473494ba51827542cb333775c3e97"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/settings/SettingsActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e5f477a02242715342d5bba766e4778a0e38fc2",
+      "size": 851,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4e5f477a02242715342d5bba766e4778a0e38fc2"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/settings/SettingsFragment.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2aaedfc510af2bb3f298ec7c5fd1177f5c3a44ba",
+      "size": 9315,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2aaedfc510af2bb3f298ec7c5fd1177f5c3a44ba"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/shell",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e169a553d9f9f27ad28c39c76f7bddac9314421c",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/e169a553d9f9f27ad28c39c76f7bddac9314421c"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/shell/Shell.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ab5a2335f659554cfd7b963cd757ec4ea77c53c",
+      "size": 2000,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6ab5a2335f659554cfd7b963cd757ec4ea77c53c"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/shell/ShellBinderRequestHandler.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f24727093f74360357723c721941e6d6a8efa46",
+      "size": 1098,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8f24727093f74360357723c721941e6d6a8efa46"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/shell/ShellTutorialActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b12ee9201fb0738247f74e2521ac00653506c6c1",
+      "size": 4140,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b12ee9201fb0738247f74e2521ac00653506c6c1"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/starter",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a4f9831fb34cb2067c80cea08a427d569d1385af",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a4f9831fb34cb2067c80cea08a427d569d1385af"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/starter/Starter.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4385f6f214714cc07b0c5784dcf8862ce2a0f6b",
+      "size": 407,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d4385f6f214714cc07b0c5784dcf8862ce2a0f6b"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/starter/StarterActivity.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbf64a2628b374a08c043151d63e273fb1536781",
+      "size": 6621,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dbf64a2628b374a08c043151d63e273fb1536781"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fd75070ea24616b477fee6cb12651d41d769cb47",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/fd75070ea24616b477fee6cb12651d41d769cb47"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/AppIconCache.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f77f11edae85d97e46ec1abdc2f25c08f6931907",
+      "size": 4373,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f77f11edae85d97e46ec1abdc2f25c08f6931907"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/CustomTabsHelper.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a395609ce9fac49949e1ae1b73cc8626b91cebf4",
+      "size": 3056,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a395609ce9fac49949e1ae1b73cc8626b91cebf4"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/EmptySharedPreferencesImpl.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "583286f16b758ee60e21afbb8f052ec65c1e3101",
+      "size": 2542,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/583286f16b758ee60e21afbb8f052ec65c1e3101"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/EnvironmentUtils.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "760ad225de535dcca72e5c4e579494b8b698de3e",
+      "size": 787,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/760ad225de535dcca72e5c4e579494b8b698de3e"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/Logger.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd21b2dccd829ae9238ce7f4b35e73a07277c02f",
+      "size": 2890,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dd21b2dccd829ae9238ce7f4b35e73a07277c02f"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/MultiLocaleEntity.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c313d0d95c855ad97b267ff4040c1526fefd098",
+      "size": 2091,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0c313d0d95c855ad97b267ff4040c1526fefd098"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/ShizukuSystemApis.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da2e159b990f8f69e72a2b032c47d957425905d1",
+      "size": 3470,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/da2e159b990f8f69e72a2b032c47d957425905d1"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/UserHandleCompat.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fd5b77980cefe46e91cfc732e3b2de30bdd4661",
+      "size": 459,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7fd5b77980cefe46e91cfc732e3b2de30bdd4661"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/utils/UserInfoCompat.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1488ba90544de5ff257ca92e2be1a35c4bef0c8a",
+      "size": 228,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1488ba90544de5ff257ca92e2be1a35c4bef0c8a"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/widget",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "82fb62a908c23ef1dc4ac904a20c70cc0367805d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/82fb62a908c23ef1dc4ac904a20c70cc0367805d"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/widget/CheckedImageView.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3221a8f8474c6fe4adf5c89a8735b98b825c5a5",
+      "size": 1562,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/e3221a8f8474c6fe4adf5c89a8735b98b825c5a5"
+    },
+    {
+      "path": "manager/src/main/java/moe/shizuku/manager/widget/VerticalPaddingDecoration.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f2254d305db72e089f3f6d093fdb308235969de",
+      "size": 1418,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4f2254d305db72e089f3f6d093fdb308235969de"
+    },
+    {
+      "path": "manager/src/main/jni",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a5d84958a96aa014a20a78e6e8feebfacc64f51b",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a5d84958a96aa014a20a78e6e8feebfacc64f51b"
+    },
+    {
+      "path": "manager/src/main/jni/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8965bda48dbc5c455fa43c255228369a57860758",
+      "size": 1293,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8965bda48dbc5c455fa43c255228369a57860758"
+    },
+    {
+      "path": "manager/src/main/jni/adb_pairing.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a44981e28f06d5592d70970790c2b074270c1ce",
+      "size": 7728,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1a44981e28f06d5592d70970790c2b074270c1ce"
+    },
+    {
+      "path": "manager/src/main/jni/adb_pairing.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f9eb70a664ce65bc5f0d996a5c3e4647b45556b",
+      "size": 45,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3f9eb70a664ce65bc5f0d996a5c3e4647b45556b"
+    },
+    {
+      "path": "manager/src/main/jni/android.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bb6c44e0edab7b6ad7b978ab7cb20d63ce0d046",
+      "size": 732,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4bb6c44e0edab7b6ad7b978ab7cb20d63ce0d046"
+    },
+    {
+      "path": "manager/src/main/jni/android.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4b78fba9657be5352e47c0d73cbc94517869949",
+      "size": 90,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a4b78fba9657be5352e47c0d73cbc94517869949"
+    },
+    {
+      "path": "manager/src/main/jni/cgroup.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c23523fc04fa5c75c8592564b0a263982f589881",
+      "size": 566,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c23523fc04fa5c75c8592564b0a263982f589881"
+    },
+    {
+      "path": "manager/src/main/jni/cgroup.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d44d2cf1c776e74bf6ba6cadcc6fdcc2b8e32ba0",
+      "size": 129,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d44d2cf1c776e74bf6ba6cadcc6fdcc2b8e32ba0"
+    },
+    {
+      "path": "manager/src/main/jni/helper.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1001f8316d6b9e9a92fa6945ff35f12cb637afcf",
+      "size": 1689,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1001f8316d6b9e9a92fa6945ff35f12cb637afcf"
+    },
+    {
+      "path": "manager/src/main/jni/logging.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "102e46e1689bca35ff92f7878c3776ce179c9d2e",
+      "size": 848,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/102e46e1689bca35ff92f7878c3776ce179c9d2e"
+    },
+    {
+      "path": "manager/src/main/jni/misc.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1824b742b8457e848233cf92e87125c9907ff3cc",
+      "size": 4114,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1824b742b8457e848233cf92e87125c9907ff3cc"
+    },
+    {
+      "path": "manager/src/main/jni/misc.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ab3e87d4a9c98e95fc928b6af130528fc21a77d",
+      "size": 402,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3ab3e87d4a9c98e95fc928b6af130528fc21a77d"
+    },
+    {
+      "path": "manager/src/main/jni/selinux.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b9ebc63cfb2d77a3b94211f6842c2724ddb071b",
+      "size": 2805,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9b9ebc63cfb2d77a3b94211f6842c2724ddb071b"
+    },
+    {
+      "path": "manager/src/main/jni/selinux.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5e47eb2916114a66330ef19c7b4301f07d4c311",
+      "size": 589,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f5e47eb2916114a66330ef19c7b4301f07d4c311"
+    },
+    {
+      "path": "manager/src/main/jni/starter.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "889e409a86d140b13d620a9f80623ada0ea405d3",
+      "size": 8363,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/889e409a86d140b13d620a9f80623ada0ea405d3"
+    },
+    {
+      "path": "manager/src/main/res",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "32e25e9851f7664354a1c31b523268d2f543d955",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/32e25e9851f7664354a1c31b523268d2f543d955"
+    },
+    {
+      "path": "manager/src/main/res/animator",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9dea3ea34c75c687e22ab11abfd5e72dd3bda9d8",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9dea3ea34c75c687e22ab11abfd5e72dd3bda9d8"
+    },
+    {
+      "path": "manager/src/main/res/animator/alpha_animator.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e7090fe48b1b5341e3bfeebab752ecac7aa1f74",
+      "size": 770,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4e7090fe48b1b5341e3bfeebab752ecac7aa1f74"
+    },
+    {
+      "path": "manager/src/main/res/color-night",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "258e6ec03cc5317c5f9674dd3e8edc85ce1ba77a",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/258e6ec03cc5317c5f9674dd3e8edc85ce1ba77a"
+    },
+    {
+      "path": "manager/src/main/res/color-night/home_card_background_color.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa004a63940284f562ffd65a864d60aba7226713",
+      "size": 199,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fa004a63940284f562ffd65a864d60aba7226713"
+    },
+    {
+      "path": "manager/src/main/res/color-night/home_card_foreground_color.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f114b7dd26f2a8b7ec4426830d366d69e5e566c4",
+      "size": 173,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f114b7dd26f2a8b7ec4426830d366d69e5e566c4"
+    },
+    {
+      "path": "manager/src/main/res/color",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d74ece288c2fd12b69b8a6f1b741c470875a6e7d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d74ece288c2fd12b69b8a6f1b741c470875a6e7d"
+    },
+    {
+      "path": "manager/src/main/res/color/grant_permissions_button_ripple_color_selector.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5bf8b4a7f0da0c89ca09968f05d7d76f1563bf2",
+      "size": 1968,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c5bf8b4a7f0da0c89ca09968f05d7d76f1563bf2"
+    },
+    {
+      "path": "manager/src/main/res/color/home_card_background_color.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9eb1209f2a81ed9fe699c9ba5531aac48ef37a3",
+      "size": 199,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a9eb1209f2a81ed9fe699c9ba5531aac48ef37a3"
+    },
+    {
+      "path": "manager/src/main/res/color/home_card_foreground_color.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd633137c435893c1185a87d93d0732f4aef3300",
+      "size": 173,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dd633137c435893c1185a87d93d0732f4aef3300"
+    },
+    {
+      "path": "manager/src/main/res/drawable-v24",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "37723ff56c36e9c4237f6fc5fa0da4a80c66e361",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/37723ff56c36e9c4237f6fc5fa0da4a80c66e361"
+    },
+    {
+      "path": "manager/src/main/res/drawable-v24/ic_default_app_icon_foreground.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7bd21dbd86990cde81fea8abd3bf904b4546749",
+      "size": 1880,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c7bd21dbd86990cde81fea8abd3bf904b4546749"
+    },
+    {
+      "path": "manager/src/main/res/drawable-v26",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "581d073e194f265119dec5f0df6d5479b0708ec8",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/581d073e194f265119dec5f0df6d5479b0708ec8"
+    },
+    {
+      "path": "manager/src/main/res/drawable-v26/ic_default_app_icon.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17499bfadc019a6e3e599e9fbff1366605b0a6a3",
+      "size": 286,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/17499bfadc019a6e3e599e9fbff1366605b0a6a3"
+    },
+    {
+      "path": "manager/src/main/res/drawable-v26/ic_launcher.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00bdaabcf227c759314a80e8dfa4bafce0f1e6e1",
+      "size": 331,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/00bdaabcf227c759314a80e8dfa4bafce0f1e6e1"
+    },
+    {
+      "path": "manager/src/main/res/drawable",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0508473fce604d8403754013881cdf1b9fcecf8d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/0508473fce604d8403754013881cdf1b9fcecf8d"
+    },
+    {
+      "path": "manager/src/main/res/drawable/card_btn_background.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1486038e79fb8385417bae158719e5eb0b279f50",
+      "size": 764,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1486038e79fb8385417bae158719e5eb0b279f50"
+    },
+    {
+      "path": "manager/src/main/res/drawable/grant_permissions_buttons_bottom.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a1b4c45567feee77bf9e62ee4d0658705f6af81",
+      "size": 546,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6a1b4c45567feee77bf9e62ee4d0658705f6af81"
+    },
+    {
+      "path": "manager/src/main/res/drawable/grant_permissions_buttons_top.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e43e382444930ffdee184c9966152365555b3cb",
+      "size": 546,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8e43e382444930ffdee184c9966152365555b3cb"
+    },
+    {
+      "path": "manager/src/main/res/drawable/home_card_foreground.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef47395cb37331740259e8743b18358d04e6a204",
+      "size": 894,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ef47395cb37331740259e8743b18358d04e6a204"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_action_about_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f2d745b791ad479919a007114bfff958f3dfd86",
+      "size": 483,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7f2d745b791ad479919a007114bfff958f3dfd86"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_action_settings_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea548f878cb04de1c58df859e1e282d59b015cdf",
+      "size": 2043,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ea548f878cb04de1c58df859e1e282d59b015cdf"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_adb_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79ba0230a596390c0a6259205cc0ae4cd2fb9dbe",
+      "size": 647,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/79ba0230a596390c0a6259205cc0ae4cd2fb9dbe"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_baseline_link_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e072420026347e6832d9eb1699ace535b602ced",
+      "size": 525,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0e072420026347e6832d9eb1699ace535b602ced"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_close_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bf2ccd9ac387b8a17e0d2f38a81726313e3c0ef",
+      "size": 423,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9bf2ccd9ac387b8a17e0d2f38a81726313e3c0ef"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_code_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56e8f2fa56f033715aa25c5849cf6e0889dc5261",
+      "size": 399,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/56e8f2fa56f033715aa25c5849cf6e0889dc5261"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_default_app_icon_background.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44bd8e851ee63b90436a691fecb005dd1250641e",
+      "size": 4880,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/44bd8e851ee63b90436a691fecb005dd1250641e"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_help_outline_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a3eab9097fad0c396961df8c2a426d0c5e71ba5",
+      "size": 1113,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2a3eab9097fad0c396961df8c2a426d0c5e71ba5"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_launcher.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3006c1fdc81dc89682f6ea98e7042f9d819692a6",
+      "size": 146,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3006c1fdc81dc89682f6ea98e7042f9d819692a6"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_learn_more_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7cf8ea211221ca982efee121e61357e76820028",
+      "size": 562,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/e7cf8ea211221ca982efee121e61357e76820028"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_monochrome.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06b72d859ffa8bf0911497ba28c5456a54cbe909",
+      "size": 976,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/06b72d859ffa8bf0911497ba28c5456a54cbe909"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_numeric_1_circle_outline_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91af63365677ef74e0554d1d781352f22b7c6650",
+      "size": 452,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/91af63365677ef74e0554d1d781352f22b7c6650"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_numeric_2_circle_outline_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50ff290e1e4e0de4eda09400ac2a8a9574d89b2c",
+      "size": 520,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/50ff290e1e4e0de4eda09400ac2a8a9574d89b2c"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_numeric_3_circle_outline_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fd60f980065d2bc035237aade2003db645806e0",
+      "size": 549,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1fd60f980065d2bc035237aade2003db645806e0"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_arrow_upward_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07b7a8366c9b2a323e8a5604a517ede6eb2f042f",
+      "size": 380,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/07b7a8366c9b2a323e8a5604a517ede6eb2f042f"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_dark_mode_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e631f04304141f68414e49773a3ec0e8472df20",
+      "size": 688,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7e631f04304141f68414e49773a3ec0e8472df20"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_info_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35f7f5f611e17384ff26a8f6f6d465a9f6e47181",
+      "size": 481,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/35f7f5f611e17384ff26a8f6f6d465a9f6e47181"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_notifications_active_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a327617e4a478e8cf9601579e3e3b2dedb32ab4",
+      "size": 737,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0a327617e4a478e8cf9601579e3e3b2dedb32ab4"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_open_in_new_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2dd7f13670a0965cf5d21de0e54cb17513ae636",
+      "size": 489,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b2dd7f13670a0965cf5d21de0e54cb17513ae636"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_play_arrow_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93ec97bda9f17660951228e27babdec57ee0061a",
+      "size": 368,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/93ec97bda9f17660951228e27babdec57ee0061a"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_outline_translate_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e7e3646bfe869651e20ab6ea9ca63d64689985d",
+      "size": 644,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4e7e3646bfe869651e20ab6ea9ca63d64689985d"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_root_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c38cb9c50138e4cb10ed2ca2c1663532277f286",
+      "size": 553,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2c38cb9c50138e4cb10ed2ca2c1663532277f286"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_server_error_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7624421d97cc84095f30fe11b4fb0593d855eb56",
+      "size": 543,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7624421d97cc84095f30fe11b4fb0593d855eb56"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_server_ok_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dcb106d70ec708b686d63913c14f14a6177798f",
+      "size": 539,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3dcb106d70ec708b686d63913c14f14a6177798f"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_server_restart.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6654181f0dd11ef7d9656db2c30712088e5ed389",
+      "size": 676,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6654181f0dd11ef7d9656db2c30712088e5ed389"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_server_start_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a514e264b1ad23d70d28429c310f9d19ca45865",
+      "size": 311,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3a514e264b1ad23d70d28429c310f9d19ca45865"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_settings_outline_24dp.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de42ce5be6ad9d5a71285d2994578a68775f23d1",
+      "size": 2103,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/de42ce5be6ad9d5a71285d2994578a68775f23d1"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_system_icon.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b2a3eaf9cb2dd315833aa192abf02b63a5f71cd",
+      "size": 645,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3b2a3eaf9cb2dd315833aa192abf02b63a5f71cd"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_terminal_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd29f619daa0f6708d2d9baf2c0e42ffd2656086",
+      "size": 486,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fd29f619daa0f6708d2d9baf2c0e42ffd2656086"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_wadb_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "760b435b86af4899bc9ce14df728b355d06e5560",
+      "size": 708,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/760b435b86af4899bc9ce14df728b355d06e5560"
+    },
+    {
+      "path": "manager/src/main/res/drawable/ic_warning_24.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "210c472fca1ec24e9030b8dedf99483ce1347f17",
+      "size": 324,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/210c472fca1ec24e9030b8dedf99483ce1347f17"
+    },
+    {
+      "path": "manager/src/main/res/drawable/shape_circle_icon_background.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc29cca97e127def0aac8eba20107706a56dbc3f",
+      "size": 317,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fc29cca97e127def0aac8eba20107706a56dbc3f"
+    },
+    {
+      "path": "manager/src/main/res/layout",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "438b27d86c83047fd52895ae3d0b94639c5ec48d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/438b27d86c83047fd52895ae3d0b94639c5ec48d"
+    },
+    {
+      "path": "manager/src/main/res/layout/about_dialog.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3eb1ceec9c07fd910fd38e5dd43dc196f640e5e6",
+      "size": 1618,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3eb1ceec9c07fd910fd38e5dd43dc196f640e5e6"
+    },
+    {
+      "path": "manager/src/main/res/layout/adb_dialog.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50d103f8e163faf6bce70f165a321f41d3da2403",
+      "size": 1361,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/50d103f8e163faf6bce70f165a321f41d3da2403"
+    },
+    {
+      "path": "manager/src/main/res/layout/adb_pair_dialog.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7feb0134c471630b55c6dc5bd5281255daa4fa1",
+      "size": 3643,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d7feb0134c471630b55c6dc5bd5281255daa4fa1"
+    },
+    {
+      "path": "manager/src/main/res/layout/adb_pairing_tutorial_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63637f6d89f9d7dd0c8b7b5b5854137e43b21fd3",
+      "size": 14546,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/63637f6d89f9d7dd0c8b7b5b5854137e43b21fd3"
+    },
+    {
+      "path": "manager/src/main/res/layout/app_list_empty.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68968418329a0d3fbf870e13333bb879d1e6cae1",
+      "size": 953,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/68968418329a0d3fbf870e13333bb879d1e6cae1"
+    },
+    {
+      "path": "manager/src/main/res/layout/app_list_item.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a49bd7b70accc24f44bd1affde92685d42fe60c",
+      "size": 2613,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0a49bd7b70accc24f44bd1affde92685d42fe60c"
+    },
+    {
+      "path": "manager/src/main/res/layout/appbar.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c29ed7b6cc20bd3aa4c0a618e0c4f70a4758a7bc",
+      "size": 957,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/c29ed7b6cc20bd3aa4c0a618e0c4f70a4758a7bc"
+    },
+    {
+      "path": "manager/src/main/res/layout/appbar_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "577876a024cc532f8ab5f83dcdcc9ef9094336ed",
+      "size": 655,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/577876a024cc532f8ab5f83dcdcc9ef9094336ed"
+    },
+    {
+      "path": "manager/src/main/res/layout/appbar_fragment_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d6bf2af51bd5ca1f973d3357b15478c219dac2b",
+      "size": 810,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2d6bf2af51bd5ca1f973d3357b15478c219dac2b"
+    },
+    {
+      "path": "manager/src/main/res/layout/apps_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5365409e2d0e2a29f4efcfe0ab4d164886329e12",
+      "size": 823,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5365409e2d0e2a29f4efcfe0ab4d164886329e12"
+    },
+    {
+      "path": "manager/src/main/res/layout/confirmation_dialog.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "662113bd0d4b73163af0be9ff3c7f3bfa1e0e246",
+      "size": 1470,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/662113bd0d4b73163af0be9ff3c7f3bfa1e0e246"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e5d9e0a0a179dfa9267933695373704f6f9caba",
+      "size": 927,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3e5d9e0a0a179dfa9267933695373704f6f9caba"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_extra_step_required.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ea2daa82cc69681e572a169b53779797d90f47a",
+      "size": 2346,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2ea2daa82cc69681e572a169b53779797d90f47a"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_item_container.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cf5225163f6916464909fd3bc714d19d69b7acf",
+      "size": 660,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4cf5225163f6916464909fd3bc714d19d69b7acf"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_learn_more.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a8981664b279e720456a77134c230f4ad54adb7",
+      "size": 1354,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9a8981664b279e720456a77134c230f4ad54adb7"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_manage_apps_item.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3eea3fe6f5144a034bc5ca733c1590d6b61defd",
+      "size": 1392,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a3eea3fe6f5144a034bc5ca733c1590d6b61defd"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_server_status.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e2b997808aab4e31298573ee572dddb950dd8f1",
+      "size": 1457,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7e2b997808aab4e31298573ee572dddb950dd8f1"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_start_adb.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d30f1f0a4c53d09f78d0fcb73aa8707c24faf8a1",
+      "size": 1740,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d30f1f0a4c53d09f78d0fcb73aa8707c24faf8a1"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_start_root.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6148b2c50a89acc62e51197a351a23e2ea5d9a5a",
+      "size": 2110,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6148b2c50a89acc62e51197a351a23e2ea5d9a5a"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_start_wireless_adb.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d5ec22473faf8f87ba63c5b0e95fd24e2ca8bb3",
+      "size": 2184,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6d5ec22473faf8f87ba63c5b0e95fd24e2ca8bb3"
+    },
+    {
+      "path": "manager/src/main/res/layout/home_terminal.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffbd5291372e7a5611c0a1ce69099a86c79166c6",
+      "size": 1451,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ffbd5291372e7a5611c0a1ce69099a86c79166c6"
+    },
+    {
+      "path": "manager/src/main/res/layout/preference_recyclerview.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16f2f48b80c9648571ab68fd0ebbbb3a0a2fd17b",
+      "size": 779,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/16f2f48b80c9648571ab68fd0ebbbb3a0a2fd17b"
+    },
+    {
+      "path": "manager/src/main/res/layout/shell_dialog.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d252b6b90b944ffd7063479c88089ac3fcf368cd",
+      "size": 724,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d252b6b90b944ffd7063479c88089ac3fcf368cd"
+    },
+    {
+      "path": "manager/src/main/res/layout/starter_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e04839202e01a006c939b29791f5f1bb7e1f4e28",
+      "size": 1415,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/e04839202e01a006c939b29791f5f1bb7e1f4e28"
+    },
+    {
+      "path": "manager/src/main/res/layout/terminal_tutorial_activity.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85c2914354608bf679738989b11aa3dfc1d01105",
+      "size": 7848,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/85c2914354608bf679738989b11aa3dfc1d01105"
+    },
+    {
+      "path": "manager/src/main/res/menu",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4894f82ee2e899c25445e616af0b7c73e471ce75",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/4894f82ee2e899c25445e616af0b7c73e471ce75"
+    },
+    {
+      "path": "manager/src/main/res/menu/main.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68e39b48e4e2297fb7033c111bccdc342c7330bf",
+      "size": 576,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/68e39b48e4e2297fb7033c111bccdc342c7330bf"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-hdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6bc766cf1affdeec46b7494ace92544b34522dd2",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/6bc766cf1affdeec46b7494ace92544b34522dd2"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22c63cd2f3a5f14babe6678dba7535f17f4c07ff",
+      "size": 5129,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/22c63cd2f3a5f14babe6678dba7535f17f4c07ff"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-hdpi/ic_launcher_background.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20015882a03ad9a3f6516a8f5a360189d3a6aeee",
+      "size": 3163,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/20015882a03ad9a3f6516a8f5a360189d3a6aeee"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a10e43ba7504b064ead48143ee4e5b3acd2ea69d",
+      "size": 6486,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a10e43ba7504b064ead48143ee4e5b3acd2ea69d"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "721fc26c510a7bc8d0e9978588b346c62567ef66",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/721fc26c510a7bc8d0e9978588b346c62567ef66"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xhdpi/banner.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4754df53c8ebfaab07caf3fbaadba911fc5644d1",
+      "size": 8807,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4754df53c8ebfaab07caf3fbaadba911fc5644d1"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffba9799cce4b39214a58e991a0a1c03adbcc213",
+      "size": 7189,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ffba9799cce4b39214a58e991a0a1c03adbcc213"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xhdpi/ic_launcher_background.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e769ee6310cabb363a9d86920e2b78d9f15e709",
+      "size": 3409,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8e769ee6310cabb363a9d86920e2b78d9f15e709"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae6aa8a8a820ad1e5260ae599bf74610eb57da91",
+      "size": 8471,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ae6aa8a8a820ad1e5260ae599bf74610eb57da91"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5333a468ba1979b16ba09072ddb0ffaca5328391",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5333a468ba1979b16ba09072ddb0ffaca5328391"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a0fc521b25f4996c243f5913532880de5ecf60a",
+      "size": 11280,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7a0fc521b25f4996c243f5913532880de5ecf60a"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxhdpi/ic_launcher_background.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab5f892fc84043e9ff94401ebd91a22e80a7d5e8",
+      "size": 4530,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ab5f892fc84043e9ff94401ebd91a22e80a7d5e8"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7f68e4a732dbfa259550ce937c2c9be9f10acfa",
+      "size": 13035,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b7f68e4a732dbfa259550ce937c2c9be9f10acfa"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxxhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "af2d1201dfea91bc3ec70e92f762897a0e7c94f9",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/af2d1201dfea91bc3ec70e92f762897a0e7c94f9"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fafcfe1d4884b4a5ad857f4ecfcacbb6c7552c5d",
+      "size": 16238,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fafcfe1d4884b4a5ad857f4ecfcacbb6c7552c5d"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0da7caa9c48bc960f97d4b1a9aac46220c6c31ba",
+      "size": 5803,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0da7caa9c48bc960f97d4b1a9aac46220c6c31ba"
+    },
+    {
+      "path": "manager/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f12c037a0dd4cb11e6a948805d5033a02c6a976d",
+      "size": 17893,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f12c037a0dd4cb11e6a948805d5033a02c6a976d"
+    },
+    {
+      "path": "manager/src/main/res/values-ang",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b5fb0a496152d1ac88d3ffe638dc43e890db72fa",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/b5fb0a496152d1ac88d3ffe638dc43e890db72fa"
+    },
+    {
+      "path": "manager/src/main/res/values-ang/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db097306cc2c5b9ceb5e24ec2ffbf8baf1183996",
+      "size": 316,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/db097306cc2c5b9ceb5e24ec2ffbf8baf1183996"
+    },
+    {
+      "path": "manager/src/main/res/values-ar",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2c5c9f3c619ae43b72d6492e6d87e4435161d365",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/2c5c9f3c619ae43b72d6492e6d87e4435161d365"
+    },
+    {
+      "path": "manager/src/main/res/values-ar/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77b0e6a8294a771e03ff96a8f163ea8907560610",
+      "size": 18383,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/77b0e6a8294a771e03ff96a8f163ea8907560610"
+    },
+    {
+      "path": "manager/src/main/res/values-ars",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cc0a5a39eb1c2b27db94a1dd64b757d3ecd19dc7",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/cc0a5a39eb1c2b27db94a1dd64b757d3ecd19dc7"
+    },
+    {
+      "path": "manager/src/main/res/values-ars/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80d2a9b7c6618f5e1e70fba29bf7c710da3fbc4d",
+      "size": 892,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/80d2a9b7c6618f5e1e70fba29bf7c710da3fbc4d"
+    },
+    {
+      "path": "manager/src/main/res/values-az",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ea5176348e91e10a15a326773eab6513db88a599",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/ea5176348e91e10a15a326773eab6513db88a599"
+    },
+    {
+      "path": "manager/src/main/res/values-az/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fef4cf4c74d1eadbc35eceef0dd139b7bc408bab",
+      "size": 14878,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fef4cf4c74d1eadbc35eceef0dd139b7bc408bab"
+    },
+    {
+      "path": "manager/src/main/res/values-b+es+419",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3b228a7eae234754e2959359ae52323dcef90b28",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/3b228a7eae234754e2959359ae52323dcef90b28"
+    },
+    {
+      "path": "manager/src/main/res/values-b+es+419/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "630830360ade3057f85c8a27c070b335b96acdd5",
+      "size": 12648,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/630830360ade3057f85c8a27c070b335b96acdd5"
+    },
+    {
+      "path": "manager/src/main/res/values-bg",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-bg/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-bn",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "96c53c6fa892237850a0dc4c307e01397732b044",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/96c53c6fa892237850a0dc4c307e01397732b044"
+    },
+    {
+      "path": "manager/src/main/res/values-bn/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "207481cf6460edcc68e9844069e1cfd43e039104",
+      "size": 1064,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/207481cf6460edcc68e9844069e1cfd43e039104"
+    },
+    {
+      "path": "manager/src/main/res/values-ca",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5fee0c798df45017cdfbf144899312d5fbaca837",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5fee0c798df45017cdfbf144899312d5fbaca837"
+    },
+    {
+      "path": "manager/src/main/res/values-ca/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea0595b45e8e774dc87cb4568286feb497c125cc",
+      "size": 1946,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ea0595b45e8e774dc87cb4568286feb497c125cc"
+    },
+    {
+      "path": "manager/src/main/res/values-ckb",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-ckb/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-cs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1cb8344576db85cdaabc0d77f2770fc59549084f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/1cb8344576db85cdaabc0d77f2770fc59549084f"
+    },
+    {
+      "path": "manager/src/main/res/values-cs/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfb996b87a53b69da0c16bd3c833d89f3b40354f",
+      "size": 14719,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dfb996b87a53b69da0c16bd3c833d89f3b40354f"
+    },
+    {
+      "path": "manager/src/main/res/values-da",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-da/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-de",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6d756201427242178f537982bf072bf2833d01e",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a6d756201427242178f537982bf072bf2833d01e"
+    },
+    {
+      "path": "manager/src/main/res/values-de/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbe257ea28b181197fd9e6c046f04ca8414ae619",
+      "size": 15270,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/cbe257ea28b181197fd9e6c046f04ca8414ae619"
+    },
+    {
+      "path": "manager/src/main/res/values-el",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d5814f06fba7e9386a2cc897de4b79e077dd62ab",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d5814f06fba7e9386a2cc897de4b79e077dd62ab"
+    },
+    {
+      "path": "manager/src/main/res/values-el/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88dfe07321b3f8cce6003faee3b02c457b3ced84",
+      "size": 2737,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/88dfe07321b3f8cce6003faee3b02c457b3ced84"
+    },
+    {
+      "path": "manager/src/main/res/values-enm",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-enm/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-eo",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05bca2420dc99d66f4d94a5896fb0a3cb746bc04",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/05bca2420dc99d66f4d94a5896fb0a3cb746bc04"
+    },
+    {
+      "path": "manager/src/main/res/values-eo/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b6d201b8e1d86985b04eee4eff0369327a04d4c",
+      "size": 1361,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3b6d201b8e1d86985b04eee4eff0369327a04d4c"
+    },
+    {
+      "path": "manager/src/main/res/values-es-rCL",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f39add928a65295de46b3ff64a974254fbf19fa6",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/f39add928a65295de46b3ff64a974254fbf19fa6"
+    },
+    {
+      "path": "manager/src/main/res/values-es-rCL/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "578839ea9b24cbb43403f73e30223e0ddd01ffd3",
+      "size": 2413,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/578839ea9b24cbb43403f73e30223e0ddd01ffd3"
+    },
+    {
+      "path": "manager/src/main/res/values-es",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "731ea739bf97267f9b4c43dff33ce582a2a386ca",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/731ea739bf97267f9b4c43dff33ce582a2a386ca"
+    },
+    {
+      "path": "manager/src/main/res/values-es/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f8d940b25bd8d3c4005529a7d9c2caf3dd472ce",
+      "size": 15467,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9f8d940b25bd8d3c4005529a7d9c2caf3dd472ce"
+    },
+    {
+      "path": "manager/src/main/res/values-et",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9eeb8ca663f79765eeb7b70585d79e9a504886ff",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9eeb8ca663f79765eeb7b70585d79e9a504886ff"
+    },
+    {
+      "path": "manager/src/main/res/values-et/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccd77d0e604374568db8078169e61299e6f8d953",
+      "size": 291,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ccd77d0e604374568db8078169e61299e6f8d953"
+    },
+    {
+      "path": "manager/src/main/res/values-fa",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "11e8f3e2f3aa72f6a346475508a659c7bcf081da",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/11e8f3e2f3aa72f6a346475508a659c7bcf081da"
+    },
+    {
+      "path": "manager/src/main/res/values-fa/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49dd4e95ed02b539aa3b90fc73bb1b2453010b3a",
+      "size": 21223,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/49dd4e95ed02b539aa3b90fc73bb1b2453010b3a"
+    },
+    {
+      "path": "manager/src/main/res/values-fi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-fi/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-fil",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9f950b3b73cf62c3ada9710c1436df7132d11fab",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/9f950b3b73cf62c3ada9710c1436df7132d11fab"
+    },
+    {
+      "path": "manager/src/main/res/values-fil/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96157d3122c0184386e4941253c8d1da2f07e234",
+      "size": 15310,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/96157d3122c0184386e4941253c8d1da2f07e234"
+    },
+    {
+      "path": "manager/src/main/res/values-fr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a47f375d67659ce7697306b19b9bac4abc846181",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a47f375d67659ce7697306b19b9bac4abc846181"
+    },
+    {
+      "path": "manager/src/main/res/values-fr/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9107c4b645ab05f60fc70096519f51201be3b63",
+      "size": 15771,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b9107c4b645ab05f60fc70096519f51201be3b63"
+    },
+    {
+      "path": "manager/src/main/res/values-he",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6ffff930a1d8c4ebb07d8aa9a30ec3ed3f5f1f7c",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/6ffff930a1d8c4ebb07d8aa9a30ec3ed3f5f1f7c"
+    },
+    {
+      "path": "manager/src/main/res/values-he/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f97148e95c2aefee4250e3a6397bcaf78f284e31",
+      "size": 1841,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f97148e95c2aefee4250e3a6397bcaf78f284e31"
+    },
+    {
+      "path": "manager/src/main/res/values-hi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-hi/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-hr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-hr/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-hu",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5fbf7c4180a38911ba34b1f7adad0ace9b3859bf",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5fbf7c4180a38911ba34b1f7adad0ace9b3859bf"
+    },
+    {
+      "path": "manager/src/main/res/values-hu/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "825b8e741749aeff2970ffe061ed3086f41f7576",
+      "size": 17036,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/825b8e741749aeff2970ffe061ed3086f41f7576"
+    },
+    {
+      "path": "manager/src/main/res/values-hy",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3cc66b560952f48db8e4f6f64db963397ec7b0a1",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/3cc66b560952f48db8e4f6f64db963397ec7b0a1"
+    },
+    {
+      "path": "manager/src/main/res/values-hy/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "062bd8aaf58f92ed9d4206b28496886be08dc1ae",
+      "size": 10924,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/062bd8aaf58f92ed9d4206b28496886be08dc1ae"
+    },
+    {
+      "path": "manager/src/main/res/values-id",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d8d213a883e5b2942a76240e4690535b213a9f0b",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d8d213a883e5b2942a76240e4690535b213a9f0b"
+    },
+    {
+      "path": "manager/src/main/res/values-id/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fd2d96709c759f2d015f02e8221b0191c7edb38",
+      "size": 14799,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/7fd2d96709c759f2d015f02e8221b0191c7edb38"
+    },
+    {
+      "path": "manager/src/main/res/values-it",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "651c576564b28cbc260f3126b941c46984bcd991",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/651c576564b28cbc260f3126b941c46984bcd991"
+    },
+    {
+      "path": "manager/src/main/res/values-it/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f735dc905e317b20cabeaf4cc4ac457b6addad9",
+      "size": 15135,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1f735dc905e317b20cabeaf4cc4ac457b6addad9"
+    },
+    {
+      "path": "manager/src/main/res/values-ja",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6d983ab548194c7664a2c638d2d680fa4d89c789",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/6d983ab548194c7664a2c638d2d680fa4d89c789"
+    },
+    {
+      "path": "manager/src/main/res/values-ja/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c7577f984f61286bf4dad532ba9b5322634c9ea",
+      "size": 17470,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5c7577f984f61286bf4dad532ba9b5322634c9ea"
+    },
+    {
+      "path": "manager/src/main/res/values-ka",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0c0226a02e7c02c21362fbd7be7a22c9ce199670",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/0c0226a02e7c02c21362fbd7be7a22c9ce199670"
+    },
+    {
+      "path": "manager/src/main/res/values-ka/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16e214c68e193935fe10be8d0c20cb27b8bf3fae",
+      "size": 1599,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/16e214c68e193935fe10be8d0c20cb27b8bf3fae"
+    },
+    {
+      "path": "manager/src/main/res/values-kk",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-kk/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-km",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-km/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-kn",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-kn/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-ko",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19fcc67f27484807b381f1b86e2aa4a8089f17f4",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/19fcc67f27484807b381f1b86e2aa4a8089f17f4"
+    },
+    {
+      "path": "manager/src/main/res/values-ko/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b92b97d709de42c3d211e121062f2fc9f24132b9",
+      "size": 15509,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b92b97d709de42c3d211e121062f2fc9f24132b9"
+    },
+    {
+      "path": "manager/src/main/res/values-lb",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-lb/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-lv",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-lv/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-mk",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-mk/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-ml",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-ml/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-ms",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "681c2c3e1d96dbe4512b14faede70914b02a6f1e",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/681c2c3e1d96dbe4512b14faede70914b02a6f1e"
+    },
+    {
+      "path": "manager/src/main/res/values-ms/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bc45045ae425d4a530f9c60e66dfb601a8fd56b",
+      "size": 609,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9bc45045ae425d4a530f9c60e66dfb601a8fd56b"
+    },
+    {
+      "path": "manager/src/main/res/values-my",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-my/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-night",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b0f1cce644c78c92938f98f85a468565631b022b",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/b0f1cce644c78c92938f98f85a468565631b022b"
+    },
+    {
+      "path": "manager/src/main/res/values-night/styles.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89a844474622d2c6cb51522abb3b47b3fc4833de",
+      "size": 108,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/89a844474622d2c6cb51522abb3b47b3fc4833de"
+    },
+    {
+      "path": "manager/src/main/res/values-nl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ee95977ebcc72cc947de7e1cc869afdce5c6ef32",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/ee95977ebcc72cc947de7e1cc869afdce5c6ef32"
+    },
+    {
+      "path": "manager/src/main/res/values-nl/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37ed54b6c4bf2e23283b0544bdc61afca4b67633",
+      "size": 291,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/37ed54b6c4bf2e23283b0544bdc61afca4b67633"
+    },
+    {
+      "path": "manager/src/main/res/values-or",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-or/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-pl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cbc6d360ee6e15998960c3f6c7e19f4510557431",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/cbc6d360ee6e15998960c3f6c7e19f4510557431"
+    },
+    {
+      "path": "manager/src/main/res/values-pl/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "376f5c6636cae2f28c298454dd0910bd93b939d1",
+      "size": 15366,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/376f5c6636cae2f28c298454dd0910bd93b939d1"
+    },
+    {
+      "path": "manager/src/main/res/values-pt-rBR",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "458f43053c46ac460f8c442d0ff6d7f91b2a5129",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/458f43053c46ac460f8c442d0ff6d7f91b2a5129"
+    },
+    {
+      "path": "manager/src/main/res/values-pt-rBR/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dea17cb367096297382404e6aab4bc1b196fa0c8",
+      "size": 15506,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dea17cb367096297382404e6aab4bc1b196fa0c8"
+    },
+    {
+      "path": "manager/src/main/res/values-pt",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "674a54e643056578c09f303517d8bd19e906f46a",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/674a54e643056578c09f303517d8bd19e906f46a"
+    },
+    {
+      "path": "manager/src/main/res/values-pt/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "176f54fc823c19591f4c40b6d3eaeefc4adbd915",
+      "size": 15334,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/176f54fc823c19591f4c40b6d3eaeefc4adbd915"
+    },
+    {
+      "path": "manager/src/main/res/values-ro",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5bd6efcbbe751f937f9dd90faf2418e903d58cf2",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5bd6efcbbe751f937f9dd90faf2418e903d58cf2"
+    },
+    {
+      "path": "manager/src/main/res/values-ro/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37e0e65a84edfbcb40ac28117ee1869bb3e2bb38",
+      "size": 15181,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/37e0e65a84edfbcb40ac28117ee1869bb3e2bb38"
+    },
+    {
+      "path": "manager/src/main/res/values-ru",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "650042752b559e2573771e9c3b034915bb98b791",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/650042752b559e2573771e9c3b034915bb98b791"
+    },
+    {
+      "path": "manager/src/main/res/values-ru/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68041c41b829cb5eab79158543f011343fb5e19b",
+      "size": 20687,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/68041c41b829cb5eab79158543f011343fb5e19b"
+    },
+    {
+      "path": "manager/src/main/res/values-sk",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-sk/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-sl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c4a8d6b1adcf89e035b60d8e592f67d42b0a9602",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/c4a8d6b1adcf89e035b60d8e592f67d42b0a9602"
+    },
+    {
+      "path": "manager/src/main/res/values-sl/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ac54d0ee6876f9d31404d4b00d56f880317202f",
+      "size": 5174,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2ac54d0ee6876f9d31404d4b00d56f880317202f"
+    },
+    {
+      "path": "manager/src/main/res/values-sr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3b3ea3d5b957537818d2f739145c23244a8f14f2",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/3b3ea3d5b957537818d2f739145c23244a8f14f2"
+    },
+    {
+      "path": "manager/src/main/res/values-sr/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8f5a451fcd75a5e80edadd8422c2818de361b11",
+      "size": 4547,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b8f5a451fcd75a5e80edadd8422c2818de361b11"
+    },
+    {
+      "path": "manager/src/main/res/values-sv",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-sv/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-sw600dp",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f258a0034feae02b2190b365c46f0dcb14190988",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/f258a0034feae02b2190b365c46f0dcb14190988"
+    },
+    {
+      "path": "manager/src/main/res/values-sw600dp/bools.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fc3a0d0dfafd52ad12a32945826ce12cf9fffa4",
+      "size": 102,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5fc3a0d0dfafd52ad12a32945826ce12cf9fffa4"
+    },
+    {
+      "path": "manager/src/main/res/values-sw600dp/dimens.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8bb9743b4499ea1f0fff82de07a55785f07ea39",
+      "size": 152,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d8bb9743b4499ea1f0fff82de07a55785f07ea39"
+    },
+    {
+      "path": "manager/src/main/res/values-sw600dp/values.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8081e92c33e6a746ecfbd4cc1db45095a4fb6890",
+      "size": 188,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8081e92c33e6a746ecfbd4cc1db45095a4fb6890"
+    },
+    {
+      "path": "manager/src/main/res/values-ta",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3d552397cc8d84c2f0209644c9b3c422e3333840",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/3d552397cc8d84c2f0209644c9b3c422e3333840"
+    },
+    {
+      "path": "manager/src/main/res/values-ta/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d0e603943424924b2e5596758bd757071b2f63d",
+      "size": 1594,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3d0e603943424924b2e5596758bd757071b2f63d"
+    },
+    {
+      "path": "manager/src/main/res/values-te",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-te/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-th",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4c0aaef8d08dab57ebe29523c7c9d06bb3f14dd2",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/4c0aaef8d08dab57ebe29523c7c9d06bb3f14dd2"
+    },
+    {
+      "path": "manager/src/main/res/values-th/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c4cf4c208cb79b3aad2f517081d636344848343",
+      "size": 24129,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2c4cf4c208cb79b3aad2f517081d636344848343"
+    },
+    {
+      "path": "manager/src/main/res/values-tr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cbda5ef44347e0c2cf3a4eabf99e4591cf7f6564",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/cbda5ef44347e0c2cf3a4eabf99e4591cf7f6564"
+    },
+    {
+      "path": "manager/src/main/res/values-tr/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73026eddfe64601d3caa547711a9e8cf21fab928",
+      "size": 15554,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/73026eddfe64601d3caa547711a9e8cf21fab928"
+    },
+    {
+      "path": "manager/src/main/res/values-ug",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-ug/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-uk",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4f3555b0f92b7d3b3bddf89be596e56e804b8e9b",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/4f3555b0f92b7d3b3bddf89be596e56e804b8e9b"
+    },
+    {
+      "path": "manager/src/main/res/values-uk/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ae30952beb6848a1e1b72fe6154b0e994ffd3c3",
+      "size": 20400,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0ae30952beb6848a1e1b72fe6154b0e994ffd3c3"
+    },
+    {
+      "path": "manager/src/main/res/values-ur",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a9c66a858b6151cbdacb7805172e1fbeb483ec81",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a9c66a858b6151cbdacb7805172e1fbeb483ec81"
+    },
+    {
+      "path": "manager/src/main/res/values-ur/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6b3daec9354f9ae75cdf8d94a67446c6227dd96",
+      "size": 62,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a6b3daec9354f9ae75cdf8d94a67446c6227dd96"
+    },
+    {
+      "path": "manager/src/main/res/values-v21",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d47cd6079404ebc7e74eb9e61539139374caf4b5",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d47cd6079404ebc7e74eb9e61539139374caf4b5"
+    },
+    {
+      "path": "manager/src/main/res/values-v21/themes_override.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d78438562b8e6c6135ae17347010aea89ef639e",
+      "size": 2188,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0d78438562b8e6c6135ae17347010aea89ef639e"
+    },
+    {
+      "path": "manager/src/main/res/values-v31",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a145056c638cf5aea321f37103ca71970f4f6cf8",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a145056c638cf5aea321f37103ca71970f4f6cf8"
+    },
+    {
+      "path": "manager/src/main/res/values-v31/themes_overlay.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6ecb6d6e3b83c1a8966c2ba27b2d08835831cfc",
+      "size": 310,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/e6ecb6d6e3b83c1a8966c2ba27b2d08835831cfc"
+    },
+    {
+      "path": "manager/src/main/res/values-vi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "da8984233836aadbee01a2f2068d34e8c3f6dd72",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/da8984233836aadbee01a2f2068d34e8c3f6dd72"
+    },
+    {
+      "path": "manager/src/main/res/values-vi/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a461e0a9206f2662241fc810a64db61845bf8fc5",
+      "size": 15979,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a461e0a9206f2662241fc810a64db61845bf8fc5"
+    },
+    {
+      "path": "manager/src/main/res/values-zh-rCN",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d957c4200057e400ab1225cb60f1285de219a6a8",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d957c4200057e400ab1225cb60f1285de219a6a8"
+    },
+    {
+      "path": "manager/src/main/res/values-zh-rCN/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "310bdc59d3d7a61036bc63655180f4f081e11ac9",
+      "size": 13497,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/310bdc59d3d7a61036bc63655180f4f081e11ac9"
+    },
+    {
+      "path": "manager/src/main/res/values-zh-rTW",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6379d964139bc8e1f2db68a192b033a873020668",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/6379d964139bc8e1f2db68a192b033a873020668"
+    },
+    {
+      "path": "manager/src/main/res/values-zh-rTW/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ca4eabd3a90a54c8d1d6d48280d3f571e549b73",
+      "size": 13534,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/9ca4eabd3a90a54c8d1d6d48280d3f571e549b73"
+    },
+    {
+      "path": "manager/src/main/res/values",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a1c6a2c36198f7d1b13079906464f92d16338050",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a1c6a2c36198f7d1b13079906464f92d16338050"
+    },
+    {
+      "path": "manager/src/main/res/values/arrays.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1482e81d7a5595ace9671144503fb123761944ef",
+      "size": 436,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1482e81d7a5595ace9671144503fb123761944ef"
+    },
+    {
+      "path": "manager/src/main/res/values/attrs.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d3e1b821bf98fa31c98b921a712b5d91ae764dc",
+      "size": 172,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0d3e1b821bf98fa31c98b921a712b5d91ae764dc"
+    },
+    {
+      "path": "manager/src/main/res/values/bools.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0a72abfb871224cfdaa828d1232ea05fdc1d817",
+      "size": 185,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d0a72abfb871224cfdaa828d1232ea05fdc1d817"
+    },
+    {
+      "path": "manager/src/main/res/values/colors.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "240981176a28ac42eeff13c4d4391ff1001d86fa",
+      "size": 211,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/240981176a28ac42eeff13c4d4391ff1001d86fa"
+    },
+    {
+      "path": "manager/src/main/res/values/dimens.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc73f34afdd59659867b9574cd375e9e7d25bfb0",
+      "size": 685,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/dc73f34afdd59659867b9574cd375e9e7d25bfb0"
+    },
+    {
+      "path": "manager/src/main/res/values/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e469e7d09916f7a7b4b743e124004cc0d6c3d33",
+      "size": 14980,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/5e469e7d09916f7a7b4b743e124004cc0d6c3d33"
+    },
+    {
+      "path": "manager/src/main/res/values/strings_untranslatable.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1788f5f60039873ef49fe2b0a0f8e639136b3b72",
+      "size": 171,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/1788f5f60039873ef49fe2b0a0f8e639136b3b72"
+    },
+    {
+      "path": "manager/src/main/res/values/styles.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2a4ffa96d9f18d043115cffc41a720f0da44207",
+      "size": 4937,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/d2a4ffa96d9f18d043115cffc41a720f0da44207"
+    },
+    {
+      "path": "manager/src/main/res/values/themes.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a041c05c99b1fd791b79a03a91c2fd4f4bdfd175",
+      "size": 1102,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/a041c05c99b1fd791b79a03a91c2fd4f4bdfd175"
+    },
+    {
+      "path": "manager/src/main/res/values/themes_overlay.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "583235176851932a655843fcf2868ebf646f28aa",
+      "size": 651,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/583235176851932a655843fcf2868ebf646f28aa"
+    },
+    {
+      "path": "manager/src/main/res/values/values.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "134de0c2519c35826ba06784227625acf5cb0a43",
+      "size": 181,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/134de0c2519c35826ba06784227625acf5cb0a43"
+    },
+    {
+      "path": "manager/src/main/res/xml",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "21a72f548703dc4e397ffad3c7738610dc811667",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/21a72f548703dc4e397ffad3c7738610dc811667"
+    },
+    {
+      "path": "manager/src/main/res/xml/backup_descriptor.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b88b7fff1b2862c2320648c009260d032207e9f9",
+      "size": 203,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b88b7fff1b2862c2320648c009260d032207e9f9"
+    },
+    {
+      "path": "manager/src/main/res/xml/data_extraction_rules.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c21bb7d78ca71651a97612ea40b6ddba712b583",
+      "size": 340,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0c21bb7d78ca71651a97612ea40b6ddba712b583"
+    },
+    {
+      "path": "manager/src/main/res/xml/settings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0138bd4e5fff5867cc1336a4cbc3ba88f3e8b78d",
+      "size": 1976,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/0138bd4e5fff5867cc1336a4cbc3ba88f3e8b78d"
+    },
+    {
+      "path": "server",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "426e419aeee652e18dd257d236ff7be39fd43c25",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/426e419aeee652e18dd257d236ff7be39fd43c25"
+    },
+    {
+      "path": "server/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "796b96d1c402326528b4ba3c12ee9d92d0e212e9",
+      "size": 7,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/796b96d1c402326528b4ba3c12ee9d92d0e212e9"
+    },
+    {
+      "path": "server/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a070ced58aebafefd79f95635bb0a035950d41f",
+      "size": 747,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6a070ced58aebafefd79f95635bb0a035950d41f"
+    },
+    {
+      "path": "server/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8aee16e64c8a6d0c126d3baa6f382e730ce81035",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/8aee16e64c8a6d0c126d3baa6f382e730ce81035"
+    },
+    {
+      "path": "server/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b273209b89627b03a6ba1716ca7ff9aaa42de5c0",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/b273209b89627b03a6ba1716ca7ff9aaa42de5c0"
+    },
+    {
+      "path": "server/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8072ee00dbf16d9161b7464ef3d2194a7d659bcc",
+      "size": 52,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8072ee00dbf16d9161b7464ef3d2194a7d659bcc"
+    },
+    {
+      "path": "server/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "45a885c2cbe383c427641ea9163c1e85b3bcb56c",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/45a885c2cbe383c427641ea9163c1e85b3bcb56c"
+    },
+    {
+      "path": "server/src/main/java/rikka",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "423f7f9818828fafca661a7fcbe16c3060c50387",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/423f7f9818828fafca661a7fcbe16c3060c50387"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b012ff396923fe4490d18df6501b3352b310ed6c",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/b012ff396923fe4490d18df6501b3352b310ed6c"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c89c59b2e84099f4dbc3836616856205a9176f97",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/c89c59b2e84099f4dbc3836616856205a9176f97"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ApkChangedObservers.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61c3aa5a440bd54ac5110b82406efbe998a10745",
+      "size": 4086,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/61c3aa5a440bd54ac5110b82406efbe998a10745"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/BinderSender.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb24aaa0252ea06d18c8e46846702b213d627c56",
+      "size": 6878,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/bb24aaa0252ea06d18c8e46846702b213d627c56"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ServerConstants.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11bffb58ccd2a947af2641913f68801ab129047e",
+      "size": 488,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/11bffb58ccd2a947af2641913f68801ab129047e"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ShizukuClientManager.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f3cef51107f7355b22bc0f83d56bfca4c81af90",
+      "size": 222,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/4f3cef51107f7355b22bc0f83d56bfca4c81af90"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ShizukuConfig.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3eef15d39c7d8eadcf750f98b277921402636fe7",
+      "size": 1291,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/3eef15d39c7d8eadcf750f98b277921402636fe7"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ShizukuConfigManager.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "170c7d5783c35996a43dd2d810172cf77cb65fb3",
+      "size": 8082,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/170c7d5783c35996a43dd2d810172cf77cb65fb3"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ShizukuService.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed90d226e0e8cfc97dec7bc9e7c9924bb39aef96",
+      "size": 24145,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/ed90d226e0e8cfc97dec7bc9e7c9924bb39aef96"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ShizukuUserServiceManager.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e2f8d4b66276130a2f66b00abe45aaf517fdf29",
+      "size": 3288,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/2e2f8d4b66276130a2f66b00abe45aaf517fdf29"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/api",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d3316d33b453052479c7e23e8ec10a89470f2767",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/d3316d33b453052479c7e23e8ec10a89470f2767"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/api/IContentProviderUtils.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e53acbdd124d011d294efafe7fcd5c3cd75625d",
+      "size": 1228,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8e53acbdd124d011d294efafe7fcd5c3cd75625d"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ktx",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "24b97db031902cd46f7c51ac92430bb00fd7fca7",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/24b97db031902cd46f7c51ac92430bb00fd7fca7"
+    },
+    {
+      "path": "server/src/main/java/rikka/shizuku/server/ktx/Handler.kt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91d5d1da8669e646240dd80ebf6097cbfc0c2866",
+      "size": 357,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/91d5d1da8669e646240dd80ebf6097cbfc0c2866"
+    },
+    {
+      "path": "settings.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04a5e5cdeb2605850d0e5134d6d8d26809705ea2",
+      "size": 2474,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/04a5e5cdeb2605850d0e5134d6d8d26809705ea2"
+    },
+    {
+      "path": "shell",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "865261fab81cda4cb4a11d5219aae40e7044645f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/865261fab81cda4cb4a11d5219aae40e7044645f"
+    },
+    {
+      "path": "shell/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "796b96d1c402326528b4ba3c12ee9d92d0e212e9",
+      "size": 7,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/796b96d1c402326528b4ba3c12ee9d92d0e212e9"
+    },
+    {
+      "path": "shell/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd5f7b970fa20c14a2ac552fd737b4faf02e35ba",
+      "size": 1706,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/fd5f7b970fa20c14a2ac552fd737b4faf02e35ba"
+    },
+    {
+      "path": "shell/proguard-rules.pro",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b95cc53a65133229bcc4fbfeec37c23cc452e07b",
+      "size": 148,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/b95cc53a65133229bcc4fbfeec37c23cc452e07b"
+    },
+    {
+      "path": "shell/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "81ef09c68837eb04c2436c5e0547601490cb9efa",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/81ef09c68837eb04c2436c5e0547601490cb9efa"
+    },
+    {
+      "path": "shell/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aab29abaa1e9bdce9149d4acd3d93bc0c2ee1a0e",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/aab29abaa1e9bdce9149d4acd3d93bc0c2ee1a0e"
+    },
+    {
+      "path": "shell/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8072ee00dbf16d9161b7464ef3d2194a7d659bcc",
+      "size": 52,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8072ee00dbf16d9161b7464ef3d2194a7d659bcc"
+    },
+    {
+      "path": "shell/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "49332b91fd361708cd2913ef7985031027018f40",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/49332b91fd361708cd2913ef7985031027018f40"
+    },
+    {
+      "path": "shell/src/main/java/rikka",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5b673e2ebe3e92fb5caf2c68968f96e6a5429bb5",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5b673e2ebe3e92fb5caf2c68968f96e6a5429bb5"
+    },
+    {
+      "path": "shell/src/main/java/rikka/shizuku",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a7bd09adb7b8b3fad07fdcaa96b578648386a4f5",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a7bd09adb7b8b3fad07fdcaa96b578648386a4f5"
+    },
+    {
+      "path": "shell/src/main/java/rikka/shizuku/shell",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "98e6b794568b37bdc7732f99f11e8e164e93847d",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/98e6b794568b37bdc7732f99f11e8e164e93847d"
+    },
+    {
+      "path": "shell/src/main/java/rikka/shizuku/shell/ShizukuShellLoader.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaa5c58af5450894645b421337be4c29211d92bd",
+      "size": 6707,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/aaa5c58af5450894645b421337be4c29211d92bd"
+    },
+    {
+      "path": "signing.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ec11c7d4ea31634366403c5c372c95592951151",
+      "size": 836,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6ec11c7d4ea31634366403c5c372c95592951151"
+    },
+    {
+      "path": "starter",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19e7b4683eefea6f481b39cb59eaa9d6f6c8a027",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/19e7b4683eefea6f481b39cb59eaa9d6f6c8a027"
+    },
+    {
+      "path": "starter/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "796b96d1c402326528b4ba3c12ee9d92d0e212e9",
+      "size": 7,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/796b96d1c402326528b4ba3c12ee9d92d0e212e9"
+    },
+    {
+      "path": "starter/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f916922810a02bc21139966323c712bbc8fbf9bd",
+      "size": 522,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f916922810a02bc21139966323c712bbc8fbf9bd"
+    },
+    {
+      "path": "starter/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a555d48eef2510d19c2f895b005613c1cfdaafd3",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/a555d48eef2510d19c2f895b005613c1cfdaafd3"
+    },
+    {
+      "path": "starter/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f7dd350d5422168a2bbb42cd14d0e3c255dc13b5",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/f7dd350d5422168a2bbb42cd14d0e3c255dc13b5"
+    },
+    {
+      "path": "starter/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8072ee00dbf16d9161b7464ef3d2194a7d659bcc",
+      "size": 52,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/8072ee00dbf16d9161b7464ef3d2194a7d659bcc"
+    },
+    {
+      "path": "starter/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "557455125455e022b54a257194b68fe96be82a27",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/557455125455e022b54a257194b68fe96be82a27"
+    },
+    {
+      "path": "starter/src/main/java/moe",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fb0ff75415284e93a004e9d13f0dac6bfb82aabc",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/fb0ff75415284e93a004e9d13f0dac6bfb82aabc"
+    },
+    {
+      "path": "starter/src/main/java/moe/shizuku",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5bb979986888f7c3d4ac5e8b87381b9470f2a66f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/5bb979986888f7c3d4ac5e8b87381b9470f2a66f"
+    },
+    {
+      "path": "starter/src/main/java/moe/shizuku/starter",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "23e1f6e0dd8e12042e95c43be1c221e5886a4926",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/23e1f6e0dd8e12042e95c43be1c221e5886a4926"
+    },
+    {
+      "path": "starter/src/main/java/moe/shizuku/starter/ServiceStarter.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f788ff682eee9ef1662c99c809bd0e58d2945d8b",
+      "size": 6053,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/f788ff682eee9ef1662c99c809bd0e58d2945d8b"
+    },
+    {
+      "path": "starter/src/main/java/moe/shizuku/starter/util",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c2fce605c4b6e774cdc7f7505697e646f5cbbe6f",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/trees/c2fce605c4b6e774cdc7f7505697e646f5cbbe6f"
+    },
+    {
+      "path": "starter/src/main/java/moe/shizuku/starter/util/IContentProviderCompat.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ec539a33533fa5c70699862a2aa3bf91b240033",
+      "size": 1424,
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/git/blobs/6ec539a33533fa5c70699862a2aa3bf91b240033"
+    }
+  ],
+  "truncated": false
+}
