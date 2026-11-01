@@ -4,7 +4,10 @@ android {
     compileSdk = 35
     defaultConfig { minSdk = 32 }
     buildFeatures { aidl = true }
-    compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 dependencies {
     implementation("dev.rikka.shizuku:api:13.1.5")

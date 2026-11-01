@@ -4,7 +4,10 @@ android {
     namespace = "dev.alicebridge.station"
     compileSdk = 35
     defaultConfig { minSdk = 32 }
-    compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 dependencies {
     api(project(":bridge"))
@@ -27,8 +30,16 @@ val dexWifi = tasks.register<Exec>("dexStationWifi") {
     doFirst {
         val output = wifiAssets.get().file("station1/wifi-helper.jar").asFile
         output.parentFile.mkdirs()
-        commandLine(listOf(File(android.sdkDirectory, "build-tools/${android.buildToolsVersion}/d8").absolutePath,
-            "--min-api", "23", "--output", output.absolutePath) + fileTree(wifiClasses.get().asFile).matching { include("**/*.class") }.files.map { it.absolutePath })
+        commandLine(
+            listOf(
+                File(android.sdkDirectory, "build-tools/${android.buildToolsVersion}/d8").absolutePath,
+                "--min-api",
+                "23",
+                "--output",
+                output.absolutePath,
+            ) +
+                fileTree(wifiClasses.get().asFile).matching { include("**/*.class") }.files.map { it.absolutePath },
+        )
     }
 }
 android.sourceSets.named("main") { assets.srcDir(wifiAssets) }

@@ -3,9 +3,15 @@ package dev.alicebridge.app
 /** Data only: all command execution remains owned by SetupService. */
 data class ToolStep(val id: String, val title: String, val status: String, val detail: String)
 data class PackageEntry(
-    val id: String, val title: String, val version: String, val description: String,
-    val kind: String, val installed: Boolean = false, val enabled: Boolean = false,
-    val binary: Boolean = false, val launchMode: String = "",
+    val id: String,
+    val title: String,
+    val version: String,
+    val description: String,
+    val kind: String,
+    val installed: Boolean = false,
+    val enabled: Boolean = false,
+    val binary: Boolean = false,
+    val launchMode: String = "",
 )
 data class ToolsSnapshot(
     val busy: Boolean = false,

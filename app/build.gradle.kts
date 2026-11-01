@@ -1,4 +1,8 @@
-plugins { id("com.android.application"); kotlin("android"); id("org.jetbrains.kotlin.plugin.compose") }
+plugins {
+    id("com.android.application")
+    kotlin("android")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
 android {
     namespace = "dev.alicebridge.app"
     compileSdk = 35
@@ -18,8 +22,14 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    buildFeatures { compose = true; buildConfig = true }
-    compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
     kotlinOptions { jvmTarget = "17" }
     packaging { jniLibs.useLegacyPackaging = true }
 }

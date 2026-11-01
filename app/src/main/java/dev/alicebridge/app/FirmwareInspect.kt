@@ -30,9 +30,38 @@ object FirmwareInspect {
         val magic = ByteArray(8).also { file.inputStream().use { input -> input.read(it) } }
         val format = when {
             magic.size >= 4 && magic[0] == 0x50.toByte() && magic[1] == 0x4B.toByte() -> "ZIP"
-            magic.size >= 6 && magic.copyOf(6).contentEquals(byteArrayOf('0'.code.toByte(), '7'.code.toByte(), '0'.code.toByte(), '7'.code.toByte(), '0'.code.toByte(), '1'.code.toByte())) -> "CPIO · SWUpdate"
-            magic.size >= 6 && magic.copyOf(6).contentEquals(byteArrayOf('0'.code.toByte(), '7'.code.toByte(), '0'.code.toByte(), '7'.code.toByte(), '0'.code.toByte(), '2'.code.toByte())) -> "CPIO · SWUpdate"
-            magic.size >= 6 && magic[0] == 0xFD.toByte() && magic[1] == 0x37.toByte() && magic[2] == 0x7A.toByte() && magic[3] == 0x58.toByte() && magic[4] == 0x5A.toByte() -> "XZ · SWUpdate"
+            magic.size >= 6 &&
+                magic.copyOf(
+                    6,
+                ).contentEquals(
+                    byteArrayOf(
+                        '0'.code.toByte(),
+                        '7'.code.toByte(),
+                        '0'.code.toByte(),
+                        '7'.code.toByte(),
+                        '0'.code.toByte(),
+                        '1'.code.toByte(),
+                    ),
+                ) -> "CPIO · SWUpdate"
+            magic.size >= 6 &&
+                magic.copyOf(
+                    6,
+                ).contentEquals(
+                    byteArrayOf(
+                        '0'.code.toByte(),
+                        '7'.code.toByte(),
+                        '0'.code.toByte(),
+                        '7'.code.toByte(),
+                        '0'.code.toByte(),
+                        '2'.code.toByte(),
+                    ),
+                ) -> "CPIO · SWUpdate"
+            magic.size >= 6 &&
+                magic[0] == 0xFD.toByte() &&
+                magic[1] == 0x37.toByte() &&
+                magic[2] == 0x7A.toByte() &&
+                magic[3] == 0x58.toByte() &&
+                magic[4] == 0x5A.toByte() -> "XZ · SWUpdate"
             else -> "неизвестный"
         }
         val digest = MessageDigest.getInstance("SHA-256")
@@ -42,12 +71,22 @@ object FirmwareInspect {
             while (true) {
                 val read = input.read(buffer)
                 if (read < 0) break
-                digest.update(buffer, 0, read); crc.update(buffer, 0, read)
+                digest.update(buffer, 0, read)
+                crc.update(buffer, 0, read)
             }
         }
-        val base = FirmwareInspection(format, file.length(), digest.digest().joinToString("") { "%02x".format(it) },
-            crc.value, false, false, "", null, "")
-        if (format != "ZIP") return base.copy(message = "У формата $format нет встроенной подписи. Проверены только размер, SHA-256 и CRC32; подлинность файла подтвердить нельзя.")
+        val base = FirmwareInspection(
+            format, file.length(), digest.digest().joinToString("") { "%02x".format(it) },
+            crc.value, false, false, "", null, "",
+        )
+        if (format !=
+            "ZIP"
+        ) {
+            return base.copy(
+                message = "У формата $format нет встроенной подписи. Проверены только размер, SHA-256 и CRC32; " +
+                    "подлинность файла подтвердить нельзя.",
+            )
+        }
         return inspectZip(file, base)
     }
 
@@ -70,7 +109,8 @@ object FirmwareInspect {
                     val signers = (entry as? JarEntry)?.codeSigners.orEmpty()
                     if (signers.isNotEmpty()) {
                         signedEntries++
-                        val certificate = signers.first().signerCertPath?.certificates?.firstOrNull() as? X509Certificate
+                        val certificate =
+                            signers.first().signerCertPath?.certificates?.firstOrNull() as? X509Certificate
                         if (certificate != null) signerCert = certificate
                     }
                 }
@@ -89,13 +129,23 @@ object FirmwareInspect {
         }
         val signer = signerCert?.subjectX500Principal?.name.orEmpty()
         val message = when {
-            !signed -> "В ZIP нет встроенной подписи (META-INF/*.RSA). Подлинность файла не подтверждена; SHA-256 показан для сверки вручную."
+            !signed ->
+                "В ZIP нет встроенной подписи (META-INF/*.RSA). Подлинность файла не подтверждена; SHA-256 " +
+                    "показан для сверки вручную."
             !valid -> "Подпись недействительна: $failure. Файл повреждён или изменён после подписи."
-            matches == false -> "Подпись проверена ($signer), но сертификат не совпадает с META-INF/com/google/android/otacert."
+            matches == false ->
+                "Подпись проверена ($signer), но сертификат не совпадает с " +
+                    "META-INF/com/google/android/otacert."
             matches == true -> "Подпись проверена ($signer) и совпадает с otacert."
             else -> "Подпись проверена ($signer). otacert в архиве отсутствует, поэтому сравнить сертификат не с чем."
         }
-        return base.copy(signed = signed, signatureValid = valid, signer = signer, matchesOtaCert = matches, message = message)
+        return base.copy(
+            signed = signed,
+            signatureValid = valid,
+            signer = signer,
+            matchesOtaCert = matches,
+            message = message,
+        )
     }
 
     private fun otacert(file: File): X509Certificate? = try {
@@ -104,5 +154,7 @@ object FirmwareInspect {
             val bytes = jar.getInputStream(entry).use { it.readBytes() }
             CertificateFactory.getInstance("X.509").generateCertificate(bytes.inputStream()) as X509Certificate
         }
-    } catch (_: Exception) { null }
+    } catch (_: Exception) {
+        null
+    }
 }

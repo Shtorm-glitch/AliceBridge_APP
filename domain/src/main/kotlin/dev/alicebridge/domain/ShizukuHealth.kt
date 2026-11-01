@@ -4,8 +4,13 @@ package dev.alicebridge.domain
 enum class ProbeResult { UNCHECKED, PASSED, FAILED }
 
 enum class ShizukuBlocker {
-    START_MANAGER, AUTHORIZE_APP, START_USER_SERVICE, CREATE_NETWORK,
-    RESTORE_UPSTREAM, CHECK_CLIENT_DNS, CHECK_CLIENT_HTTP,
+    START_MANAGER,
+    AUTHORIZE_APP,
+    START_USER_SERVICE,
+    CREATE_NETWORK,
+    RESTORE_UPSTREAM,
+    CHECK_CLIENT_DNS,
+    CHECK_CLIENT_HTTP,
 }
 
 data class ShizukuHealth(
