@@ -69,8 +69,39 @@ lite-kit; контракт описан в `docs/` (в этом репозито
 - Приложение не получает root колонки автоматически и не перепрошивает boot без
   отдельного подтверждённого сценария.
 
-## Лицензии и источники
+## Источники, происхождение и лицензии
 
-DFRoot (GPL-2.0), VPN Hotspot (Apache-2.0), Android ADB, Shizuku (MIT), HEV, YAM,
-`yandex-noupdate.sh` (CC BY 4.0, Marker284). Лицензии и атрибуция — в `station/src/main/assets/licenses/`
-и `bridge/`/`third_party`-происхождении. Собственный код — [LICENSE](LICENSE).
+Приложение использует и/или содержит код, бинарники и данные перечисленных проектов.
+Полные тексты лицензий, где они есть, лежат в `station/src/main/assets/licenses/`,
+`station/src/main/assets/terminal/*-LICENSE` и в upstream-репозиториях.
+
+| Проект | Что используется | Версия / commit | Лицензия |
+| --- | --- | --- | --- |
+| [lite-kit](https://github.com/krevetkqqq/lite-kit) | Сетевой контракт backend: DNS/OTA, служебные домены, обратная связь, шаблоны запросов; на нём основана серверная часть и проверенные сетевые адаптеры | upstream `168144a79f5cbad700ee6dea4e223c37bf4cbe1c`, локальная база `19d3e0dae947007037a2b94c8139001d8f929770` | MIT |
+| [DFRoot](https://github.com/diabl0w/DFRoot) | Временный root телефона, native runner и библиотеки `libdfroot`/`libbootstrap` | `49e992ef3c9f7ec03c8efea6e3cf552f7ec6a347` | GPL-2.0 |
+| [VPN Hotspot](https://github.com/Mygod/VPNHotspot) | Схема TetheringManager и обратимых правил хотспота | `6e3d4a4f9db4f72d0d4a422350b5234cddb52c48` | Apache-2.0 |
+| Android ADB (AOSP) | Встроенный adb client/server, `libadb.so`; подготовка `tools/prepare_adb.py` | platform-tools из Android SDK | Apache-2.0 |
+| [Shizuku](https://github.com/RikkaApps/Shizuku) | API 13.1.5, UserService и сетевой режим без root | API `13.1.5`, upstream `b844bc491f1790c72328e1a8e5b2349f8978f0ea` | MIT |
+| [HEV socks5 tunnel](https://github.com/heiher/hev-socks5-tunnel) | `hev-socks5-tunnel-2.19.3.aar`, TUN/SOCKS-транспорт | `2.19.3` | MIT (core), BSD (lwIP) |
+| [YAM](https://github.com/nyakokitsu/yam) | Пакетный менеджер станции, CLI `yam`, профили платформ, реестр | `yam-v0.2.3` | Файл лицензии в upstream отсутствует; бинарники взяты из официального релиза |
+| [yapkg](https://github.com/nyakokitsu/yapkg) | Каталог/формат `.yap` и пакеты прежнего YAM | по релизу yapkg | Файл лицензии в upstream отсутствует |
+| [yandex-station-extended](https://github.com/Marker284/yandex-station-extended) | YSE 0.4.0, `yandex-noupdate.sh`, скрипты и документация | `00806fe5ef81eba39c72cc7c9e0fba8b14bd9c06` | CC BY 4.0 |
+| [quasar-unlock](https://github.com/otomir23/quasar-unlock) | Справочные manifest/platform-шаблоны и последовательности запросов | `17354b153a36a96bf99f59f1c156cc3564b904ea` | MIT |
+| [apkg](https://github.com/initialfox/yandex-station-repo) | Бинарник и каталог apkg; проект initialfox | по релизу initialfox | Файл лицензии в upstream отсутствует |
+| Entware | Пакетный менеджер, curl, CA-бандл и ARM64/ARMv7-пакеты внутри APK | bundled | GPL-2.0 (проект); каждый пакет сохраняет свою лицензию |
+| Dropbear SSH | Бинарники Dropbear/Dropbearkey для SSH | `2022.82` | MIT-подобная лицензия Dropbear |
+| Zsh | Бинарники и конфигурация Zsh | bundled ARM64/ARMv7 | MIT-подобная лицензия Zsh |
+| [fastfetch](https://github.com/fastfetch-cli/fastfetch) | Бинарник и оформление fastfetch | bundled | MIT |
+| [xterm.js](https://github.com/xtermjs/xterm.js) | Терминал в WebView, `addon-fit` | bundled | MIT |
+| [KernelSU](https://github.com/tiann/KernelSU) | Внешний менеджер root, совместимость (код не включается) | внешняя установка | GPL-2.0 |
+| AndroidX / Compose / Kotlin / coroutines | UI и рантайм приложения | Gradle-зависимости | Apache-2.0 |
+| JUnit, org.json | Только unit-тесты | test-only | EPL-1.0 / JSON License |
+
+Отдельно: `lite-kit` — MIT-проект krevetkqqq. Backend и протокол обратной связи
+AliceBridge выросли из него; в приложении используются совместимые DNS/OTA-адаптеры,
+а серверная часть публикуется отдельно. Локальные изменения lite-kit (формат статуса,
+ручной режим, проверки) описаны в истории backend и не входят в этот репозиторий.
+
+Собственный код AliceBridge распространяется по [LICENSE](LICENSE). Если компонент
+не имеет файла лицензии upstream (YAM, yapkg, apkg), это указано явно; такие бинарники
+не перелицензируются, а используются в том виде, в котором опубликованы авторами.
