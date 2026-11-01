@@ -1,0 +1,25 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{kt,kts}]
+ktlint_code_style = intellij_idea
+max_line_length = 120
+# Jetpack Compose @Composable functions are PascalCase by convention; keep the
+# function-naming rule on for every other function.
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+[*.py]
+max_line_length = 88
+
+[*.{yml,yaml,json,toml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false

@@ -1,0 +1,18 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["backend"]
+extend-exclude = ["backend/firmware", "backend/run", "backend/log", "backend/certs"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort (import ordering)
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+
+[tool.ruff.format]
+quote-style = "double"
