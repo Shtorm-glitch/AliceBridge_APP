@@ -1,0 +1,1 @@
+package dev.alice.bridge; public class Session {public static String station="";public static final java.util.Map<String,String> domains=new java.util.LinkedHashMap<>();public static void log(android.content.Context c,String k,String s,String d,String status){}}

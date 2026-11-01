@@ -1,0 +1,6 @@
+{
+  "tag_name": "14.5.0",
+  "published_at": "2026-10-23T17:59:00Z",
+  "html_url": "https://github.com/HmnDev-Tech/shevery/releases/tag/14.5.0",
+  "body": "## What's Changed\r\n* ai-triage-bot: make the 4 optional features real, fix PR before/after… by @HmnDev-Tech in https://github.com/HmnDev-Tech/shevery/pull/309\r\n* Corrections to Dutch translations.xml by @Meteor0id in https://github.com/HmnDev-Tech/shevery/pull/311\r\n* feat(automation): enforce starter idempotency and multi-user pre-checks by @CodexofLost in https://github.com/HmnDev-Tech/shevery/pull/304\r\n* feat(module): add home screen shortcut support for module Web UI by @wizzwuz in https://github.com/HmnDev-Tech/shevery/pull/314\r\n* Dev by @HmnDev-Tech in https://github.com/HmnDev-Tech/shevery/pull/315\r\n* ci(apk): always build debug and release APKs in one run by @HmnDev-Tech in https://github.com/HmnDev-Tech/shevery/pull/316\r\n* Dev by @HmnDev-Tech in https://github.com/HmnDev-Tech/shevery/pull/318\r\n\r\n## New Contributors\r\n* @Meteor0id made their first contribution in https://github.com/HmnDev-Tech/shevery/pull/311\r\n* @wizzwuz made their first contribution in https://github.com/HmnDev-Tech/shevery/pull/314\r\n\r\n**Full Changelog**: https://github.com/HmnDev-Tech/shevery/compare/14.4.0...14.5.0\r\n\r\n### Debug APK you can find in Actions (APK Build workflow)"
+}

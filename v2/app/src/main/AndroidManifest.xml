@@ -1,0 +1,28 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission"/>
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23"/>
+    <application android:name=".BridgeApplication" android:label="AliceBridge" android:icon="@drawable/ic_bridge" android:theme="@android:style/Theme.Material.NoActionBar" android:allowBackup="false" android:extractNativeLibs="true" android:usesCleartextTraffic="true">
+        <meta-data android:name="moe.shizuku.client.V3_SUPPORT" android:value="true"/>
+        <provider android:name="rikka.shizuku.ShizukuProvider" android:authorities="${applicationId}.shizuku" android:multiprocess="false" android:exported="true" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+        <provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.v2diagnostics" android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/diagnostic_paths"/>
+        </provider>
+        <provider android:name=".UpdateProvider" android:authorities="${applicationId}.updates" android:exported="false" android:grantUriPermissions="true"/>
+        <activity android:name=".UpdateActivity" android:exported="false"/>
+        <activity android:name=".ToolsActivity" android:exported="false"/>
+        <activity android:name=".ManualActivity" android:exported="false"/>
+        <activity android:name=".TerminalActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+        </activity>
+        <service android:name=".SetupService" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User initiated station setup, hotspot DNS and ADB session"/>
+        </service>
+    </application>
+</manifest>

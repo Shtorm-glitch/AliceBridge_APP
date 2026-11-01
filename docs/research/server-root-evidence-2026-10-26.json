@@ -1,0 +1,531 @@
+{
+  "files": [
+    {
+      "name": "events.jsonl",
+      "bytes": 75196912
+    },
+    {
+      "name": "events.jsonl.1.gz",
+      "bytes": 6429347
+    }
+  ],
+  "first": 1792877251.6980345,
+  "last": 1793027000.6207366,
+  "kinds": {
+    "dns": 584718,
+    "ota_progress": 34324,
+    "request": 53579,
+    "response": 53600,
+    "manifest": 6506,
+    "payload": 12235,
+    "upstream_response": 7851,
+    "ota_interrupted": 320,
+    "disconnect": 127,
+    "ip_changed": 141,
+    "upstream_error": 1,
+    "server": 13,
+    "configuration": 10,
+    "listener": 30,
+    "catalog": 22,
+    "manual_model": 1,
+    "error": 44,
+    "update_context": 48,
+    "update_context_ambiguous": 5,
+    "upstream_blocked": 2190,
+    "firmware_ready": 1,
+    "selection": 4
+  },
+  "schemas": {
+    "dns": [
+      "answers",
+      "id",
+      "intercepted",
+      "ip",
+      "kind",
+      "local_answer",
+      "name",
+      "status",
+      "time",
+      "type"
+    ],
+    "ota_progress": [
+      "complete",
+      "id",
+      "ip",
+      "kind",
+      "platform",
+      "sent",
+      "time",
+      "total",
+      "version"
+    ],
+    "request": [
+      "id",
+      "ip",
+      "kind",
+      "method",
+      "path",
+      "platform",
+      "time",
+      "version"
+    ],
+    "response": [
+      "code",
+      "id",
+      "ip",
+      "kind",
+      "path",
+      "request",
+      "time"
+    ],
+    "manifest": [
+      "current",
+      "id",
+      "ip",
+      "kind",
+      "platform",
+      "status",
+      "target",
+      "time"
+    ],
+    "payload": [
+      "body",
+      "code",
+      "id",
+      "ip",
+      "kind",
+      "path",
+      "time"
+    ],
+    "upstream_response": [
+      "attempt",
+      "bytes",
+      "code",
+      "id",
+      "ip",
+      "kind",
+      "path",
+      "time"
+    ],
+    "ota_interrupted": [
+      "expected",
+      "id",
+      "ip",
+      "kind",
+      "message",
+      "sent",
+      "time"
+    ],
+    "disconnect": [
+      "id",
+      "ip",
+      "kind",
+      "message",
+      "request",
+      "time"
+    ],
+    "ip_changed": [
+      "device",
+      "id",
+      "ip",
+      "kind",
+      "old_ip",
+      "time"
+    ],
+    "upstream_error": [
+      "id",
+      "ip",
+      "kind",
+      "message",
+      "mode",
+      "path",
+      "time"
+    ],
+    "server": [
+      "id",
+      "kind",
+      "message",
+      "time"
+    ],
+    "configuration": [
+      "allow_upstream",
+      "id",
+      "kind",
+      "local_ip",
+      "time"
+    ],
+    "listener": [
+      "error",
+      "id",
+      "kind",
+      "port",
+      "ready",
+      "service",
+      "time"
+    ],
+    "catalog": [
+      "count",
+      "id",
+      "kind",
+      "platform",
+      "time"
+    ],
+    "manual_model": [
+      "device",
+      "id",
+      "kind",
+      "platform",
+      "source",
+      "time"
+    ],
+    "error": [
+      "id",
+      "kind",
+      "message",
+      "platform",
+      "source",
+      "time"
+    ],
+    "update_context": [
+      "id",
+      "ip",
+      "kind",
+      "path",
+      "platform",
+      "source",
+      "time"
+    ],
+    "update_context_ambiguous": [
+      "id",
+      "ip",
+      "kind",
+      "path",
+      "time"
+    ],
+    "upstream_blocked": [
+      "id",
+      "ip",
+      "kind",
+      "message",
+      "path",
+      "time"
+    ],
+    "firmware_ready": [
+      "crc32",
+      "id",
+      "kind",
+      "platform",
+      "sha256",
+      "size",
+      "time",
+      "version"
+    ],
+    "selection": [
+      "enabled",
+      "id",
+      "kind",
+      "platform",
+      "time",
+      "version"
+    ]
+  },
+  "platforms": {
+    "unknown": {
+      "requests": 43957,
+      "manifest": 2169,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexstation_2": {
+      "requests": 374,
+      "manifest": 76,
+      "transfers": 71,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "plum": {
+      "requests": 1181,
+      "manifest": 635,
+      "transfers": 411,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "cucumber": {
+      "requests": 1821,
+      "manifest": 1072,
+      "transfers": 644,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmini": {
+      "requests": 2575,
+      "manifest": 1049,
+      "transfers": 389,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmini_2": {
+      "requests": 798,
+      "manifest": 361,
+      "transfers": 713,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexstation": {
+      "requests": 662,
+      "manifest": 308,
+      "transfers": 173,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "orion": {
+      "requests": 11,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "pickle": {
+      "requests": 120,
+      "manifest": 79,
+      "transfers": 57,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "saturn": {
+      "requests": 29,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "chiron": {
+      "requests": 25,
+      "manifest": 1,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmicro": {
+      "requests": 997,
+      "manifest": 455,
+      "transfers": 924,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "jbl_link_music": {
+      "requests": 94,
+      "manifest": 44,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "bergamot": {
+      "requests": 242,
+      "manifest": 147,
+      "transfers": 116,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmidi": {
+      "requests": 171,
+      "manifest": 75,
+      "transfers": 274,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmodule_2": {
+      "requests": 12,
+      "manifest": 1,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandex_tv_mt6681_cvte": {
+      "requests": 19,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "iot_app_android": {
+      "requests": 3,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "mango": {
+      "requests": 25,
+      "manifest": 9,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "magritte": {
+      "requests": 174,
+      "manifest": 1,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "monet": {
+      "requests": 116,
+      "manifest": 1,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "goya": {
+      "requests": 4,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandex_tv_mt9256_cv": {
+      "requests": 3,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "tablet": {
+      "requests": 5,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "malevich": {
+      "requests": 2,
+      "manifest": 1,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "quinglong": {
+      "requests": 3,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "tulip-d1": {
+      "requests": 1,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "blackthorn": {
+      "requests": 5,
+      "manifest": 2,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandex_tv_mt9632_cv": {
+      "requests": 2,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandex_tv_hisi351_cvte": {
+      "requests": 140,
+      "manifest": 0,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "healthcheck": {
+      "requests": 2,
+      "manifest": 2,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "elari_a98": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "jbl_link_portable": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "lightcomm": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "linkplay_a98": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "prestigio_smart_mate": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    },
+    "yandexmodule": {
+      "requests": 3,
+      "manifest": 3,
+      "transfers": 0,
+      "adb_root_evidence": 0,
+      "adb_connected_evidence": 0,
+      "root_status_without_uid": 0
+    }
+  },
+  "roots": []
+}

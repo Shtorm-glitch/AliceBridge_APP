@@ -1,0 +1,13 @@
+{
+  "repo": "thedjchi/Shizuku",
+  "branch": "master",
+  "archived": false,
+  "pushed_at": "2026-07-15T03:12:10Z",
+  "readme_sha": "6d979973bba3472b2f38953d2f8de81fc0bf3893",
+  "release": {
+    "tag_name": "v13.7.0-thedjchi",
+    "published_at": "2026-07-02T14:54:52Z",
+    "html_url": "https://github.com/thedjchi/Shizuku/releases/tag/v13.7.0-thedjchi",
+    "body": "- Android 17 support\r\n- All features in beta are now ported to stable\r\n\r\nThis will be my last release for the time being.\r\n\r\nNote: Server version is still v13.6 so the homepage will show a different version than the about section!"
+  }
+}

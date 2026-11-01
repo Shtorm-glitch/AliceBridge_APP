@@ -1,0 +1,41 @@
+{
+  "logo": {
+    "type": "file",
+    "source": "/data/quasar/alicebridge-fastfetch/yandexstation.txt",
+    "color": {
+      "1": "1;38;2;122;85;255"
+    },
+    "padding": {
+      "top": 1
+    }
+  },
+  "display": {
+    "color": {
+      "keys": "38;2;122;85;255"
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    {
+      "type": "cpu",
+      "temp": true
+    },
+    "memory",
+    {
+      "type": "disk",
+      "folders": "/",
+      "format": "{1} / {2} ({3})"
+    },
+    "localip",
+    "break",
+    "colors"
+  ]
+}

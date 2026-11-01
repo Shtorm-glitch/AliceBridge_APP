@@ -1,0 +1,9 @@
+{
+  "repository": "Mygod/VPNHotspot",
+  "url": "https://github.com/Mygod/VPNHotspot",
+  "branch": "master",
+  "sha": "6e3d4a4f9db4f72d0d4a422350b5234cddb52c48",
+  "committed_at": "2026-08-03T19:22:23Z",
+  "subject": "Fix quoted-packet parsing",
+  "archived": false
+}

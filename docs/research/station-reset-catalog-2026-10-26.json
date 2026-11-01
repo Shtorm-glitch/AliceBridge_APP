@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "purpose": "Черновой каталог инструкций для AliceBridge 2.0; не активная конфигурация прошивок",
+  "models": [
+    {
+      "id": "lite1",
+      "name": "Станция Лайт 1",
+      "platform": "yandexmicro",
+      "procedure": "pause_after_power",
+      "hold_seconds": 6,
+      "steps": [
+        "Отключите питание колонки на несколько секунд.",
+        "Снова подключите питание. Когда загорится индикатор, сразу нажмите и удерживайте кнопку паузы.",
+        "Удерживайте примерно 6 секунд, до жёлтой подсветки, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-lite",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false,
+      "observation": "Пользователь подтвердил порядок: питание → загорелся индикатор → удерживать паузу до жёлтого."
+    },
+    {
+      "id": "lite2",
+      "name": "Станция Лайт 2",
+      "platform": "plum",
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-lite2",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false
+    },
+    {
+      "id": "mini1",
+      "name": "Станция Мини 1",
+      "platform": "yandexmini",
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-mini1",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false
+    },
+    {
+      "id": "mini2",
+      "name": "Станция Мини 2",
+      "platform": "yandexmini_2",
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-mini2",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false
+    },
+    {
+      "id": "mini3",
+      "name": "Станция Мини 3",
+      "platform": "bergamot",
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-mini3",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false
+    },
+    {
+      "id": "station1",
+      "name": "Станция 1 (первое поколение)",
+      "platform": "yandexstation",
+      "procedure": "alice_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку Алисы (активации) и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-gen1",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false,
+      "observation": "Пользователь описывает мигающий жёлтый; официальная справка — подсветка загорится жёлтым. В инструкции использовать общий признак «жёлтая индикация»."
+    },
+    {
+      "id": "station2",
+      "name": "Станция 2",
+      "platform": null,
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-gen2",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false,
+      "platform_note": "Platform ID требует отдельного подтверждения. Не подставлять yandexstation_2: этот ID используется у Макс."
+    },
+    {
+      "id": "midi",
+      "name": "Станция Миди",
+      "platform": "cucumber",
+      "procedure": "microphone_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку отключения микрофонов и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-midi",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false
+    },
+    {
+      "id": "max",
+      "name": "Станция Макс",
+      "platform": "yandexstation_2",
+      "procedure": "alice_before_power",
+      "hold_seconds": 5,
+      "steps": [
+        "Отключите питание колонки.",
+        "Зажмите кнопку Алисы (активации) и, продолжая удерживать её, снова подключите питание.",
+        "Удерживайте примерно 5 секунд, до жёлтой индикации, затем отпустите кнопку.",
+        "Дождитесь приветствия Алисы."
+      ],
+      "source_url": "https://alice.yandex.ru/support/ru/station/settings/reset-max",
+      "checked_on": "2026-10-26",
+      "root_support_inferred_from_reset": false,
+      "variant_selection_required": true,
+      "variant_note": "Различить Макс без Zigbee и ревизии с Zigbee. Одинаковая инструкция сброса не подтверждает одинаковый root-профиль."
+    }
+  ],
+  "after_reset": "Пока не подключайте колонку к домашней сети. Вернитесь в AliceBridge: подготовим телефон и хотспот, затем откройте Дом с Алисой на этом же телефоне.",
+  "notice": "Сброс настроек и откат прошивки — разные действия. Подтверждение пользователя не является автоматической проверкой сброса."
+}

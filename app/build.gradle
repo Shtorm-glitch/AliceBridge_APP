@@ -1,0 +1,46 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'dev.alice.bridge'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'ab.root'
+        minSdk 32
+        targetSdk 35
+        versionCode 49
+        versionName '0.4.37'
+        testInstrumentationRunner 'dev.alice.bridge.TerminalSmoke'
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildFeatures { aidl true; buildConfig true }
+    packaging { jniLibs { useLegacyPackaging = true } }
+}
+
+dependencies {
+    implementation 'dev.rikka.shizuku:api:13.1.5'
+    implementation 'dev.rikka.shizuku:provider:13.1.5'
+    implementation files('libs/hev-socks5-tunnel-2.19.3.aar')
+}
+
+def stationWifiClasses = layout.buildDirectory.dir('stationWifi/classes')
+def stationWifiAssets = layout.buildDirectory.dir('generated/stationWifiAssets')
+tasks.register('compileStationWifi', JavaCompile) {
+    source fileTree('src/station1Wifi/java') { include '**/*.java' }
+    classpath = files()
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
+    destinationDirectory = stationWifiClasses
+}
+tasks.register('dexStationWifi', Exec) {
+    dependsOn 'compileStationWifi'
+    inputs.dir stationWifiClasses
+    outputs.file stationWifiAssets.map { it.file('station1/wifi-helper.jar') }
+    doFirst {
+        def output = stationWifiAssets.get().file('station1/wifi-helper.jar').asFile
+        output.parentFile.mkdirs()
+        commandLine([new File(project.android.sdkDirectory, "build-tools/${project.android.buildToolsVersion}/d8").absolutePath,
+                     '--min-api', '23', '--output', output.absolutePath] +
+                    fileTree(stationWifiClasses.get().asFile).matching { include '**/*.class' }.files.collect { it.absolutePath })
+    }
+}
+android.sourceSets.main.assets.srcDir(stationWifiAssets)
+tasks.named('preBuild').configure { dependsOn 'dexStationWifi' }

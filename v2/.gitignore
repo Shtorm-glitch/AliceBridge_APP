@@ -1,0 +1,7 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+local-backend/runtime/
+*.jks
+*.keystore

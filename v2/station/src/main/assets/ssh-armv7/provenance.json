@@ -1,0 +1,9 @@
+{
+  "source": "Marker284/yandex-station-extended",
+  "commit": "ae32180033ca9e256b90127f98ec62bb9331273c",
+  "architecture": "ARM EABI5 static",
+  "sha256": {
+    "dropbear": "374be9f85dabfab4d1f649d553f45e6238973e272b447fd2d81c2ab24a654db2",
+    "dropbearkey": "86dee7ca66376f9ff463dd3d455e8f248239becdeb46ea8f71886ef1eaa4d3e7"
+  }
+}

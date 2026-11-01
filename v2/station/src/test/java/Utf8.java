@@ -1,0 +1,1 @@
+final class Utf8 {static void write(java.nio.file.Path path,String value)throws java.io.IOException{java.nio.file.Files.write(path,value.getBytes(java.nio.charset.StandardCharsets.UTF_8));}}
