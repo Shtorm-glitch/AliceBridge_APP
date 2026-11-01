@@ -23,13 +23,21 @@ class ClientTraffic {
 
     @Synchronized fun record(ip: String, now: Long, gateway: String = "") {
         val octets = ip.split('.').map { it.toIntOrNull() ?: return }
-        if (octets.size != 4 || octets.any { it !in 0..255 } ||
-            octets[0] == 0 || octets[0] == 127 || octets[0] >= 224 ||
-            (octets[0] == 198 && octets[1] in 18..19) || ip == gateway) return
+        if (octets.size != 4 ||
+            octets.any { it !in 0..255 } ||
+            octets[0] == 0 ||
+            octets[0] == 127 ||
+            octets[0] >= 224 ||
+            (octets[0] == 198 && octets[1] in 18..19) ||
+            ip == gateway
+        ) {
+            return
+        }
         observed.entries.removeAll { now - it.value !in 0 until 180_000L }
         observed[ip] = now
     }
 
     @Synchronized fun recent(now: Long): Boolean = observed.values.any { now - it in 0 until 180_000L }
+
     @Synchronized fun clear() = observed.clear()
 }

@@ -14,6 +14,8 @@ object ExistingStationMatch {
         }
         val identity = listOf("PLATFORM", "BUILDNAME", "MODEL").joinToString(" ") { info[it].orEmpty() }.lowercase()
         if (modelId == "mini1" && Regex("yandex station mini[ -]+[23]").containsMatchIn(identity)) return false
-        return aliases.any { Regex("(?<![a-z0-9])${Regex.escape(it.lowercase())}(?![a-z0-9_])").containsMatchIn(identity) }
+        return aliases.any {
+            Regex("(?<![a-z0-9])${Regex.escape(it.lowercase())}(?![a-z0-9_])").containsMatchIn(identity)
+        }
     }
 }

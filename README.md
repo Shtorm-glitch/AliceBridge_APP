@@ -43,6 +43,42 @@ APK: `app/build/outputs/apk/release/app-release.apk`.
 Release подписывается тем же ключом, что опубликованные сборки: без него обновление
 поверх установленного приложения невозможно.
 
+## Проверки и форматирование
+
+Kotlin проверяется ktlint, Java — Spotless (google-java-format, стиль AOSP),
+Python-бэкенд — ruff; всё через Gradle, кроме ruff. Общие настройки стиля — в
+[`.editorconfig`](.editorconfig), конфиг ruff — в [`pyproject.toml`](pyproject.toml)
+(длина строки 88). Kotlin использует лимит 120; `@Composable`-функции исключены из
+правила именования. Spotless переносит длинные строковые литералы Java (как и ручное
+разбиение строк в Kotlin). Из форматирования исключены: вендорный DFRoot
+(`bridge/src/main/java/df/root/`) — хранится без изменений от upstream; и
+`ComponentRemoval.java` — ручная сборка shell-команд, где перенос строк
+google-java-format ломает литералы рядом с text block.
+
+```sh
+./gradlew ktlintCheck          # проверить Kotlin
+./gradlew ktlintFormat         # отформатировать Kotlin
+./gradlew spotlessCheck        # проверить Java
+./gradlew spotlessApply        # отформатировать Java
+ruff check backend             # проверить Python
+ruff format backend            # отформатировать Python
+```
+
+Локальные проверки до коммита — через [pre-commit](https://pre-commit.com)
+([`.pre-commit-config.yaml`](.pre-commit-config.yaml)): ruff автоформатирует
+изменённый Python, а Kotlin и Java — через сам Gradle (`ktlintFormat` и
+`spotlessApply`, единый источник правды с CI; запускаются по проекту при изменении
+`.kt`/`.java`), плюс базовые проверки (финальный перевод строки, пробелы, конфликты
+слияния). Установка:
+
+```sh
+pip install pre-commit && pre-commit install
+pre-commit run --all-files     # прогнать по всему репозиторию разово
+```
+
+Те же проверки и unit-тесты гоняются в CI (GitHub Actions,
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml)) на push в `main` и в PR.
+
 ## Backend
 
 Исходники сервера — в [`backend/`](backend/): Python, DNS/HTTP/HTTPS, выдача OTA,

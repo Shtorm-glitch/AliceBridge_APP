@@ -14,5 +14,7 @@ object KernelSuManagers {
     fun available(context: Context, packageName: String): Boolean = try {
         val info = context.packageManager.getApplicationInfo(packageName, 0)
         info.nativeLibraryDir != null && File(info.nativeLibraryDir, "libksud.so").isFile
-    } catch (_: Exception) { false }
+    } catch (_: Exception) {
+        false
+    }
 }

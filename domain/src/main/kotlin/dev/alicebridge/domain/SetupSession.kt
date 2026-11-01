@@ -30,9 +30,27 @@ data class SetupSession(
 sealed interface StationEvent {
     val sessionId: String
     val observedAt: Long
-    data class UpdateCheck(override val sessionId: String, override val observedAt: Long, val eventKey: String, val current: String, val target: String) : StationEvent
-    data class Transfer(override val sessionId: String, override val observedAt: Long, val sent: Long, val total: Long) : StationEvent
-    data class Adb(override val sessionId: String, override val observedAt: Long, val ip: String, val identity: String, val version: String, val root: Boolean) : StationEvent
+    data class UpdateCheck(
+        override val sessionId: String,
+        override val observedAt: Long,
+        val eventKey: String,
+        val current: String,
+        val target: String,
+    ) : StationEvent
+    data class Transfer(
+        override val sessionId: String,
+        override val observedAt: Long,
+        val sent: Long,
+        val total: Long,
+    ) : StationEvent
+    data class Adb(
+        override val sessionId: String,
+        override val observedAt: Long,
+        val ip: String,
+        val identity: String,
+        val version: String,
+        val root: Boolean,
+    ) : StationEvent
 }
 
 /** Visual progress follows evidence; completed operations are a separate persisted ledger. */
@@ -41,23 +59,48 @@ object SetupReducer {
         if (event.sessionId != state.id || event.observedAt < state.lastObservation) return state
         return when (event) {
             is StationEvent.UpdateCheck -> {
-                if (event.eventKey == state.lastEventKey) state else state.copy(
-                    phase = SetupPhase.CHECKING_FIRMWARE, currentVersion = event.current,
-                    targetVersion = event.target, transferredBytes = 0, totalBytes = 0,
-                    lastObservation = event.observedAt, lastEventKey = event.eventKey,
-                )
+                if (event.eventKey == state.lastEventKey) {
+                    state
+                } else {
+                    state.copy(
+                        phase = SetupPhase.CHECKING_FIRMWARE,
+                        currentVersion = event.current,
+                        targetVersion = event.target,
+                        transferredBytes = 0,
+                        totalBytes = 0,
+                        lastObservation = event.observedAt,
+                        lastEventKey = event.eventKey,
+                    )
+                }
             }
             is StationEvent.Transfer -> state.copy(
-                phase = if (event.total > 0 && event.sent >= event.total) SetupPhase.WAITING_REBOOT else SetupPhase.TRANSFERRING,
-                transferredBytes = event.sent.coerceAtLeast(0), totalBytes = event.total.coerceAtLeast(0),
+                phase = if (event.total > 0 &&
+                    event.sent >= event.total
+                ) {
+                    SetupPhase.WAITING_REBOOT
+                } else {
+                    SetupPhase.TRANSFERRING
+                },
+                transferredBytes = event.sent.coerceAtLeast(0),
+                totalBytes = event.total.coerceAtLeast(0),
                 lastObservation = event.observedAt,
             )
             is StationEvent.Adb -> {
-                if (state.stationIdentity.isNotEmpty() && state.stationIdentity != event.identity) state else state.copy(
-                    phase = SetupPhase.ADB_CONNECTED, stationIp = event.ip, stationIdentity = event.identity,
-                    currentVersion = event.version.ifBlank { state.currentVersion }, adbVerified = true,
-                    adbRoot = event.root, lastObservation = event.observedAt,
-                )
+                if (state.stationIdentity.isNotEmpty() &&
+                    state.stationIdentity != event.identity
+                ) {
+                    state
+                } else {
+                    state.copy(
+                        phase = SetupPhase.ADB_CONNECTED,
+                        stationIp = event.ip,
+                        stationIdentity = event.identity,
+                        currentVersion = event.version.ifBlank { state.currentVersion },
+                        adbVerified = true,
+                        adbRoot = event.root,
+                        lastObservation = event.observedAt,
+                    )
+                }
             }
         }
     }

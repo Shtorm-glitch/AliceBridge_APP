@@ -1,23 +1,39 @@
 package dev.alicebridge.domain
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Test
 
 class SetupReducerTest {
-    private val session = SetupSession("session", "lite1", "yandexmicro", "AliceBridge", "test-pass", "192.168.1.113", completedOperations = setOf("ota-disabled"))
+    private val session =
+        SetupSession(
+            "session",
+            "lite1",
+            "yandexmicro",
+            "AliceBridge",
+            "test-pass",
+            "192.168.1.113",
+            completedOperations = setOf("ota-disabled"),
+        )
 
     @Test fun noSecondUpdateCheckIsNeededToConfirmInstalledFirmwareByAdb() {
         val waiting = SetupReducer.reduce(session, StationEvent.Transfer("session", 1, 100, 100))
         assertEquals(SetupPhase.WAITING_REBOOT, waiting.phase)
         assertFalse(waiting.adbVerified)
-        val connected = SetupReducer.reduce(waiting, StationEvent.Adb("session", 2, "10.1.1.2", "speaker", "installed-version", true))
+        val connected = SetupReducer.reduce(
+            waiting,
+            StationEvent.Adb("session", 2, "10.1.1.2", "speaker", "installed-version", true),
+        )
         assertEquals(SetupPhase.ADB_CONNECTED, connected.phase)
         assertEquals("installed-version", connected.currentVersion)
     }
 
     @Test fun newCheckMovesVisualStageBackWithoutRepeatingFinishedOperations() {
         val waiting = session.copy(phase = SetupPhase.WAITING_REBOOT)
-        val next = SetupReducer.reduce(waiting, StationEvent.UpdateCheck("session", 3, "request-2", "factory", "target"))
+        val next = SetupReducer.reduce(
+            waiting,
+            StationEvent.UpdateCheck("session", 3, "request-2", "factory", "target"),
+        )
         assertEquals(SetupPhase.CHECKING_FIRMWARE, next.phase)
         assertEquals(setOf("ota-disabled"), next.completedOperations)
     }
@@ -40,16 +56,26 @@ class SetupReducerTest {
     @Test fun repeatedPollingDoesNotResetTransferAndWrongDeviceCannotTakeOver() {
         val check = SetupReducer.reduce(session, StationEvent.UpdateCheck("session", 1, "r1", "factory", "target"))
         val transfer = SetupReducer.reduce(check, StationEvent.Transfer("session", 2, 50, 100))
-        assertEquals(transfer, SetupReducer.reduce(transfer, StationEvent.UpdateCheck("session", 3, "r1", "factory", "target")))
+        assertEquals(
+            transfer,
+            SetupReducer.reduce(transfer, StationEvent.UpdateCheck("session", 3, "r1", "factory", "target")),
+        )
         val selected = transfer.copy(stationIdentity = "first")
-        assertEquals(selected, SetupReducer.reduce(selected, StationEvent.Adb("session", 4, "10.1.1.3", "other", "v", true)))
+        assertEquals(
+            selected,
+            SetupReducer.reduce(selected, StationEvent.Adb("session", 4, "10.1.1.3", "other", "v", true)),
+        )
     }
+
     @Test fun verifiedAdbOverridesEveryVisualStage() {
         for (phase in SetupPhase.entries) {
             val saved = session.copy(phase = phase, lastAdbAddress = "10.1.1.2")
             val restored = SetupReducer.resume(saved)
             assertEquals("10.1.1.2", restored.lastAdbAddress)
-            val reconciled = SetupReducer.reduce(saved, StationEvent.Adb("session", 5, "10.1.1.2", "speaker", "actual", true))
+            val reconciled = SetupReducer.reduce(
+                saved,
+                StationEvent.Adb("session", 5, "10.1.1.2", "speaker", "actual", true),
+            )
             assertEquals(SetupPhase.ADB_CONNECTED, reconciled.phase)
             assertEquals("actual", reconciled.currentVersion)
         }

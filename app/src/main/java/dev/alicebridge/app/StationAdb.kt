@@ -10,15 +10,22 @@ import java.net.Socket
 class StationAdb(context: Context) : AutoCloseable {
     data class Result(val code: Int, val output: String)
     private val repository = (context.applicationContext as BridgeApplication).repository
-    val tools = StationTools(context) { kind, source, detail, status -> repository.log(kind, "$source · $detail · $status") }
+    val tools =
+        StationTools(context) { kind, source, detail, status -> repository.log(kind, "$source · $detail · $status") }
     val target: String get() = tools.state.station
     fun portOpen(ip: String): Boolean = try {
         RootShell.validateIpv4(ip)
-        Socket().use { it.connect(InetSocketAddress(ip, 5555), 450) }; true
-    } catch (_: Exception) { false }
+        Socket().use { it.connect(InetSocketAddress(ip, 5555), 450) }
+        true
+    } catch (_: Exception) {
+        false
+    }
     fun connect(ip: String): Boolean {
         RootShell.validateIpv4(ip)
-        repository.state.value.session?.let { tools.selectModel(it.modelId); tools.hotspotCredentials(it.ssid,it.password) }
+        repository.state.value.session?.let {
+            tools.selectModel(it.modelId)
+            tools.hotspotCredentials(it.ssid, it.password)
+        }
         return tools.connect(ip).connected()
     }
     fun shell(command: String): Result {

@@ -10,11 +10,18 @@ data class PhoneRootProgress(
     val permission: ProbeResult = ProbeResult.UNCHECKED,
     val existing: Boolean = false,
 ) {
-    val ready: Boolean get() = (existing || manager == ProbeResult.PASSED) && active == ProbeResult.PASSED && permission == ProbeResult.PASSED
+    val ready: Boolean get() = (existing || manager == ProbeResult.PASSED) &&
+        active == ProbeResult.PASSED &&
+        permission == ProbeResult.PASSED
 }
 
 object PhoneRootPreparation {
-    fun next(managerReady: Boolean, rootGranted: Boolean, engineAlreadyActive: Boolean, suPresent: Boolean): RootAction = when {
+    fun next(
+        managerReady: Boolean,
+        rootGranted: Boolean,
+        engineAlreadyActive: Boolean,
+        suPresent: Boolean,
+    ): RootAction = when {
         rootGranted -> RootAction.START_HOTSPOT
         !managerReady -> RootAction.INSTALL_MANAGER
         engineAlreadyActive || suPresent -> RootAction.REQUEST_PERMISSION

@@ -22,19 +22,25 @@ internal object YamCatalog {
 
     private fun compareVersions(left: String, right: String): Int {
         fun parts(version: String) = version.removePrefix("v").substringBefore('+').split('-', limit = 2)
-        val a = parts(left); val b = parts(right)
-        val av = a[0].split('.'); val bv = b[0].split('.')
+        val a = parts(left)
+        val b = parts(right)
+        val av = a[0].split('.')
+        val bv = b[0].split('.')
         for (i in 0 until maxOf(av.size, bv.size)) {
-            val x = av.getOrElse(i) { "0" }; val y = bv.getOrElse(i) { "0" }
-            val xn = x.toBigIntegerOrNull(); val yn = y.toBigIntegerOrNull()
+            val x = av.getOrElse(i) { "0" }
+            val y = bv.getOrElse(i) { "0" }
+            val xn = x.toBigIntegerOrNull()
+            val yn = y.toBigIntegerOrNull()
             val comparison = if (xn != null && yn != null) xn.compareTo(yn) else x.compareTo(y)
             if (comparison != 0) return comparison
         }
         if (a.size != b.size) return if (a.size == 1) 1 else -1
         if (a.size == 1) return 0
-        val ap = a[1].split('.'); val bp = b[1].split('.')
+        val ap = a[1].split('.')
+        val bp = b[1].split('.')
         for (i in 0 until minOf(ap.size, bp.size)) {
-            val xn: BigInteger? = ap[i].toBigIntegerOrNull(); val yn = bp[i].toBigIntegerOrNull()
+            val xn: BigInteger? = ap[i].toBigIntegerOrNull()
+            val yn = bp[i].toBigIntegerOrNull()
             val comparison = when {
                 xn != null && yn != null -> xn.compareTo(yn)
                 xn != null -> -1
