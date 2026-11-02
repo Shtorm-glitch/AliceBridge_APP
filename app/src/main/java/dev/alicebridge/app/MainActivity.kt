@@ -38,8 +38,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -68,6 +66,7 @@ import dev.alicebridge.app.ui.components.Eyebrow
 import dev.alicebridge.app.ui.components.Heading
 import dev.alicebridge.app.ui.components.MethodCard
 import dev.alicebridge.app.ui.components.ShizukuSteps
+import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.theme.AbColors
 import dev.alicebridge.app.ui.theme.AliceBridgeTheme
 import dev.alicebridge.bridge.RootShell
@@ -1486,59 +1485,12 @@ class MainActivity : ComponentActivity() {
                             fontSize = 13.sp,
                         )
                     }
-                    "journal" -> {
-                        Heading("Диагностика без шума")
-                        Text(
-                            "На экране — изменения состояния, DNS-ответы и ошибки. Повторяющиеся сообщения ADB скрыты. Экспорт включает технический журнал с фильтрацией секретов.",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
-                        )
-                        Action("Поделиться диагностикой") {
-                            clipboardScope.launch(Dispatchers.IO) { shareDiagnostics() }
-                        }
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                        ) {
-                            Column(Modifier.weight(1f)) {
-                                Text("Verbose · подробности запросов")
-                                Text(
-                                    "DNS-пакеты и доступные ответы бэкенда. Всегда включены в экспорт.",
-                                    color = AbColors.Muted,
-                                    fontSize = 12.sp,
-                                )
-                            }
-                            Switch(checked = verboseJournal, onCheckedChange = { verboseJournal = it })
-                        }
-                        Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
-                            state.journal.filter {
-                                verboseJournal || it.kind != "VERBOSE"
-                            }.takeLast(150).asReversed().forEach { line ->
-                                Surface(
-                                    color = AbColors.Panel,
-                                    shape = RoundedCornerShape(12.dp),
-                                    modifier = Modifier.fillMaxWidth(),
-                                ) {
-                                    Column(
-                                        Modifier.padding(horizontal = 10.dp, vertical = 7.dp),
-                                        verticalArrangement = Arrangement.spacedBy(3.dp),
-                                    ) {
-                                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                            Text(
-                                                "${line.time} · ${line.kind}",
-                                                color = AbColors.Purple,
-                                                fontSize = 10.sp,
-                                                lineHeight = 12.sp,
-                                            )
-                                        }
-                                        Text(line.text, fontSize = 13.sp, lineHeight = 18.sp)
-                                    }
-                                }
-                            }
-                        }
-                        if (state.journal.isEmpty()) Text("Событий пока нет", color = AbColors.Muted)
-                    }
+                    "journal" -> JournalScreen(
+                        lines = state.journal,
+                        verbose = verboseJournal,
+                        onVerboseChange = { verboseJournal = it },
+                        onShare = { clipboardScope.launch(Dispatchers.IO) { shareDiagnostics() } },
+                    )
                 }
                 Spacer(Modifier.height(24.dp))
             }
