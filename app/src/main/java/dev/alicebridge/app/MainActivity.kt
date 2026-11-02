@@ -63,6 +63,7 @@ import dev.alicebridge.app.ui.components.Eyebrow
 import dev.alicebridge.app.ui.components.Heading
 import dev.alicebridge.app.ui.components.MethodCard
 import dev.alicebridge.app.ui.components.ShizukuSteps
+import dev.alicebridge.app.ui.screens.FindScreen
 import dev.alicebridge.app.ui.screens.GuideScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.screens.ModelsScreen
@@ -1059,30 +1060,13 @@ class MainActivity : ComponentActivity() {
                         },
                     )
                     "find" -> if (selected != null) {
-                        Eyebrow(selected.name.uppercase())
-                        Heading("Найдём вашу Алису")
-                        Text(
-                            "Телефон и колонка должны быть подключены к одной Wi-Fi сети. На колонке уже должен быть включён ADB. Сброс и точка доступа не нужны.",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
+                        FindScreen(
+                            model = selected,
+                            manualAddress = manualAdbAddress,
+                            onManualAddressChange = { manualAdbAddress = it },
+                            onFind = { findExisting(selected) },
+                            onFindManual = { findExisting(selected, manualAdbAddress) },
                         )
-                        Action("Найти в сети") { findExisting(selected) }
-                        CardBox {
-                            Text("Подключиться вручную", fontSize = 19.sp, fontWeight = FontWeight.SemiBold)
-                            Text(
-                                "Если знаете IP колонки, укажите его здесь. Проверим ADB на порту 5555 и соответствие выбранной модели.",
-                                color = AbColors.Muted,
-                                fontSize = 13.sp,
-                            )
-                            OutlinedTextField(value = manualAdbAddress, onValueChange = {
-                                manualAdbAddress = it
-                            }, singleLine = true, label = {
-                                Text("IP-адрес Алисы")
-                            }, placeholder = { Text("192.168.1.201") }, modifier = Modifier.fillMaxWidth())
-                            Action("Подключиться по IP", enabled = manualAdbAddress.isNotBlank()) {
-                                findExisting(selected, manualAdbAddress)
-                            }
-                        }
                     }
                     "reset" -> if (selected != null) {
                         Eyebrow(selected.name.uppercase())
