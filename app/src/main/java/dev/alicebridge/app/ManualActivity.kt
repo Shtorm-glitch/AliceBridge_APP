@@ -29,12 +29,10 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -44,10 +42,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.alicebridge.app.ui.theme.AbColors
+import dev.alicebridge.app.ui.theme.AliceBridgeTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -55,13 +54,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.security.SecureRandom
-
-private val MInk = Color(0xff090d17)
-private val MPanel = Color(0xff151a2a)
-private val MPurple = Color(0xffb6a1ff)
-private val MMuted = Color(0xff9ba2b8)
-private val MGreen = Color(0xff87dbc0)
-private val MWarn = Color(0xffffbd9e)
 
 private data class Template(val id: String, val label: String, val platform: String)
 
@@ -103,11 +95,7 @@ class ManualActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme(
-                colorScheme = darkColorScheme(primary = MPurple, background = MInk, surface = MPanel, onPrimary = MInk),
-            ) {
-                Surface(Modifier.fillMaxSize(), color = MInk) { Screen() }
-            }
+            AliceBridgeTheme { Screen() }
         }
     }
 
@@ -183,23 +171,23 @@ class ManualActivity : ComponentActivity() {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 IconButton(onClick = {
                     finish()
-                }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = MPurple) }
+                }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = AbColors.Purple) }
                 Text("Ручная настройка", fontSize = 24.sp, fontWeight = FontWeight.Bold)
             }
             Text(
                 "Backend отдаст выбранный файл по обычной яндексовской ссылке для этой станции. Автоматический выбор прошивки по дате отключается только для вашего IP; остальные запросы не меняются.",
-                color = MMuted,
+                color = AbColors.Muted,
                 lineHeight = 22.sp,
             )
             Text(
                 "Ручной режим действует до кнопки «Выключить», завершения сеанса настройки или 12 часов. Затем backend снова выбирает прошивку автоматически; загруженные файлы остаются в библиотеке.",
-                color = MMuted,
+                color = AbColors.Muted,
                 fontSize = 13.sp,
                 lineHeight = 20.sp,
             )
             if (manual != null) {
                 Card {
-                    Text("РУЧНОЙ РЕЖИМ ВКЛЮЧЁН", color = MGreen, fontSize = 12.sp)
+                    Text("РУЧНОЙ РЕЖИМ ВКЛЮЧЁН", color = AbColors.Green, fontSize = 12.sp)
                     Text(
                         "${manual!!.optString(
                             "filename",
@@ -208,7 +196,7 @@ class ManualActivity : ComponentActivity() {
                     )
                     Text(
                         "Шаблон: ${manual!!.optString("template")} · ${manual!!.optLong("size") / 1024 / 1024} МБ",
-                        color = MMuted,
+                        color = AbColors.Muted,
                         fontSize = 13.sp,
                     )
                     if (manual!!.optString(
@@ -217,7 +205,7 @@ class ManualActivity : ComponentActivity() {
                     ) {
                         Text(
                             "Подпись: ${manual!!.optString("signature_client")}",
-                            color = MMuted,
+                            color = AbColors.Muted,
                             fontSize = 13.sp,
                         )
                     }
@@ -262,7 +250,7 @@ class ManualActivity : ComponentActivity() {
                 ) {
                     Text(
                         "Базовый шаблон без станции требует активного сеанса, чтобы взять его платформу. Иначе выберите конкретную модель.",
-                        color = MWarn,
+                        color = AbColors.Peach,
                         fontSize = 13.sp,
                     )
                 }
@@ -278,27 +266,33 @@ class ManualActivity : ComponentActivity() {
                     Text(
                         item.message,
                         color = when {
-                            !item.signed -> MWarn
-                            item.signatureValid -> MGreen
-                            else -> MWarn
+                            !item.signed -> AbColors.Peach
+                            item.signatureValid -> AbColors.Green
+                            else -> AbColors.Peach
                         },
                         lineHeight = 21.sp,
                     )
-                    Text("${item.format} · ${item.size / 1024 / 1024} МБ", color = MMuted, fontSize = 13.sp)
-                    Text("SHA-256: ${item.sha256}", color = MMuted, fontSize = 12.sp)
-                    Text("CRC32: ${item.crc32}", color = MMuted, fontSize = 12.sp)
-                    if (item.signer.isNotBlank()) Text("Подписант: ${item.signer}", color = MMuted, fontSize = 12.sp)
+                    Text("${item.format} · ${item.size / 1024 / 1024} МБ", color = AbColors.Muted, fontSize = 13.sp)
+                    Text("SHA-256: ${item.sha256}", color = AbColors.Muted, fontSize = 12.sp)
+                    Text("CRC32: ${item.crc32}", color = AbColors.Muted, fontSize = 12.sp)
+                    if (item.signer.isNotBlank()) {
+                        Text(
+                            "Подписант: ${item.signer}",
+                            color = AbColors.Muted,
+                            fontSize = 12.sp,
+                        )
+                    }
                     if (!item.signed || !item.signatureValid) {
                         if (item.signed &&
                             !item.signatureValid
                         ) {
-                            Text("Файл с недействительной подписью загружать нельзя.", color = MWarn)
+                            Text("Файл с недействительной подписью загружать нельзя.", color = AbColors.Peach)
                         } else {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Checkbox(unsignedAccepted, { unsignedAccepted = it })
                                 Text(
                                     "Файл без встроенной подписи — продолжить на свой риск",
-                                    color = MWarn,
+                                    color = AbColors.Peach,
                                     fontSize = 13.sp,
                                 )
                             }
@@ -357,11 +351,11 @@ class ManualActivity : ComponentActivity() {
             ) {
                 LinearProgressIndicator(progress = {
                     progress
-                }, modifier = Modifier.fillMaxWidth(), color = MPurple)
+                }, modifier = Modifier.fillMaxWidth(), color = AbColors.Purple)
             }
-            if (message.isNotBlank()) Text(message, color = MMuted, lineHeight = 21.sp)
+            if (message.isNotBlank()) Text(message, color = AbColors.Muted, lineHeight = 21.sp)
             if (library.isNotEmpty()) {
-                Text("ЗАГРУЖЕННЫЕ ПРОШИВКИ", color = MPurple, fontSize = 12.sp, letterSpacing = 1.sp)
+                Text("ЗАГРУЖЕННЫЕ ПРОШИВКИ", color = AbColors.Purple, fontSize = 12.sp, letterSpacing = 1.sp)
                 library.forEach { item ->
                     Card {
                         Text(item.optString("filename"), fontWeight = FontWeight.SemiBold)
@@ -369,12 +363,12 @@ class ManualActivity : ComponentActivity() {
                             "${item.optString(
                                 "platform",
                             )} · ${item.optString("version")} · ${item.optString("template")}",
-                            color = MMuted,
+                            color = AbColors.Muted,
                             fontSize = 13.sp,
                         )
                         Text(
                             "${item.optLong("size") / 1024 / 1024} МБ · SHA-256 ${item.optString("sha256").take(12)}…",
-                            color = MMuted,
+                            color = AbColors.Muted,
                             fontSize = 12.sp,
                         )
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -419,7 +413,7 @@ class ManualActivity : ComponentActivity() {
     }
 
     @Composable private fun Card(content: @Composable ColumnScope.() -> Unit) =
-        Surface(color = MPanel, shape = RoundedCornerShape(18.dp), modifier = Modifier.fillMaxWidth()) {
+        Surface(color = AbColors.Panel, shape = RoundedCornerShape(18.dp), modifier = Modifier.fillMaxWidth()) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp), content = content)
         }
 }

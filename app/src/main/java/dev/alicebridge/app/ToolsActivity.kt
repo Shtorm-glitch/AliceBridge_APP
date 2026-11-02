@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,7 +40,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryTabRow
@@ -49,7 +47,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -61,7 +58,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -69,17 +65,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.alicebridge.app.ui.components.FilledAction
+import dev.alicebridge.app.ui.components.SectionLabel
+import dev.alicebridge.app.ui.components.ToolBadge
+import dev.alicebridge.app.ui.theme.AbColors
+import dev.alicebridge.app.ui.theme.AliceBridgeTheme
 import dev.alicebridge.domain.ConnectionMethod
 import dev.alicebridge.domain.ToolAccessPolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-private val ToolInk = Color(0xff090d17)
-private val ToolPanel = Color(0xff151a2a)
-private val ToolPurple = Color(0xffb6a1ff)
-private val ToolMuted = Color(0xff9ba2b8)
-private val ToolWarn = Color(0xffffbd9e)
 
 /** Separate full-page management screens. Commands remain serialized in SetupService. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -93,16 +88,7 @@ class ToolsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme(
-                colorScheme = darkColorScheme(
-                    primary = ToolPurple,
-                    background = ToolInk,
-                    surface = ToolPanel,
-                    onPrimary = ToolInk,
-                ),
-            ) {
-                Surface(Modifier.fillMaxSize(), color = ToolInk) { Screen() }
-            }
+            AliceBridgeTheme { Screen() }
         }
     }
 
@@ -209,7 +195,7 @@ class ToolsActivity : ComponentActivity() {
                     } else {
                         back()
                     }
-                }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = ToolPurple) }
+                }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = AbColors.Purple) }
                 Column(Modifier.weight(1f).padding(start = 6.dp)) {
                     Text(
                         when (page) {
@@ -224,7 +210,7 @@ class ToolsActivity : ComponentActivity() {
                     )
                     Text(
                         if (connected)"На связи" else "Восстанавливаем связь",
-                        color = if (connected)Color(0xff87dbc0) else ToolWarn,
+                        color = if (connected)AbColors.Green else AbColors.Peach,
                         fontSize = 12.sp,
                     )
                     val stationAddress = state.session?.stationIp.orEmpty().ifBlank {
@@ -233,7 +219,7 @@ class ToolsActivity : ComponentActivity() {
                     if (stationAddress.isNotBlank()) {
                         Text(
                             "${if (connected) "IP колонки" else "Последний IP"}: $stationAddress",
-                            color = ToolMuted,
+                            color = AbColors.Muted,
                             fontSize = 12.sp,
                         )
                     }
@@ -243,13 +229,13 @@ class ToolsActivity : ComponentActivity() {
                 ) {
                     IconButton(onClick = {
                         command("PACKAGES_LOAD", "manager" to manager)
-                    }, enabled = available) { Icon(Icons.Default.Refresh, "Обновить каталог", tint = ToolPurple) }
+                    }, enabled = available) { Icon(Icons.Default.Refresh, "Обновить каталог", tint = AbColors.Purple) }
                 }
             }
             if (!connected) {
                 Text(
                     "Ждём ADB колонки. При перезагрузке отсутствие связи ожидаемо — повторяем проверку автоматически.",
-                    color = ToolWarn,
+                    color = AbColors.Peach,
                     fontSize = 13.sp,
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
                 )
@@ -257,7 +243,7 @@ class ToolsActivity : ComponentActivity() {
             if (access.mutationDisabledReason.isNotBlank()) {
                 Text(
                     access.mutationDisabledReason,
-                    color = ToolWarn,
+                    color = AbColors.Peach,
                     fontSize = 13.sp,
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
                 )
@@ -265,7 +251,7 @@ class ToolsActivity : ComponentActivity() {
             if (tools.busy) {
                 Text(
                     busyReason,
-                    color = ToolMuted,
+                    color = AbColors.Muted,
                     fontSize = 13.sp,
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
                 )
@@ -283,24 +269,24 @@ class ToolsActivity : ComponentActivity() {
                                 fontSize = 24.sp,
                                 fontWeight = FontWeight.Bold,
                             )
-                            Text(state.stationInfo["VERSION"].orEmpty(), color = ToolMuted, fontSize = 13.sp)
+                            Text(state.stationInfo["VERSION"].orEmpty(), color = AbColors.Muted, fontSize = 13.sp)
                             state.stationInfo["DISK"]?.takeIf {
                                 it.isNotBlank()
-                            }?.let { Text(it, color = ToolMuted, fontSize = 12.sp) }
+                            }?.let { Text(it, color = AbColors.Muted, fontSize = 12.sp) }
                             Text(
                                 when {
                                     !connected -> "ADB не подтверждён"
                                     rootReady -> "Root подтверждён"
                                     else -> "ADB подтверждён · root не подтверждён"
                                 },
-                                color = if (connected)Color(0xff87dbc0) else ToolWarn,
+                                color = if (connected)AbColors.Green else AbColors.Peach,
                                 fontSize = 13.sp,
                             )
                             FilledAction("Домашний Wi-Fi", available && wifiReady) { page = "wifi" }
                             if (wifiDisabledReason.isNotBlank()) {
                                 Text(
                                     wifiDisabledReason,
-                                    color = ToolWarn,
+                                    color = AbColors.Peach,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
@@ -320,7 +306,7 @@ class ToolsActivity : ComponentActivity() {
                             if (tools.homeWifiStatus.isNotBlank()) {
                                 Text(
                                     tools.homeWifiStatus,
-                                    color = ToolPurple,
+                                    color = AbColors.Purple,
                                     fontSize = 13.sp,
                                 )
                             }
@@ -332,13 +318,18 @@ class ToolsActivity : ComponentActivity() {
                             tools.steps.forEach { step ->
                                 StepLine(step, mutationAvailable) { command("FASTFETCH_SKIP") }
                             }
-                            if (tools.steps.isEmpty())Text("Состояние профиля пока не получено.", color = ToolMuted)
+                            if (tools.steps.isEmpty()) {
+                                Text(
+                                    "Состояние профиля пока не получено.",
+                                    color = AbColors.Muted,
+                                )
+                            }
                             if (!tools.profileReady &&
                                 access.installers
                             ) {
                                 Text(
                                     "Root подтверждён. Незавершённые проверки аналитики, fastfetch и маркеров профиля не блокируют установщики. Доступность Wi-Fi указана отдельно выше.",
-                                    color = ToolMuted,
+                                    color = AbColors.Muted,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
@@ -383,12 +374,12 @@ class ToolsActivity : ComponentActivity() {
                                     "Освобождение места · требуется подтверждённый root"
                                 },
                                 fontSize = 12.sp,
-                                color = ToolMuted,
+                                color = AbColors.Muted,
                             )
                             if (tools.storageStatus.isNotBlank()) {
                                 Text(
                                     tools.storageStatus,
-                                    color = ToolPurple,
+                                    color = AbColors.Purple,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
@@ -400,12 +391,12 @@ class ToolsActivity : ComponentActivity() {
                             Text("AliceBridge Agent", fontSize = 21.sp, fontWeight = FontWeight.Bold)
                             Text(
                                 if (tools.agentUpdate)"Доступно обновление ${tools.agentLatest}" else tools.agentStatus,
-                                color = if (tools.agentUpdate)ToolPurple else ToolMuted,
+                                color = if (tools.agentUpdate)AbColors.Purple else AbColors.Muted,
                                 lineHeight = 21.sp,
                             )
                             Text(
                                 "Автозапуск, домашний Wi-Fi с откатом, контроль ADB, SSH и защиты OTA.",
-                                color = ToolMuted,
+                                color = AbColors.Muted,
                                 fontSize = 13.sp,
                             )
                             FilledAction(if (tools.agentUpdate)"Обновить службу" else "Открыть службу", available) {
@@ -440,16 +431,16 @@ class ToolsActivity : ComponentActivity() {
                                     Text(title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
                                     Text(
                                         if (ready)"Установлено" else "Не установлено",
-                                        color = if (ready)Color(0xff87dbc0) else ToolMuted,
+                                        color = if (ready)AbColors.Green else AbColors.Muted,
                                         fontSize = 12.sp,
                                     )
                                 }
                             }
-                            Text(toolDescription(id), color = ToolMuted, fontSize = 14.sp, lineHeight = 21.sp)
+                            Text(toolDescription(id), color = AbColors.Muted, fontSize = 14.sp, lineHeight = 21.sp)
                             if (unsupportedMax) {
                                 Text(
                                     "Для Android Макс установщик $title пока не поддерживается. Linux-скрипт не запускается.",
-                                    color = ToolWarn,
+                                    color = AbColors.Peach,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
@@ -457,7 +448,7 @@ class ToolsActivity : ComponentActivity() {
                             if (unsupportedArch) {
                                 Text(
                                     "Встроенный установщик $title рассчитан на ARM64. На этой архитектуре доступен Entware.",
-                                    color = ToolWarn,
+                                    color = AbColors.Peach,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
@@ -467,7 +458,7 @@ class ToolsActivity : ComponentActivity() {
                             ) {
                                 Text(
                                     "root · пароль 1 · порт ${if (state.session?.modelId == "station1")22 else 2222}",
-                                    color = ToolPurple,
+                                    color = AbColors.Purple,
                                     fontSize = 13.sp,
                                 )
                             }
@@ -494,7 +485,7 @@ class ToolsActivity : ComponentActivity() {
                                         IconButton(onClick = {
                                             menu = true
                                         }, enabled = available && rootNormal && !unsupported) {
-                                            Icon(Icons.Default.MoreVert, "Другие действия", tint = ToolPurple)
+                                            Icon(Icons.Default.MoreVert, "Другие действия", tint = AbColors.Purple)
                                         }
                                         DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
                                             DropdownMenuItem(text = {
@@ -542,7 +533,7 @@ class ToolsActivity : ComponentActivity() {
                                         }
                                     }
                                 }, enabled = mutationAvailable && !unsupported, modifier = Modifier.fillMaxWidth()) {
-                                    Text("Удалить $title", color = ToolWarn)
+                                    Text("Удалить $title", color = AbColors.Peach)
                                 }
                             }
                         }
@@ -580,7 +571,7 @@ class ToolsActivity : ComponentActivity() {
                             }
                             else -> "Проверьте причину ниже. Повторная операция запускается только по вашей команде."
                         },
-                        color = ToolMuted,
+                        color = AbColors.Muted,
                         lineHeight = 23.sp,
                     )
                     if (working) {
@@ -591,10 +582,10 @@ class ToolsActivity : ComponentActivity() {
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                             ) {
-                                Icon(Icons.Default.Check, "Готово", tint = Color(0xff87dbc0))
+                                Icon(Icons.Default.Check, "Готово", tint = AbColors.Green)
                                 Text(
                                     if (removing)"Удаление подтверждено" else "Установка подтверждена",
-                                    color = Color(0xff87dbc0),
+                                    color = AbColors.Green,
                                 )
                             }
                         }
@@ -634,7 +625,7 @@ class ToolsActivity : ComponentActivity() {
                             } else {
                                 "Программы для вашей колонки"
                             },
-                            color = ToolMuted,
+                            color = AbColors.Muted,
                             fontSize = 14.sp,
                         )
                         OutlinedTextField(query, {
@@ -653,7 +644,7 @@ class ToolsActivity : ComponentActivity() {
                         }, modifier = Modifier.fillMaxWidth())
                     }
                     if (manager == "yam") {
-                        PrimaryTabRow(selectedTabIndex = if (tab == "package")0 else 1, containerColor = ToolInk) {
+                        PrimaryTabRow(selectedTabIndex = if (tab == "package")0 else 1, containerColor = AbColors.Ink) {
                             Tab(selected = tab == "package", onClick = { tab = "package" }, text = { Text("Пакеты") })
                             Tab(selected = tab == "plugin", onClick = { tab = "plugin" }, text = { Text("Плагины") })
                         }
@@ -670,7 +661,7 @@ class ToolsActivity : ComponentActivity() {
                             installedOnly = true
                         }, label = { Text("Установлены") })
                         Spacer(Modifier.weight(1f))
-                        Text("${entries.size}", color = ToolMuted, fontSize = 12.sp)
+                        Text("${entries.size}", color = AbColors.Muted, fontSize = 12.sp)
                     }
                     LazyColumn(
                         Modifier.weight(1f),
@@ -691,7 +682,7 @@ class ToolsActivity : ComponentActivity() {
                                         } else {
                                             "Нажмите обновление вверху, чтобы получить каталог."
                                         },
-                                        color = ToolMuted,
+                                        color = AbColors.Muted,
                                     )
                                 }
                             }
@@ -702,7 +693,7 @@ class ToolsActivity : ComponentActivity() {
                                     selectedPackage = item.id
                                     page = "detail"
                                 },
-                                color = ToolPanel,
+                                color = AbColors.Panel,
                                 shape = RoundedCornerShape(
                                     20.dp,
                                 ),
@@ -716,20 +707,26 @@ class ToolsActivity : ComponentActivity() {
                                         ToolBadge(item.title)
                                         Column(Modifier.weight(1f)) {
                                             Text(item.title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                                            Text(item.version.ifBlank { item.id }, color = ToolMuted, fontSize = 12.sp)
+                                            Text(
+                                                item.version.ifBlank {
+                                                    item.id
+                                                },
+                                                color = AbColors.Muted,
+                                                fontSize = 12.sp,
+                                            )
                                         }
                                         if (item.installed) {
                                             Icon(
                                                 Icons.Default.Check,
                                                 "Установлен",
-                                                tint = Color(0xff87dbc0),
+                                                tint = AbColors.Green,
                                             )
                                         }
                                     }
                                     if (item.description.isNotBlank()) {
                                         Text(
                                             item.description,
-                                            color = ToolMuted,
+                                            color = AbColors.Muted,
                                             fontSize = 13.sp,
                                             lineHeight = 19.sp,
                                             maxLines = 3,
@@ -742,7 +739,7 @@ class ToolsActivity : ComponentActivity() {
                                         } else {
                                             "Подробнее и установка →"
                                         },
-                                        color = ToolPurple,
+                                        color = AbColors.Purple,
                                         fontSize = 13.sp,
                                     )
                                 }
@@ -760,12 +757,12 @@ class ToolsActivity : ComponentActivity() {
                         val item = activePackage
                         ToolBadge(item.title, large = true)
                         Text(item.title, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                        Text("${item.id} · ${item.version}", color = ToolPurple, fontSize = 13.sp)
+                        Text("${item.id} · ${item.version}", color = AbColors.Purple, fontSize = 13.sp)
                         Text(
                             item.description.ifBlank {
                                 "Описание не предоставлено автором пакета."
                             },
-                            color = ToolMuted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         if (tools.busy)ProgressCard(tools)
@@ -784,13 +781,13 @@ class ToolsActivity : ComponentActivity() {
                             }
                         } else {
                             Tile {
-                                Text("Установлен", color = Color(0xff87dbc0), fontWeight = FontWeight.Bold)
+                                Text("Установлен", color = AbColors.Green, fontWeight = FontWeight.Bold)
                                 if (manager ==
                                     "yam"
                                 ) {
                                     Text(
                                         if (item.enabled)"Дополнение включено" else "Дополнение выключено",
-                                        color = ToolMuted,
+                                        color = AbColors.Muted,
                                     )
                                 }
                             }
@@ -858,7 +855,7 @@ class ToolsActivity : ComponentActivity() {
                                     page =
                                         "packages"
                                 }
-                            }, enabled = mutationAvailable) { Text("Удалить с колонки", color = ToolWarn) }
+                            }, enabled = mutationAvailable) { Text("Удалить с колонки", color = AbColors.Peach) }
                         }
                         if (tools.packageOutput.isNotBlank()) {
                             Tile {
@@ -875,18 +872,28 @@ class ToolsActivity : ComponentActivity() {
                     Text("Служба на колонке", fontSize = 29.sp, fontWeight = FontWeight.Bold)
                     Text(
                         "Сохраняет домашнюю сеть, восстанавливает подключение, проверяет ADB, установленный SSH и блокировку OTA. После перезагрузки работает без телефона на прошивках с поддерживаемым автозапуском и root. При смене Wi-Fi ждёт подтверждение приложения, иначе возвращает прежнюю сеть.",
-                        color = ToolMuted,
+                        color = AbColors.Muted,
                         lineHeight = 23.sp,
                     )
                     Text(
                         "Установка доступна для ARM64/ARMv7 без ограничения по модели. На Android-колонках кроме Станции 1 служба работает до перезагрузки: временный root не становится постоянным. Автозапуск зависит от прошивки.",
-                        color = ToolWarn,
+                        color = AbColors.Peach,
                         lineHeight = 22.sp,
                     )
                     Tile {
-                        Text(tools.agentStatus, color = ToolPurple, fontWeight = FontWeight.Bold)
-                        if (tools.agentVersion.isNotBlank())Text("Установлена ${tools.agentVersion}", color = ToolMuted)
-                        if (tools.agentLatest.isNotBlank())Text("На сервере ${tools.agentLatest}", color = ToolMuted)
+                        Text(tools.agentStatus, color = AbColors.Purple, fontWeight = FontWeight.Bold)
+                        if (tools.agentVersion.isNotBlank()) {
+                            Text(
+                                "Установлена ${tools.agentVersion}",
+                                color = AbColors.Muted,
+                            )
+                        }
+                        if (tools.agentLatest.isNotBlank()) {
+                            Text(
+                                "На сервере ${tools.agentLatest}",
+                                color = AbColors.Muted,
+                            )
+                        }
                         if (tools.agentReport.isNotBlank()) {
                             val report = runCatching { org.json.JSONObject(tools.agentReport) }.getOrNull()
                             if (report != null) {
@@ -901,7 +908,7 @@ class ToolsActivity : ComponentActivity() {
                                     else -> value
                                 }
                                 listOf("ADB" to "adb", "SSH" to "ssh", "OTA" to "ota").forEach { (title, key) ->
-                                    Text("$title · ${label(report.optString(key))}", color = ToolMuted)
+                                    Text("$title · ${label(report.optString(key))}", color = AbColors.Muted)
                                 }
                                 Text(
                                     if (report.optBoolean(
@@ -912,12 +919,12 @@ class ToolsActivity : ComponentActivity() {
                                     } else {
                                         "Домашняя сеть не сохранена — укажите её в разделе Wi-Fi"
                                     },
-                                    color = ToolMuted,
+                                    color = AbColors.Muted,
                                     fontSize = 13.sp,
                                 )
                                 report.optString("last_error").takeIf {
                                     it.isNotBlank()
-                                }?.let { Text(it, color = ToolWarn) }
+                                }?.let { Text(it, color = AbColors.Peach) }
                             }
                         }
                     }
@@ -977,12 +984,12 @@ class ToolsActivity : ComponentActivity() {
                                     "command" to "remove",
                                 )
                             }
-                        }, enabled = mutationAvailable) { Text("Удалить службу", color = ToolWarn) }
+                        }, enabled = mutationAvailable) { Text("Удалить службу", color = AbColors.Peach) }
                     }
                     if (tools.error.isNotBlank())ErrorCard(tools.error)
                     Text(
                         "Бинарник загружается с сервера и проверяется по закреплённому ключу подписи. В APK его нет. Обновления службы устанавливаются по кнопке.",
-                        color = ToolMuted,
+                        color = AbColors.Muted,
                         fontSize = 13.sp,
                         lineHeight = 20.sp,
                     )
@@ -1001,7 +1008,7 @@ class ToolsActivity : ComponentActivity() {
         confirmation?.let { (text, action) ->
             AlertDialog(onDismissRequest = {
                 confirmation = null
-            }, containerColor = ToolPanel, shape = RoundedCornerShape(26.dp), title = {
+            }, containerColor = AbColors.Panel, shape = RoundedCornerShape(26.dp), title = {
                 Text("Подтвердите действие", fontSize = 22.sp)
             }, text = { Text(text, lineHeight = 22.sp) }, confirmButton = {
                 TextButton(onClick = {
@@ -1027,41 +1034,6 @@ class ToolsActivity : ComponentActivity() {
         else -> "Пакетный менеджер initialfox. Управление через терминал."
     }
 
-    @Composable private fun FilledAction(label: String, enabled: Boolean, onClick: () -> Unit) {
-        Button(
-            onClick = onClick,
-            enabled = enabled,
-            shape = RoundedCornerShape(16.dp),
-            contentPadding = PaddingValues(18.dp, 15.dp),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Text(label)
-        }
-    }
-
-    @Composable private fun SectionLabel(title: String, detail: String) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(title, color = ToolPurple, fontSize = 11.sp, letterSpacing = 1.3.sp)
-            if (detail.isNotBlank())Text(detail, color = ToolMuted, fontSize = 14.sp)
-        }
-    }
-
-    @Composable private fun ToolBadge(title: String, large: Boolean = false) {
-        Box(
-            Modifier.size(
-                if (large)76.dp else 46.dp,
-            ).background(ToolPurple.copy(alpha = .12f), RoundedCornerShape(if (large)24.dp else 14.dp)),
-            contentAlignment = Alignment.Center,
-        ) {
-            Text(
-                title.take(2).uppercase(),
-                color = ToolPurple,
-                fontWeight = FontWeight.Bold,
-                fontSize = if (large)26.sp else 15.sp,
-            )
-        }
-    }
-
     @Composable private fun ProgressCard(tools: ToolsSnapshot) {
         Tile {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -1076,7 +1048,7 @@ class ToolsActivity : ComponentActivity() {
             }
             Text(
                 "Выполняем операцию на колонке. Проверяем результат перед завершением.",
-                color = ToolMuted,
+                color = AbColors.Muted,
                 fontSize = 13.sp,
                 lineHeight = 19.sp,
             )
@@ -1085,7 +1057,7 @@ class ToolsActivity : ComponentActivity() {
                 val readable = lines.lastOrNull { line ->
                     line.any { it in 'А'..'я' } && !line.contains("AB_") && line.length < 180
                 }
-                if (readable != null)Text(readable, color = ToolPurple, fontSize = 13.sp, lineHeight = 20.sp)
+                if (readable != null)Text(readable, color = AbColors.Purple, fontSize = 13.sp, lineHeight = 20.sp)
                 Details("Технический журнал", tools.progress)
             }
         }
@@ -1093,7 +1065,7 @@ class ToolsActivity : ComponentActivity() {
 
     @Composable private fun ErrorCard(error: String) {
         Tile {
-            Text("Не удалось завершить", color = ToolWarn, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text("Не удалось завершить", color = AbColors.Peach, fontWeight = FontWeight.Bold, fontSize = 18.sp)
             SelectionContainerText(error)
         }
     }
@@ -1123,9 +1095,9 @@ class ToolsActivity : ComponentActivity() {
                 color = if (step.status ==
                     "Ошибка"
                 ) {
-                    ToolWarn
+                    AbColors.Peach
                 } else {
-                    ToolPurple
+                    AbColors.Purple
                 },
                 fontWeight = FontWeight.Bold,
             )
@@ -1136,9 +1108,9 @@ class ToolsActivity : ComponentActivity() {
                     color = if (step.status ==
                         "Ошибка"
                     ) {
-                        ToolWarn
+                        AbColors.Peach
                     } else {
-                        ToolMuted
+                        AbColors.Muted
                     },
                     fontSize = 12.sp,
                 )
@@ -1168,24 +1140,24 @@ class ToolsActivity : ComponentActivity() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text("Подключим к вашей сети", fontSize = 28.sp, fontWeight = FontWeight.Bold)
-            if (disabledReason.isNotBlank())Text(disabledReason, color = ToolWarn, lineHeight = 22.sp)
+            if (disabledReason.isNotBlank())Text(disabledReason, color = AbColors.Peach, lineHeight = 22.sp)
             if (state.session?.modelId == "mini3" &&
                 !state.tools.sshReady
             ) {
                 Text(
                     "Мини 3: перед сменой сети рекомендуется установить SSH. После возврата к обычному DNS конфигурация Яндекса может отключить ADB; SSH останется отдельным способом доступа.",
-                    color = ToolWarn,
+                    color = AbColors.Peach,
                     lineHeight = 22.sp,
                 )
             }
             Text(
                 "Выберите обычную сеть 2,4 ГГц. Сеть сохранит AliceBridge Agent: после подключения проверим ту же колонку по ADB и только затем отключим точку телефона. Если подтверждения не будет, служба вернёт прежнюю сеть.",
-                color = ToolMuted,
+                color = AbColors.Muted,
             )
             if (!state.tools.agentReady) {
                 Text(
                     "Сначала установите AliceBridge Agent в панели колонки. Для уже настроенной Алисы это отдельная кнопка «Служба колонки».",
-                    color = ToolWarn,
+                    color = AbColors.Peach,
                     lineHeight = 22.sp,
                 )
             }
@@ -1194,7 +1166,7 @@ class ToolsActivity : ComponentActivity() {
             ) {
                 Text(
                     "Защита OTA и постоянный ADB ещё не подтверждены. Смена сети доступна по root, но после неё доступ к колонке может потеряться. Рекомендуем сначала исправить обязательные шаги; подробности — в панели управления.",
-                    color = ToolWarn,
+                    color = AbColors.Peach,
                     lineHeight = 22.sp,
                 )
             }
@@ -1253,8 +1225,8 @@ class ToolsActivity : ComponentActivity() {
                 }, enabled = enabled) { Text("Подставить сеть телефона") }
             }
             if (state.tools.error.isNotBlank())ErrorCard(state.tools.error)
-            if (notice.isNotBlank())Text(notice, color = ToolMuted)
-            if (state.tools.homeWifiStatus.isNotBlank())Text(state.tools.homeWifiStatus, color = ToolPurple)
+            if (notice.isNotBlank())Text(notice, color = AbColors.Muted)
+            if (state.tools.homeWifiStatus.isNotBlank())Text(state.tools.homeWifiStatus, color = AbColors.Purple)
             Button(
                 onClick = { connect(ssid, password) },
                 enabled =
@@ -1269,7 +1241,7 @@ class ToolsActivity : ComponentActivity() {
             if (state.tools.homeWifiPending) {
                 Text(
                     "Оставьте приложение открытым. Телефон должен быть в домашней сети. Если поиск затянулся, проверьте сеть и перезапустите AliceBridge — сохраним последний адрес и продолжим поиск.",
-                    color = ToolMuted,
+                    color = AbColors.Muted,
                 )
             }
         }
@@ -1293,14 +1265,14 @@ class ToolsActivity : ComponentActivity() {
         }
 
     @Composable private fun Tile(content: @Composable ColumnScope.() -> Unit) {
-        Surface(color = ToolPanel, shape = RoundedCornerShape(20.dp), modifier = Modifier.fillMaxWidth()) {
+        Surface(color = AbColors.Panel, shape = RoundedCornerShape(20.dp), modifier = Modifier.fillMaxWidth()) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp), content = content)
         }
     }
 
     @Composable private fun SelectionContainerText(value: String) {
         androidx.compose.foundation.text.selection.SelectionContainer {
-            Text(value, color = ToolMuted, fontSize = 13.sp, lineHeight = 18.sp)
+            Text(value, color = AbColors.Muted, fontSize = 13.sp, lineHeight = 18.sp)
         }
     }
 }

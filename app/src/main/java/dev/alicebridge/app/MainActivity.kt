@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,13 +35,11 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
@@ -51,7 +48,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -63,8 +59,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -72,6 +66,14 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
+import dev.alicebridge.app.ui.components.Action
+import dev.alicebridge.app.ui.components.CardBox
+import dev.alicebridge.app.ui.components.CopyRow
+import dev.alicebridge.app.ui.components.Eyebrow
+import dev.alicebridge.app.ui.components.Heading
+import dev.alicebridge.app.ui.components.MethodCard
+import dev.alicebridge.app.ui.theme.AbColors
+import dev.alicebridge.app.ui.theme.AliceBridgeTheme
 import dev.alicebridge.bridge.RootShell
 import dev.alicebridge.domain.ConnectionMethod
 import dev.alicebridge.domain.PhoneRootProgress
@@ -91,13 +93,6 @@ import java.io.File
 import java.util.UUID
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
-
-private val Ink = Color(0xff090d17)
-private val Panel = Color(0xff151a2a)
-private val Purple = Color(0xffb6a1ff)
-private val Muted = Color(0xff9bA2b8)
-private val Green = Color(0xff87dbc0)
-private val Peach = Color(0xffffbd9e)
 
 data class StationModel(
     val id: String,
@@ -170,19 +165,7 @@ class MainActivity : ComponentActivity() {
         window.navigationBarColor = android.graphics.Color.rgb(9, 13, 23)
         if (Build.VERSION.SDK_INT >= 33) requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1)
         setContent {
-            MaterialTheme(
-                colorScheme = darkColorScheme(
-                    primary = Purple,
-                    background = Ink,
-                    surface = Panel,
-                    onPrimary = Ink,
-                    onBackground = Color(0xfff2f0fb),
-                    onSurface = Color(0xfff2f0fb),
-                    outline = Color(0xff41465b),
-                ),
-            ) {
-                Surface(Modifier.fillMaxSize(), color = Ink) { App() }
-            }
+            AliceBridgeTheme { App() }
         }
     }
     override fun onStart() {
@@ -196,6 +179,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable private fun App() {
         val state by repository.state.collectAsStateWithLifecycle()
+        val onCopy = remember { { text: String -> copy(text) } }
         var page by rememberSaveable { mutableStateOf("home") }
         var selectedId by rememberSaveable { mutableStateOf("") }
         var method by rememberSaveable(key = "explicit-method-choice-v2") { mutableStateOf<ConnectionMethod?>(null) }
@@ -420,7 +404,7 @@ class MainActivity : ComponentActivity() {
                                 else -> "home"
                             }
                     }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = Purple)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Назад", tint = AbColors.Purple)
                     }
                 }
                 Column(Modifier.weight(1f)) {
@@ -443,13 +427,17 @@ class MainActivity : ComponentActivity() {
                         fontSize = 23.sp,
                         fontWeight = FontWeight.Bold,
                     )
-                    if (page == "home") Text("Версия ${BuildConfig.VERSION_NAME}", color = Muted, fontSize = 12.sp)
+                    if (page ==
+                        "home"
+                    ) {
+                        Text("Версия ${BuildConfig.VERSION_NAME}", color = AbColors.Muted, fontSize = 12.sp)
+                    }
                 }
                 if (page == "home") {
                     TextButton(onClick = { page = "journal" }) { Text("Журнал") }
                     IconButton(onClick = {
                         page = "settings"
-                    }) { Icon(Icons.Default.Settings, "Настройки", tint = Purple) }
+                    }) { Icon(Icons.Default.Settings, "Настройки", tint = AbColors.Purple) }
                 }
             }
             val contentScroll = rememberScrollState()
@@ -471,7 +459,7 @@ class MainActivity : ComponentActivity() {
                                     } else {
                                         "Нужна ваша помощь"
                                     },
-                                    color = Peach,
+                                    color = AbColors.Peach,
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
@@ -492,31 +480,36 @@ class MainActivity : ComponentActivity() {
                                         state.error,
                                         chip.contains("mediatek") || chip.contains("mtk"),
                                     )
-                                    Text(advice.title, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Purple)
-                                    Text(advice.detail, color = Muted, lineHeight = 22.sp)
+                                    Text(
+                                        advice.title,
+                                        fontSize = 18.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = AbColors.Purple,
+                                    )
+                                    Text(advice.detail, color = AbColors.Muted, lineHeight = 22.sp)
                                     Text("Другие варианты Shizuku", fontSize = 18.sp, fontWeight = FontWeight.Bold)
                                     Text(
                                         "Сначала откройте установленный менеджер, перезапустите его службу и проверьте, что AliceBridge разрешён доступ. Затем повторите подготовку здесь.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                         lineHeight = 20.sp,
                                     )
                                     Text(
                                         "Если ошибка повторяется, можно попробовать другой вариант Shizuku. У разных сборок отличаются исправления и поведение на оболочках Android: один менеджер может не запускать нужную сетевую службу, а другой — работать на том же телефоне. Ссылки ниже открывают страницы скачивания.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                         lineHeight = 20.sp,
                                     )
                                     Text(
                                         "Как сменить менеджер:\n1. Остановите службу в прежнем менеджере.\n2. Установите выбранный вариант и запустите его службу по инструкции менеджера.\n3. Заново разрешите AliceBridge доступ.\n4. Вернитесь сюда и нажмите «Повторить подготовку Shizuku». Одновременно должна работать одна служба.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                         lineHeight = 20.sp,
                                     )
                                     if (!advice.offerForks) {
                                         Text(
                                             "Сначала проверьте причину выше: смена менеджера не гарантирует исправление DNS или сервера.",
-                                            color = Peach,
+                                            color = AbColors.Peach,
                                             fontSize = 13.sp,
                                         )
                                     }
@@ -542,7 +535,7 @@ class MainActivity : ComponentActivity() {
                             Heading("Ваша Алиса.\nВаши возможности.")
                             Text(
                                 "Выберите точную модель. Покажем сброс настроек, подготовим телефон и будем следить за запросами колонки.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 lineHeight = 24.sp,
                             )
                             Action("Начать настройку") { page = "models" }
@@ -557,13 +550,13 @@ class MainActivity : ComponentActivity() {
                                 )
                                 Text(
                                     "Сначала проверим последний адрес ADB. Если колонка уже доступна, сразу продолжим с её состояния. Иначе восстановим прежнюю точку — без повторного сброса.",
-                                    color = Muted,
+                                    color = AbColors.Muted,
                                     lineHeight = 23.sp,
                                 )
                                 if (state.session!!.currentVersion.isNotBlank()) {
                                     Text(
                                         "Последняя версия: ${state.session!!.currentVersion}",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                     )
                                 }
@@ -584,7 +577,7 @@ class MainActivity : ComponentActivity() {
                             }
                             Text(
                                 "Колонка уже настроена и ADB включён? Подключите телефон к той же Wi-Fi сети — найдём её без сброса и точки доступа.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 fontSize = 13.sp,
                             )
                         }
@@ -595,11 +588,12 @@ class MainActivity : ComponentActivity() {
                                     CopyRow(
                                         if (state.session!!.adbVerified) "IP колонки" else "Последний IP колонки",
                                         stationAddress,
+                                        onCopy,
                                     )
                                     if (!state.session!!.adbVerified) {
                                         Text(
                                             "Проверяем связь. После перезагрузки адрес может измениться.",
-                                            color = Muted,
+                                            color = AbColors.Muted,
                                             fontSize = 13.sp,
                                         )
                                     }
@@ -607,7 +601,7 @@ class MainActivity : ComponentActivity() {
                             } else if (state.candidates.isNotEmpty()) {
                                 CardBox {
                                     state.candidates.forEach { ip ->
-                                        CopyRow("Найдено устройство · проверяем Алису", ip)
+                                        CopyRow("Найдено устройство · проверяем Алису", ip, onCopy)
                                     }
                                 }
                             }
@@ -630,11 +624,21 @@ class MainActivity : ComponentActivity() {
                                     },
                             )
                             CardBox {
-                                Text("ЧТО ПРОИСХОДИТ СЕЙЧАС", color = Purple, fontSize = 12.sp, letterSpacing = 1.sp)
+                                Text(
+                                    "ЧТО ПРОИСХОДИТ СЕЙЧАС",
+                                    color = AbColors.Purple,
+                                    fontSize = 12.sp,
+                                    letterSpacing = 1.sp,
+                                )
                                 if (!state.directMode &&
                                     (state.busy || state.phoneRoot.stage == PhoneRootStage.WAITING_PERMISSION)
                                 ) {
-                                    if (state.busy) LinearProgressIndicator(Modifier.fillMaxWidth(), color = Purple)
+                                    if (state.busy) {
+                                        LinearProgressIndicator(
+                                            Modifier.fillMaxWidth(),
+                                            color = AbColors.Purple,
+                                        )
+                                    }
                                     val gate = state.startupGate
                                     if (state.session?.method == ConnectionMethod.DFROOT) {
                                         (
@@ -655,7 +659,7 @@ class MainActivity : ComponentActivity() {
                                                 Modifier.fillMaxWidth(),
                                                 horizontalArrangement = Arrangement.SpaceBetween,
                                             ) {
-                                                Text(name, color = Muted, fontSize = 13.sp)
+                                                Text(name, color = AbColors.Muted, fontSize = 13.sp)
                                                 Text(
                                                     if (result ==
                                                         ProbeResult.PASSED
@@ -667,9 +671,9 @@ class MainActivity : ComponentActivity() {
                                                     color = if (result ==
                                                         ProbeResult.PASSED
                                                     ) {
-                                                        Green
+                                                        AbColors.Green
                                                     } else {
-                                                        Muted
+                                                        AbColors.Muted
                                                     },
                                                     fontSize = 13.sp,
                                                 )
@@ -684,7 +688,7 @@ class MainActivity : ComponentActivity() {
                                         "Статус через DNS" to gate.feedback,
                                     ).forEach { (name, result) ->
                                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                            Text(name, color = Muted, fontSize = 13.sp)
+                                            Text(name, color = AbColors.Muted, fontSize = 13.sp)
                                             Text(
                                                 if (result ==
                                                     ProbeResult.PASSED
@@ -696,9 +700,9 @@ class MainActivity : ComponentActivity() {
                                                 color = if (result ==
                                                     ProbeResult.PASSED
                                                 ) {
-                                                    Green
+                                                    AbColors.Green
                                                 } else {
-                                                    Muted
+                                                    AbColors.Muted
                                                 },
                                                 fontSize = 13.sp,
                                             )
@@ -733,30 +737,30 @@ class MainActivity : ComponentActivity() {
                                                 )
                                             }
                                     },
-                                    color = Muted,
+                                    color = AbColors.Muted,
                                     lineHeight = 23.sp,
                                 )
                                 if (s.totalBytes > 0) {
                                     LinearProgressIndicator(progress = {
                                         (s.transferredBytes.toFloat() / s.totalBytes).coerceIn(0f, 1f)
-                                    }, modifier = Modifier.fillMaxWidth(), color = Purple)
+                                    }, modifier = Modifier.fillMaxWidth(), color = AbColors.Purple)
                                     Text(
                                         "Передача файла: ${s.transferredBytes * 100 / s.totalBytes}% · установка подтверждается отдельно",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                     )
                                 }
                                 if (s.currentVersion.isNotBlank()) {
                                     Text(
                                         "Полученная версия: ${s.currentVersion}",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                     )
                                 }
                                 if (s.targetVersion.isNotBlank()) {
                                     Text(
                                         "Целевая версия: ${s.targetVersion}",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 13.sp,
                                     )
                                 }
@@ -766,9 +770,9 @@ class MainActivity : ComponentActivity() {
                                         color = if (state.backendStatus in
                                             listOf("ambiguous", "stale", "unreachable", "tls_error")
                                         ) {
-                                            Peach
+                                            AbColors.Peach
                                         } else {
-                                            Muted
+                                            AbColors.Muted
                                         },
                                         fontSize = 13.sp,
                                     )
@@ -783,7 +787,7 @@ class MainActivity : ComponentActivity() {
                                     )
                                     Text(
                                         "Суперпользователи → AliceBridge → разрешить. После возврата проверим права автоматически. Точка до подтверждения UID 0 не запускается.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         lineHeight = 23.sp,
                                     )
                                     Action("Открыть выбранный KernelSU") {
@@ -801,7 +805,7 @@ class MainActivity : ComponentActivity() {
                                     Text("Нашли несколько устройств ADB", fontWeight = FontWeight.Bold)
                                     Text(
                                         "Выберите нужную колонку. Автоматически переключаться между ними не будем.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                     )
                                     state.candidates.forEach { ip ->
                                         TextButton(onClick = { service("SELECT", ip) }) { Text(ip) }
@@ -810,19 +814,25 @@ class MainActivity : ComponentActivity() {
                             }
                             if (state.session?.adbVerified == true) {
                                 CardBox {
-                                    Text("ПАНЕЛЬ КОЛОНКИ", color = Purple, fontSize = 12.sp)
+                                    Text("ПАНЕЛЬ КОЛОНКИ", color = AbColors.Purple, fontSize = 12.sp)
                                     Text(
                                         if (state.session!!.adbRoot) {
                                             "Root подтверждён · uid=0"
                                         } else {
                                             "ADB подтверждён · root пока не подтверждён"
                                         },
-                                        color = Green,
+                                        color = AbColors.Green,
                                     )
                                     state.stationInfo.filterKeys {
                                         it in listOf("VERSION", "KERNEL", "DISK")
                                     }.forEach { (key, value) ->
-                                        if (value.isNotBlank()) Text("$key\n$value", color = Muted, fontSize = 13.sp)
+                                        if (value.isNotBlank()) {
+                                            Text(
+                                                "$key\n$value",
+                                                color = AbColors.Muted,
+                                                fontSize = 13.sp,
+                                            )
+                                        }
                                     }
                                     state.tools.steps.forEach { step ->
                                         Text(
@@ -830,22 +840,22 @@ class MainActivity : ComponentActivity() {
                                             color = if (step.status ==
                                                 "Ошибка"
                                             ) {
-                                                Peach
+                                                AbColors.Peach
                                             } else if (step.status ==
                                                 "Готово"
                                             ) {
-                                                Green
+                                                AbColors.Green
                                             } else {
-                                                Muted
+                                                AbColors.Muted
                                             },
                                             fontSize = 13.sp,
                                         )
                                     }
                                     if (state.tools.busy) {
                                         LinearProgressIndicator(Modifier.fillMaxWidth())
-                                        Text(state.tools.operation, color = Purple)
+                                        Text(state.tools.operation, color = AbColors.Purple)
                                     }
-                                    if (state.tools.error.isNotBlank()) Text(state.tools.error, color = Peach)
+                                    if (state.tools.error.isNotBlank()) Text(state.tools.error, color = AbColors.Peach)
                                     val access = ToolAccessPolicy.of(
                                         true,
                                         state.session?.adbRoot == true,
@@ -865,7 +875,7 @@ class MainActivity : ComponentActivity() {
                                     if (access.wifiDisabledReason.isNotBlank()) {
                                         Text(
                                             access.wifiDisabledReason,
-                                            color = Peach,
+                                            color = AbColors.Peach,
                                             fontSize = 13.sp,
                                             lineHeight = 20.sp,
                                         )
@@ -873,7 +883,7 @@ class MainActivity : ComponentActivity() {
                                     if (access.mutationDisabledReason.isNotBlank()) {
                                         Text(
                                             access.mutationDisabledReason,
-                                            color = Peach,
+                                            color = AbColors.Peach,
                                             fontSize = 13.sp,
                                             lineHeight = 20.sp,
                                         )
@@ -881,7 +891,7 @@ class MainActivity : ComponentActivity() {
                                     if (state.tools.busy) {
                                         Text(
                                             "Дождитесь завершения текущей операции на колонке.",
-                                            color = Muted,
+                                            color = AbColors.Muted,
                                             fontSize = 13.sp,
                                         )
                                     }
@@ -906,7 +916,7 @@ class MainActivity : ComponentActivity() {
                                     )
                                     Text(
                                         "Продолжаем проверять ADB. Если колонка ждёт прежнюю сеть AliceBridge, восстановите точку.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         lineHeight = 23.sp,
                                     )
                                     Action("Восстановить точку доступа") { service("RESTORE_NETWORK") }
@@ -914,12 +924,12 @@ class MainActivity : ComponentActivity() {
                             }
                             if (state.hotspotReady && state.session?.adbVerified != true) {
                                 CardBox {
-                                    Text("СЕТЬ ДЛЯ АЛИСЫ", color = Muted, fontSize = 12.sp)
-                                    CopyRow("Название", state.session!!.ssid)
-                                    CopyRow("Пароль", state.session!!.password)
+                                    Text("СЕТЬ ДЛЯ АЛИСЫ", color = AbColors.Muted, fontSize = 12.sp)
+                                    CopyRow("Название", state.session!!.ssid, onCopy)
+                                    CopyRow("Пароль", state.session!!.password, onCopy)
                                     Text(
                                         "2,4 ГГц · ${if (state.session!!.legacyWpa) "WPA/WPA2" else "WPA2"}",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 12.sp,
                                     )
                                     TextButton(onClick = {
@@ -930,7 +940,7 @@ class MainActivity : ComponentActivity() {
                                     if (passwordNote.isNotBlank()) {
                                         Text(
                                             passwordNote,
-                                            color = Peach,
+                                            color = AbColors.Peach,
                                             fontSize = 13.sp,
                                             lineHeight = 20.sp,
                                         )
@@ -956,7 +966,7 @@ class MainActivity : ComponentActivity() {
                                                 )
                                                 Text(
                                                     "8–63 печатных символа. Пароль не попадает в журнал.",
-                                                    color = Muted,
+                                                    color = AbColors.Muted,
                                                     fontSize = 13.sp,
                                                 )
                                             }
@@ -1023,14 +1033,14 @@ class MainActivity : ComponentActivity() {
                                 }
                                 Text(
                                     "Перед открытием принудительно перезапустим «Дом с Алисой», чтобы избежать зависшего подключения Bluetooth.",
-                                    color = Muted,
+                                    color = AbColors.Muted,
                                     fontSize = 13.sp,
                                     lineHeight = 20.sp,
                                 )
                             }
                             TextButton(onClick = {
                                 service("STOP")
-                            }) { Text("Остановить сеанс и точку", color = Muted) }
+                            }) { Text("Остановить сеанс и точку", color = AbColors.Muted) }
                         }
                     }
                     "models", "find-models" -> {
@@ -1040,13 +1050,13 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(
                                 "Выберите модель настроенной колонки. Проверим доступные адреса ADB в текущей Wi-Fi сети; сбрасывать Алису не нужно.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 lineHeight = 23.sp,
                             )
                         } else {
                             Text(
                                 "Поколения используют разные прошивки и способы настройки. Модель можно посмотреть на наклейке снизу или в «Доме с Алисой».",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 lineHeight = 23.sp,
                             )
                         }
@@ -1065,7 +1075,7 @@ class MainActivity : ComponentActivity() {
                                     }
                                 },
                                 colors = CardDefaults.outlinedCardColors(
-                                    containerColor = Panel,
+                                    containerColor = AbColors.Panel,
                                 ),
                                 shape = RoundedCornerShape(22.dp),
                                 modifier = Modifier.fillMaxWidth(),
@@ -1076,7 +1086,7 @@ class MainActivity : ComponentActivity() {
                                         model.platform.ifBlank {
                                             "Профиль требует дополнительного подтверждения"
                                         },
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 12.sp,
                                     )
                                 }
@@ -1088,7 +1098,7 @@ class MainActivity : ComponentActivity() {
                         Heading("Найдём вашу Алису")
                         Text(
                             "Телефон и колонка должны быть подключены к одной Wi-Fi сети. На колонке уже должен быть включён ADB. Сброс и точка доступа не нужны.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         Action("Найти в сети") { findExisting(selected) }
@@ -1096,7 +1106,7 @@ class MainActivity : ComponentActivity() {
                             Text("Подключиться вручную", fontSize = 19.sp, fontWeight = FontWeight.SemiBold)
                             Text(
                                 "Если знаете IP колонки, укажите его здесь. Проверим ADB на порту 5555 и соответствие выбранной модели.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 fontSize = 13.sp,
                             )
                             OutlinedTextField(value = manualAdbAddress, onValueChange = {
@@ -1114,13 +1124,18 @@ class MainActivity : ComponentActivity() {
                         Heading("Сбросим настройки")
                         Text(
                             "Начните со сброса колонки. Если вы восстанавливаете прерванный сеанс, вернитесь на главную и нажмите «Продолжить».",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         CardBox {
                             selected.steps.forEachIndexed { i, text ->
                                 Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-                                    Text("${i + 1}", color = Purple, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                                    Text(
+                                        "${i + 1}",
+                                        color = AbColors.Purple,
+                                        fontSize = 22.sp,
+                                        fontWeight = FontWeight.Bold,
+                                    )
                                     Text(text, Modifier.weight(1f), lineHeight = 24.sp)
                                 }
                             }
@@ -1131,7 +1146,7 @@ class MainActivity : ComponentActivity() {
                                     "Factory → retail CA",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Purple,
+                                    color = AbColors.Purple,
                                 )
                                 Text(
                                     if (selected.id ==
@@ -1141,14 +1156,14 @@ class MainActivity : ComponentActivity() {
                                     } else {
                                         "Без отката прошивки: из factory заменим только CA-бандл обычной системы. Затем колонка перезагрузится, а приложение проверит root ADB."
                                     },
-                                    color = Muted,
+                                    color = AbColors.Muted,
                                     lineHeight = 22.sp,
                                 )
                             }
                         }
                         Text(
                             "Пока не подключайте колонку к домашней сети. После подготовки телефона добавим её в «Доме с Алисой» на этом же смартфоне.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         TextButton(onClick = { openUrl(selected.source) }) { Text("Инструкция производителя") }
@@ -1157,7 +1172,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(
                                 "Макс: метод root рассчитан на первую модель без Zigbee YNDX-0008 и определённую прошивку. Доступность дополнительных установщиков зависит от модели; неподдерживаемые действия не запускаются.",
-                                color = Peach,
+                                color = AbColors.Peach,
                             )
                         }
                         Action("Колонка сброшена · дальше") { page = "prepare" }
@@ -1183,13 +1198,13 @@ class MainActivity : ComponentActivity() {
                                 CardBox {
                                     Text(
                                         "Root уже готов",
-                                        color = Green,
+                                        color = AbColors.Green,
                                         fontSize = 20.sp,
                                         fontWeight = FontWeight.Bold,
                                     )
                                     Text(
                                         "AliceBridge получил UID 0 через ваш менеджер root. Устанавливать KernelSU и запускать DFRoot не нужно — можно сразу подготовить точку доступа.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         lineHeight = 22.sp,
                                     )
                                 }
@@ -1209,7 +1224,7 @@ class MainActivity : ComponentActivity() {
                                     if (managersLoading) {
                                         LinearProgressIndicator(
                                             Modifier.fillMaxWidth(),
-                                            color = Purple,
+                                            color = AbColors.Purple,
                                         )
                                     }
                                     if (!managersLoading &&
@@ -1217,7 +1232,7 @@ class MainActivity : ComponentActivity() {
                                     ) {
                                         Text(
                                             "KernelSU не установлен. Скачайте APK по ссылке, установите и вернитесь сюда. Без установленного менеджера запуск закрыт.",
-                                            color = Peach,
+                                            color = AbColors.Peach,
                                         )
                                     }
                                     managers.forEach { manager ->
@@ -1240,13 +1255,13 @@ class MainActivity : ComponentActivity() {
                                     }) { Text("Проверить установленный KernelSU") }
                                     Text(
                                         "DFRoot уже встроен. После выбора менеджера приложение само запустит его и проверит полученные права.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 14.sp,
                                         lineHeight = 22.sp,
                                     )
                                     Text(
                                         "После DFRoot: KernelSU → Суперпользователи → разрешить AliceBridge. Для завершения работы временного root перезагрузите телефон после настройки колонки.",
-                                        color = Muted,
+                                        color = AbColors.Muted,
                                         fontSize = 14.sp,
                                         lineHeight = 22.sp,
                                     )
@@ -1270,7 +1285,7 @@ class MainActivity : ComponentActivity() {
                                 page = "guide"
                             }) { Text("Особенности телефона и помощь с запуском") }
                         }
-                        if (state.running) Text("Сначала остановите текущий сеанс на главной.", color = Peach)
+                        if (state.running) Text("Сначала остановите текущий сеанс на главной.", color = AbColors.Peach)
                         val managerReady = !managersLoading && managers.any { it.packageName == chosenKsu }
                         val canStart = !state.running &&
                             selected.platform.isNotBlank() &&
@@ -1331,7 +1346,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Text(
                                 "Сначала подтвердим права выбранного способа, затем поднимем точку и проверим DNS. До завершения проверок подключать колонку не нужно.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 fontSize = 13.sp,
                             )
                         }
@@ -1340,7 +1355,7 @@ class MainActivity : ComponentActivity() {
                         Heading("Подключим Shizuku")
                         Text(
                             "Выполните шаги по порядку. Статусы службы и разрешения обновляются автоматически.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         ShizukuSteps(
@@ -1354,11 +1369,11 @@ class MainActivity : ComponentActivity() {
                             Text("Для вашего телефона", fontWeight = FontWeight.Bold, fontSize = 19.sp)
                             Text(
                                 "${Build.MANUFACTURER} ${Build.MODEL} · Android ${Build.VERSION.RELEASE}",
-                                color = Purple,
+                                color = AbColors.Purple,
                                 fontSize = 13.sp,
                             )
                             PhoneGuide.tips().forEach { tip ->
-                                Text(tip, color = Muted, lineHeight = 22.sp, fontSize = 14.sp)
+                                Text(tip, color = AbColors.Muted, lineHeight = 22.sp, fontSize = 14.sp)
                             }
                             TextButton(onClick = {
                                 openUrl("https://shizuku.rikka.app/guide/setup/")
@@ -1399,7 +1414,7 @@ class MainActivity : ComponentActivity() {
                             )
                             Text(
                                 "На MediaTek у Shizuku 13.6.0 известен сбой UserService. У thedjchi есть исправление, Next продолжает эту ветку. Форк может помочь с запуском службы, но не гарантирует исправление DNS.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 lineHeight = 23.sp,
                             )
                             TextButton(onClick = {
@@ -1410,7 +1425,7 @@ class MainActivity : ComponentActivity() {
                             }) { Text("Shizuku-Next → релизы") }
                             Text(
                                 "При смене менеджера могут отличаться пакет и подпись APK. Следуйте его инструкции установки; AliceBridge не удаляет менеджеры автоматически.",
-                                color = Muted,
+                                color = AbColors.Muted,
                                 fontSize = 13.sp,
                             )
                         }
@@ -1448,7 +1463,7 @@ class MainActivity : ComponentActivity() {
                         }, label = { Text("IPv4 DNS-сервера") }, singleLine = true, modifier = Modifier.fillMaxWidth())
                         Text(
                             "По умолчанию используется публичный сервер AliceBridge. Можно указать свой DNS-сервер с совместимым backend. Изменение применяется к новому сеансу; сохранённый сеанс использует прежний сервер.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         Action("Сохранить") {
@@ -1465,7 +1480,7 @@ class MainActivity : ComponentActivity() {
                         Action("Проверить обновления") { releaseUpdates.check(manual = true) }
                         Text(
                             "Версия ${BuildConfig.VERSION_NAME}\nНастройка и управление Яндекс.Станцией с Android.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             fontSize = 13.sp,
                         )
                     }
@@ -1473,7 +1488,7 @@ class MainActivity : ComponentActivity() {
                         Heading("Диагностика без шума")
                         Text(
                             "На экране — изменения состояния, DNS-ответы и ошибки. Повторяющиеся сообщения ADB скрыты. Экспорт включает технический журнал с фильтрацией секретов.",
-                            color = Muted,
+                            color = AbColors.Muted,
                             lineHeight = 23.sp,
                         )
                         Action("Поделиться диагностикой") {
@@ -1488,7 +1503,7 @@ class MainActivity : ComponentActivity() {
                                 Text("Verbose · подробности запросов")
                                 Text(
                                     "DNS-пакеты и доступные ответы бэкенда. Всегда включены в экспорт.",
-                                    color = Muted,
+                                    color = AbColors.Muted,
                                     fontSize = 12.sp,
                                 )
                             }
@@ -1499,7 +1514,7 @@ class MainActivity : ComponentActivity() {
                                 verboseJournal || it.kind != "VERBOSE"
                             }.takeLast(150).asReversed().forEach { line ->
                                 Surface(
-                                    color = Panel,
+                                    color = AbColors.Panel,
                                     shape = RoundedCornerShape(12.dp),
                                     modifier = Modifier.fillMaxWidth(),
                                 ) {
@@ -1510,7 +1525,7 @@ class MainActivity : ComponentActivity() {
                                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                             Text(
                                                 "${line.time} · ${line.kind}",
-                                                color = Purple,
+                                                color = AbColors.Purple,
                                                 fontSize = 10.sp,
                                                 lineHeight = 12.sp,
                                             )
@@ -1520,7 +1535,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
                         }
-                        if (state.journal.isEmpty()) Text("Событий пока нет", color = Muted)
+                        if (state.journal.isEmpty()) Text("Событий пока нет", color = AbColors.Muted)
                     }
                 }
                 Spacer(Modifier.height(24.dp))
@@ -1558,15 +1573,15 @@ class MainActivity : ComponentActivity() {
     ) {
         Surface(
             shape = RoundedCornerShape(24.dp),
-            color = Panel,
+            color = AbColors.Panel,
             border = BorderStroke(
                 1.dp,
                 if (active &&
                     !complete
                 ) {
-                    Purple.copy(alpha = 0.65f)
+                    AbColors.Purple.copy(alpha = 0.65f)
                 } else {
-                    Color(0xff303648)
+                    AbColors.OutlineSoft
                 },
             ),
             modifier = Modifier.fillMaxWidth(),
@@ -1578,16 +1593,16 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Surface(
                         shape = CircleShape,
-                        color = (if (complete) Green else Purple).copy(alpha = 0.16f),
+                        color = (if (complete) AbColors.Green else AbColors.Purple).copy(alpha = 0.16f),
                         modifier = Modifier.size(45.dp),
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             if (complete) {
-                                Icon(Icons.Default.Check, "Шаг выполнен", tint = Green)
+                                Icon(Icons.Default.Check, "Шаг выполнен", tint = AbColors.Green)
                             } else {
                                 Text(
                                     number.toString().padStart(2, '0'),
-                                    color = Purple,
+                                    color = AbColors.Purple,
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                 )
@@ -1604,11 +1619,11 @@ class MainActivity : ComponentActivity() {
                                 "СЛЕДУЮЩИЙ ШАГ"
                             },
                             color = if (complete) {
-                                Green
+                                AbColors.Green
                             } else if (active) {
-                                Purple
+                                AbColors.Purple
                             } else {
-                                Muted
+                                AbColors.Muted
                             },
                             fontSize = 10.sp,
                             letterSpacing = 1.sp,
@@ -1630,14 +1645,14 @@ class MainActivity : ComponentActivity() {
     ) {
         if (Build.VERSION.SDK_INT < 33) {
             CardBox {
-                Text("Нужен Android 13 или новее", color = Peach, fontWeight = FontWeight.Bold)
-                Text("Для Android 12L используйте способ DFRoot.", color = Muted)
+                Text("Нужен Android 13 или новее", color = AbColors.Peach, fontWeight = FontWeight.Bold)
+                Text("Для Android 12L используйте способ DFRoot.", color = AbColors.Muted)
             }
         }
         InstructionStep(1, "Установите менеджер", installed, !installed) {
             Text(
                 "Выберите вариант для своего телефона. Если менеджер уже установлен, скачивать заново не нужно.",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 22.sp,
             )
             OutlinedButton(onClick = {
@@ -1654,12 +1669,12 @@ class MainActivity : ComponentActivity() {
         InstructionStep(2, "Запустите службу", running, installed && !running) {
             Text(
                 "На телефоне: Настройки → Для разработчиков → Беспроводная отладка. На время сопряжения подключитесь к Wi-Fi.",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 23.sp,
             )
             Text(
                 "В менеджере: выберите запуск через беспроводную отладку, выполните сопряжение с кодом, затем нажмите «Запустить».",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 23.sp,
             )
             Action(if (running) "Открыть работающий менеджер" else "Открыть менеджер") { openManager() }
@@ -1669,14 +1684,14 @@ class MainActivity : ComponentActivity() {
                 } else {
                     "Пока служба не отвечает. После запуска статус изменится сам."
                 },
-                color = if (running) Green else Peach,
+                color = if (running) AbColors.Green else AbColors.Peach,
                 fontSize = 13.sp,
             )
         }
         InstructionStep(3, "Выдайте доступ AliceBridge", allowed, running && !allowed) {
             Text(
                 "Нажмите кнопку и разрешите доступ в запросе менеджера. Если запроса нет: менеджер → Приложения → AliceBridge.",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 23.sp,
             )
             Action(
@@ -1684,13 +1699,13 @@ class MainActivity : ComponentActivity() {
                 enabled = running && !allowed,
                 onClick = request,
             )
-            if (allowed) Text("Разрешение проверено — можно готовить сеть", color = Green, fontSize = 13.sp)
+            if (allowed) Text("Разрешение проверено — можно готовить сеть", color = AbColors.Green, fontSize = 13.sp)
             if (installed &&
                 !running
             ) {
                 Text(
                     "Новый Shevery не определяется? Проверьте Settings → Application → Compatibility Stubs → Shizuku Stub. Дополнительные модули и Device Owner для AliceBridge не нужны.",
-                    color = Muted,
+                    color = AbColors.Muted,
                     fontSize = 12.sp,
                     lineHeight = 19.sp,
                 )
@@ -1699,77 +1714,22 @@ class MainActivity : ComponentActivity() {
         InstructionStep(4, "Подготовьте сеть", false, allowed) {
             Text(
                 "После допуска AliceBridge кнопка продолжения станет доступна. Приложение поднимет точку и проверит DNS по UDP/TCP и связь с сервером.",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 23.sp,
             )
             Text(
                 "С публичным сервером лучше тестировать на мобильном интернете без другого VPN. Для локального сервера телефон должен видеть Mac по сети.",
-                color = Muted,
+                color = AbColors.Muted,
                 lineHeight = 23.sp,
             )
             Text(
                 "Колонку подключаем только после сообщения «Точка готова».",
-                color = Purple,
+                color = AbColors.Purple,
                 fontWeight = FontWeight.SemiBold,
             )
         }
     }
 
-    @Composable private fun Heading(text: String) {
-        Text(text, fontSize = 33.sp, lineHeight = 39.sp, fontWeight = FontWeight.Bold)
-    }
-
-    @Composable private fun Eyebrow(text: String) {
-        Text(text, color = Purple, fontSize = 12.sp, letterSpacing = 1.4.sp)
-    }
-
-    @Composable private fun CardBox(content: @Composable ColumnScope.() -> Unit) {
-        Surface(shape = RoundedCornerShape(25.dp), color = Panel, modifier = Modifier.fillMaxWidth()) {
-            Column(Modifier.padding(22.dp), verticalArrangement = Arrangement.spacedBy(14.dp), content = content)
-        }
-    }
-
-    @Composable private fun Action(text: String, enabled: Boolean = true, onClick: () -> Unit) {
-        Button(
-            onClick,
-            enabled = enabled,
-            shape = RoundedCornerShape(21.dp),
-            modifier = Modifier.fillMaxWidth().heightIn(min = 62.dp),
-            contentPadding = PaddingValues(horizontal = 18.dp, vertical = 16.dp),
-        ) {
-            Text(text, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-        }
-    }
-
-    @Composable private fun MethodCard(title: String, description: String, selected: Boolean, onClick: () -> Unit) {
-        OutlinedCard(
-            onClick = onClick,
-            border = BorderStroke(if (selected) 2.dp else 1.dp, if (selected) Purple else Color(0xff303648)),
-            colors = CardDefaults.outlinedCardColors(containerColor = Panel),
-            shape = RoundedCornerShape(24.dp),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Row(Modifier.padding(20.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                RadioButton(selected, onClick)
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(title, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-                    Text(description, color = Muted, fontSize = 14.sp, lineHeight = 22.sp)
-                }
-            }
-        }
-    }
-
-    @Composable private fun CopyRow(label: String, value: String) {
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
-                Text(label, color = Muted, fontSize = 13.sp)
-                Text(value, fontSize = 20.sp)
-            }
-            IconButton(onClick = {
-                copy(value)
-            }) { Icon(painterResource(R.drawable.ic_copy), "Скопировать $label", tint = Purple) }
-        }
-    }
     private suspend fun shareDiagnostics() {
         try {
             val directory = File(cacheDir, "diagnostics").apply { mkdirs() }
