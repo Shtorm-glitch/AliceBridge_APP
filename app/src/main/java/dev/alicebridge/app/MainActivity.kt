@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,13 +27,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -61,12 +58,11 @@ import dev.alicebridge.app.ui.components.CardBox
 import dev.alicebridge.app.ui.components.CopyRow
 import dev.alicebridge.app.ui.components.Eyebrow
 import dev.alicebridge.app.ui.components.Heading
-import dev.alicebridge.app.ui.components.MethodCard
-import dev.alicebridge.app.ui.components.ShizukuSteps
 import dev.alicebridge.app.ui.screens.FindScreen
 import dev.alicebridge.app.ui.screens.GuideScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.screens.ModelsScreen
+import dev.alicebridge.app.ui.screens.PrepareScreen
 import dev.alicebridge.app.ui.screens.ResetScreen
 import dev.alicebridge.app.ui.screens.SettingsScreen
 import dev.alicebridge.app.ui.theme.AbColors
@@ -1077,179 +1073,62 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     "prepare" -> if (selected != null) {
-                        Eyebrow("ТЕЛЕФОН И ТОЧКА ДОСТУПА")
-                        Heading("Выберите способ")
-                        MethodCard(
-                            if (state.phoneRoot.existing) "Готовый root" else "DFRoot",
-                            if (state.phoneRoot.existing) {
-                                "Права суперпользователя уже подтверждены. DFRoot не запускается."
-                            } else {
-                                "Встроенное получение временного root телефона."
+                        PrepareScreen(
+                            model = selected,
+                            method = method,
+                            legacy = legacy,
+                            running = state.running,
+                            phoneRootExisting = state.phoneRoot.existing,
+                            phoneRootReady = state.phoneRoot.ready,
+                            managers = managers,
+                            managersLoading = managersLoading,
+                            chosenKsu = chosenKsu,
+                            shizukuInstalled = shizukuInstalled,
+                            shizukuRunning = shizukuRunning,
+                            shizukuAllowed = shizukuAllowed,
+                            shizukuReady = shizukuReady,
+                            onMethodChange = { method = it },
+                            onLegacyChange = { legacy = it },
+                            onChooseKsu = { pkg ->
+                                chosenKsu = pkg
+                                config.edit().putString("ksu", pkg).apply()
                             },
-                            method == ConnectionMethod.DFROOT,
-                        ) { method = ConnectionMethod.DFROOT }
-                        if (method == ConnectionMethod.DFROOT) {
-                            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                                Checkbox(checked = legacy, onCheckedChange = { legacy = it })
-                                Text("Поддержка WPA-1\nДля Станции первого поколения", fontSize = 14.sp)
-                            }
-                            if (state.phoneRoot.existing && state.phoneRoot.ready) {
-                                CardBox {
-                                    Text(
-                                        "Root уже готов",
-                                        color = AbColors.Green,
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    Text(
-                                        "AliceBridge получил UID 0 через ваш менеджер root. Устанавливать KernelSU и запускать DFRoot не нужно — можно сразу подготовить точку доступа.",
-                                        color = AbColors.Muted,
-                                        lineHeight = 22.sp,
-                                    )
+                            onRefreshManagers = { refreshManagers() },
+                            onRequestShizuku = onRequestShizuku,
+                            onOpenShizukuManager = onOpenShizukuManager,
+                            onOpenUrl = onOpenUrl,
+                            onOpenGuide = { page = "guide" },
+                            onStart = onStart@{
+                                val chosenMethod = method ?: return@onStart
+                                if (chosenMethod == ConnectionMethod.SHIZUKU &&
+                                    !dev.alicebridge.bridge.ShizukuNetwork.permitted()
+                                ) {
+                                    toast("Доступ Shizuku потерян. Запустите службу и разрешите AliceBridge.")
+                                    return@onStart
                                 }
-                            } else {
-                                CardBox {
-                                    Text(
-                                        "1. Установите и выберите KernelSU",
-                                        fontSize = 18.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    TextButton(onClick = {
-                                        openUrl("https://github.com/diabl0w/KernelSU/releases")
-                                    }) { Text("Samsung → скачать") }
-                                    TextButton(onClick = {
-                                        openUrl("https://github.com/tiann/KernelSU/releases")
-                                    }) { Text("Другие смартфоны → скачать") }
-                                    if (managersLoading) {
-                                        LinearProgressIndicator(
-                                            Modifier.fillMaxWidth(),
-                                            color = AbColors.Purple,
-                                        )
-                                    }
-                                    if (!managersLoading &&
-                                        managers.isEmpty()
-                                    ) {
-                                        Text(
-                                            "KernelSU не установлен. Скачайте APK по ссылке, установите и вернитесь сюда. Без установленного менеджера запуск закрыт.",
-                                            color = AbColors.Peach,
-                                        )
-                                    }
-                                    managers.forEach { manager ->
-                                        Row(
-                                            Modifier.fillMaxWidth().clickable {
-                                                chosenKsu = manager.packageName
-                                                config.edit().putString("ksu", chosenKsu).apply()
-                                            },
-                                            verticalAlignment = Alignment.CenterVertically,
-                                        ) {
-                                            RadioButton(chosenKsu == manager.packageName, onClick = {
-                                                chosenKsu = manager.packageName
-                                                config.edit().putString("ksu", chosenKsu).apply()
-                                            })
-                                            Text(manager.label)
-                                        }
-                                    }
-                                    TextButton(onClick = {
-                                        refreshManagers()
-                                    }) { Text("Проверить установленный KernelSU") }
-                                    Text(
-                                        "DFRoot уже встроен. После выбора менеджера приложение само запустит его и проверит полученные права.",
-                                        color = AbColors.Muted,
-                                        fontSize = 14.sp,
-                                        lineHeight = 22.sp,
-                                    )
-                                    Text(
-                                        "После DFRoot: KernelSU → Суперпользователи → разрешить AliceBridge. Для завершения работы временного root перезагрузите телефон после настройки колонки.",
-                                        color = AbColors.Muted,
-                                        fontSize = 14.sp,
-                                        lineHeight = 22.sp,
-                                    )
-                                }
-                            }
-                        }
-                        MethodCard(
-                            "Shizuku",
-                            "Альтернативный способ без root телефона. Требуется Android 13+ для нашего сетевого режима.",
-                            method == ConnectionMethod.SHIZUKU,
-                        ) { method = ConnectionMethod.SHIZUKU }
-                        if (method == ConnectionMethod.SHIZUKU) {
-                            ShizukuSteps(
-                                shizukuInstalled || shizukuRunning,
-                                shizukuRunning,
-                                shizukuAllowed,
-                                onRequestShizuku,
-                                onOpenShizukuManager,
-                                onOpenUrl,
-                            )
-                            TextButton(onClick = {
-                                page = "guide"
-                            }) { Text("Особенности телефона и помощь с запуском") }
-                        }
-                        if (state.running) Text("Сначала остановите текущий сеанс на главной.", color = AbColors.Peach)
-                        val managerReady = !managersLoading && managers.any { it.packageName == chosenKsu }
-                        val canStart = !state.running &&
-                            selected.platform.isNotBlank() &&
-                            method != null &&
-                            (
-                                method != ConnectionMethod.DFROOT ||
-                                    managerReady ||
-                                    state.phoneRoot.ready &&
-                                    state.phoneRoot.existing
-                                ) &&
-                            (method != ConnectionMethod.SHIZUKU || shizukuReady)
-                        Action(
-                            when {
-                                method == null -> "Сначала выберите способ"
-                                method == ConnectionMethod.DFROOT &&
-                                    state.phoneRoot.existing &&
-                                    state.phoneRoot.ready -> "Подготовить точку доступа"
-                                method == ConnectionMethod.DFROOT &&
-                                    !managerReady -> "Сначала установите и выберите KernelSU"
-                                method == ConnectionMethod.DFROOT -> "2. Получить root и продолжить"
-                                !shizukuRunning -> "Сначала запустите службу Shizuku"
-                                !shizukuAllowed -> "Сначала разрешите доступ AliceBridge"
-                                else -> "Подготовить сеть через Shizuku"
-                            },
-                            enabled = canStart,
-                        ) {
-                            val chosenMethod = method ?: return@Action
-                            if (chosenMethod == ConnectionMethod.SHIZUKU &&
-                                !dev.alicebridge.bridge.ShizukuNetwork.permitted()
-                            ) {
-                                toast("Доступ Shizuku потерян. Запустите службу и разрешите AliceBridge.")
-                                return@Action
-                            }
-                            val resolver = config.getString("resolver", "78.24.223.83").orEmpty()
-                            try {
-                                RootShell.validateIpv4(resolver)
-                                val session =
-                                    SetupSession(
+                                val resolver = config.getString("resolver", "78.24.223.83").orEmpty()
+                                try {
+                                    RootShell.validateIpv4(resolver)
+                                    val session = SetupSession(
                                         UUID.randomUUID().toString().replace("-", ""),
                                         selected.id,
                                         selected.platform,
                                         "AliceBridge",
                                         "alice-" +
-                                            java.security.SecureRandom().nextInt(1_000_000).toString().padStart(6, '0'),
+                                            java.security.SecureRandom()
+                                                .nextInt(1_000_000).toString().padStart(6, '0'),
                                         resolver,
                                         chosenMethod,
                                         legacy && chosenMethod == ConnectionMethod.DFROOT,
                                     )
-                                repository.save(session)
-                                page = "home"
-                                service("START")
-                            } catch (e: Exception) {
-                                toast(e.message ?: "Проверьте адрес DNS в настройках")
-                            }
-                        }
-                        if (method !=
-                            null
-                        ) {
-                            Text(
-                                "Сначала подтвердим права выбранного способа, затем поднимем точку и проверим DNS. До завершения проверок подключать колонку не нужно.",
-                                color = AbColors.Muted,
-                                fontSize = 13.sp,
-                            )
-                        }
+                                    repository.save(session)
+                                    page = "home"
+                                    service("START")
+                                } catch (e: Exception) {
+                                    toast(e.message ?: "Проверьте адрес DNS в настройках")
+                                }
+                            },
+                        )
                     }
                     "guide" -> {
                         val installedManagers = remember {
