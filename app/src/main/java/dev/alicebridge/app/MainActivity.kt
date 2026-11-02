@@ -23,19 +23,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -68,6 +65,7 @@ import dev.alicebridge.app.ui.components.MethodCard
 import dev.alicebridge.app.ui.components.ShizukuSteps
 import dev.alicebridge.app.ui.screens.GuideScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
+import dev.alicebridge.app.ui.screens.ModelsScreen
 import dev.alicebridge.app.ui.screens.SettingsScreen
 import dev.alicebridge.app.ui.theme.AbColors
 import dev.alicebridge.app.ui.theme.AliceBridgeTheme
@@ -1044,56 +1042,22 @@ class MainActivity : ComponentActivity() {
                             }) { Text("Остановить сеанс и точку", color = AbColors.Muted) }
                         }
                     }
-                    "models", "find-models" -> {
-                        Eyebrow("СНАЧАЛА ВЫБЕРИТЕ МОДЕЛЬ")
-                        if (page ==
-                            "find-models"
-                        ) {
-                            Text(
-                                "Выберите модель настроенной колонки. Проверим доступные адреса ADB в текущей Wi-Fi сети; сбрасывать Алису не нужно.",
-                                color = AbColors.Muted,
-                                lineHeight = 23.sp,
-                            )
-                        } else {
-                            Text(
-                                "Поколения используют разные прошивки и способы настройки. Модель можно посмотреть на наклейке снизу или в «Доме с Алисой».",
-                                color = AbColors.Muted,
-                                lineHeight = 23.sp,
-                            )
-                        }
-                        catalog.forEach { model ->
-                            OutlinedCard(
-                                onClick = {
-                                    if (page == "find-models") {
-                                        selectedId = model.id
-                                        manualAdbAddress = ""
-                                        page = "find"
-                                    } else {
-                                        selectedId = model.id
-                                        method = null
-                                        legacy = false
-                                        page = "reset"
-                                    }
-                                },
-                                colors = CardDefaults.outlinedCardColors(
-                                    containerColor = AbColors.Panel,
-                                ),
-                                shape = RoundedCornerShape(22.dp),
-                                modifier = Modifier.fillMaxWidth(),
-                            ) {
-                                Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                                    Text(model.name, fontSize = 19.sp, fontWeight = FontWeight.SemiBold)
-                                    Text(
-                                        model.platform.ifBlank {
-                                            "Профиль требует дополнительного подтверждения"
-                                        },
-                                        color = AbColors.Muted,
-                                        fontSize = 12.sp,
-                                    )
-                                }
+                    "models", "find-models" -> ModelsScreen(
+                        catalog = catalog,
+                        isFindFlow = page == "find-models",
+                        onSelect = { model ->
+                            if (page == "find-models") {
+                                selectedId = model.id
+                                manualAdbAddress = ""
+                                page = "find"
+                            } else {
+                                selectedId = model.id
+                                method = null
+                                legacy = false
+                                page = "reset"
                             }
-                        }
-                    }
+                        },
+                    )
                     "find" -> if (selected != null) {
                         Eyebrow(selected.name.uppercase())
                         Heading("Найдём вашу Алису")
