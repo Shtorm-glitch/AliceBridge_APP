@@ -67,6 +67,7 @@ import dev.alicebridge.app.ui.screens.FindScreen
 import dev.alicebridge.app.ui.screens.GuideScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.screens.ModelsScreen
+import dev.alicebridge.app.ui.screens.ResetScreen
 import dev.alicebridge.app.ui.screens.SettingsScreen
 import dev.alicebridge.app.ui.theme.AbColors
 import dev.alicebridge.app.ui.theme.AliceBridgeTheme
@@ -1069,62 +1070,11 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     "reset" -> if (selected != null) {
-                        Eyebrow(selected.name.uppercase())
-                        Heading("Сбросим настройки")
-                        Text(
-                            "Начните со сброса колонки. Если вы восстанавливаете прерванный сеанс, вернитесь на главную и нажмите «Продолжить».",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
+                        ResetScreen(
+                            model = selected,
+                            onOpenUrl = onOpenUrl,
+                            onContinue = { page = "prepare" },
                         )
-                        CardBox {
-                            selected.steps.forEachIndexed { i, text ->
-                                Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-                                    Text(
-                                        "${i + 1}",
-                                        color = AbColors.Purple,
-                                        fontSize = 22.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    Text(text, Modifier.weight(1f), lineHeight = 24.sp)
-                                }
-                            }
-                        }
-                        if (selected.id in setOf("lite2", "mini3")) {
-                            CardBox {
-                                Text(
-                                    "Factory → retail CA",
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = AbColors.Purple,
-                                )
-                                Text(
-                                    if (selected.id ==
-                                        "mini3"
-                                    ) {
-                                        "Без отката прошивки: проверим старый factory-образ, добавим AAA в CA обычной системы, сохраним маркеры ADB и Wi-Fi. Если recovery обновлён до .50, этот способ не подойдёт."
-                                    } else {
-                                        "Без отката прошивки: из factory заменим только CA-бандл обычной системы. Затем колонка перезагрузится, а приложение проверит root ADB."
-                                    },
-                                    color = AbColors.Muted,
-                                    lineHeight = 22.sp,
-                                )
-                            }
-                        }
-                        Text(
-                            "Пока не подключайте колонку к домашней сети. После подготовки телефона добавим её в «Доме с Алисой» на этом же смартфоне.",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
-                        )
-                        TextButton(onClick = { openUrl(selected.source) }) { Text("Инструкция производителя") }
-                        if (selected.id ==
-                            "max"
-                        ) {
-                            Text(
-                                "Макс: метод root рассчитан на первую модель без Zigbee YNDX-0008 и определённую прошивку. Доступность дополнительных установщиков зависит от модели; неподдерживаемые действия не запускаются.",
-                                color = AbColors.Peach,
-                            )
-                        }
-                        Action("Колонка сброшена · дальше") { page = "prepare" }
                     }
                     "prepare" -> if (selected != null) {
                         Eyebrow("ТЕЛЕФОН И ТОЧКА ДОСТУПА")
