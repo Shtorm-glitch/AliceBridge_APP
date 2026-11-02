@@ -55,7 +55,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -66,6 +65,8 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.alicebridge.app.setup.SetupViewModel
 import dev.alicebridge.app.ui.components.Action
 import dev.alicebridge.app.ui.components.CardBox
 import dev.alicebridge.app.ui.components.CopyRow
@@ -178,13 +179,14 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable private fun App() {
+        val vm: SetupViewModel = viewModel(factory = SetupViewModel.Factory)
         val state by repository.state.collectAsStateWithLifecycle()
         val onCopy = remember { { text: String -> copy(text) } }
-        var page by rememberSaveable { mutableStateOf("home") }
-        var selectedId by rememberSaveable { mutableStateOf("") }
-        var method by rememberSaveable(key = "explicit-method-choice-v2") { mutableStateOf<ConnectionMethod?>(null) }
-        var manualAdbAddress by rememberSaveable { mutableStateOf("") }
-        var legacy by rememberSaveable { mutableStateOf(false) }
+        var page by vm.pageState
+        var selectedId by vm.selectedIdState
+        var method by vm.methodState
+        var manualAdbAddress by vm.manualAdbAddressState
+        var legacy by vm.legacyState
         var passwordEditor by remember { mutableStateOf(false) }
         var passwordDraft by remember { mutableStateOf("") }
         var passwordApply by remember { mutableStateOf(false) }
@@ -267,10 +269,10 @@ class MainActivity : ComponentActivity() {
         LaunchedEffect(page, state.phoneRoot.existing) {
             if (page == "prepare" && state.phoneRoot.ready && state.phoneRoot.existing) method = ConnectionMethod.DFROOT
         }
-        var verboseJournal by rememberSaveable { mutableStateOf(false) }
+        var verboseJournal by vm.verboseJournalState
         var managers by remember { mutableStateOf<List<KernelSuManager>>(emptyList()) }
         var managersLoading by remember { mutableStateOf(true) }
-        var chosenKsu by rememberSaveable { mutableStateOf(config.getString("ksu", "").orEmpty()) }
+        var chosenKsu by vm.chosenKsuState
         var shizukuRunning by remember { mutableStateOf(false) }
         var shizukuInstalled by remember { mutableStateOf(false) }
         var shizukuAllowed by remember { mutableStateOf(false) }
