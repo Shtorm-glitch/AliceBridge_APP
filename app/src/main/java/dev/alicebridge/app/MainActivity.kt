@@ -67,6 +67,7 @@ import dev.alicebridge.app.ui.components.Heading
 import dev.alicebridge.app.ui.components.MethodCard
 import dev.alicebridge.app.ui.components.ShizukuSteps
 import dev.alicebridge.app.ui.screens.JournalScreen
+import dev.alicebridge.app.ui.screens.SettingsScreen
 import dev.alicebridge.app.ui.theme.AbColors
 import dev.alicebridge.app.ui.theme.AliceBridgeTheme
 import dev.alicebridge.bridge.RootShell
@@ -1454,37 +1455,20 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-                    "settings" -> {
-                        Heading("Сервер и сеть")
-                        var resolver by remember {
-                            mutableStateOf(config.getString("resolver", "78.24.223.83").orEmpty())
-                        }
-                        OutlinedTextField(resolver, onValueChange = {
-                            resolver = it.trim()
-                        }, label = { Text("IPv4 DNS-сервера") }, singleLine = true, modifier = Modifier.fillMaxWidth())
-                        Text(
-                            "По умолчанию используется публичный сервер AliceBridge. Можно указать свой DNS-сервер с совместимым backend. Изменение применяется к новому сеансу; сохранённый сеанс использует прежний сервер.",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
-                        )
-                        Action("Сохранить") {
+                    "settings" -> SettingsScreen(
+                        initialResolver = config.getString("resolver", "78.24.223.83").orEmpty(),
+                        versionName = BuildConfig.VERSION_NAME,
+                        onSaveResolver = { value ->
                             try {
-                                RootShell.validateIpv4(resolver)
-                                config.edit().putString("resolver", resolver).apply()
+                                RootShell.validateIpv4(value)
+                                config.edit().putString("resolver", value).apply()
                                 toast("Адрес сохранён")
-                            } catch (
-                                _: Exception,
-                            ) {
+                            } catch (_: Exception) {
                                 toast("Укажите IPv4, например 78.24.223.83")
                             }
-                        }
-                        Action("Проверить обновления") { releaseUpdates.check(manual = true) }
-                        Text(
-                            "Версия ${BuildConfig.VERSION_NAME}\nНастройка и управление Яндекс.Станцией с Android.",
-                            color = AbColors.Muted,
-                            fontSize = 13.sp,
-                        )
-                    }
+                        },
+                        onCheckUpdates = { releaseUpdates.check(manual = true) },
+                    )
                     "journal" -> JournalScreen(
                         lines = state.journal,
                         verbose = verboseJournal,
