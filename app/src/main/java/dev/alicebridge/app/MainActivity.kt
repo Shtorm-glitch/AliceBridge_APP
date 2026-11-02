@@ -66,6 +66,7 @@ import dev.alicebridge.app.ui.components.Eyebrow
 import dev.alicebridge.app.ui.components.Heading
 import dev.alicebridge.app.ui.components.MethodCard
 import dev.alicebridge.app.ui.components.ShizukuSteps
+import dev.alicebridge.app.ui.screens.GuideScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.screens.SettingsScreen
 import dev.alicebridge.app.ui.theme.AbColors
@@ -1353,107 +1354,59 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                     "guide" -> {
-                        Heading("Подключим Shizuku")
-                        Text(
-                            "Выполните шаги по порядку. Статусы службы и разрешения обновляются автоматически.",
-                            color = AbColors.Muted,
-                            lineHeight = 23.sp,
-                        )
-                        ShizukuSteps(
-                            shizukuInstalled || shizukuRunning,
-                            shizukuRunning,
-                            shizukuAllowed,
-                            onRequestShizuku,
-                            onOpenShizukuManager,
-                            onOpenUrl,
-                        )
-                        CardBox {
-                            Text("Для вашего телефона", fontWeight = FontWeight.Bold, fontSize = 19.sp)
-                            Text(
-                                "${Build.MANUFACTURER} ${Build.MODEL} · Android ${Build.VERSION.RELEASE}",
-                                color = AbColors.Purple,
-                                fontSize = 13.sp,
-                            )
-                            PhoneGuide.tips().forEach { tip ->
-                                Text(tip, color = AbColors.Muted, lineHeight = 22.sp, fontSize = 14.sp)
-                            }
-                            TextButton(onClick = {
-                                openUrl("https://shizuku.rikka.app/guide/setup/")
-                            }) { Text("Официальная инструкция по оболочкам") }
-                            val providers = remember {
-                                listOf(
-                                    "moe.shizuku.privileged.api",
-                                    "com.hamondev.shevery",
-                                    "af.shizuku.plus.api",
-                                    "eu.darken.porter",
-                                    "kerneldroid.nightzuku",
-                                )
-                                    .mapNotNull { pkg ->
-                                        try {
-                                            packageManager.getApplicationInfo(pkg, 0).let {
-                                                pkg to
-                                                    packageManager.getApplicationLabel(it).toString()
-                                            }
-                                        } catch (
-                                            _: Exception,
-                                        ) {
-                                            null
-                                        }
-                                    }
-                            }
-                            providers.forEach { (pkg, name) ->
-                                TextButton(onClick = {
-                                    packageManager.getLaunchIntentForPackage(pkg)?.let { startActivity(it) }
-                                        ?: toast("У менеджера нет экрана запуска")
-                                }) { Text("Открыть $name") }
-                            }
-                        }
-                        CardBox {
-                            Text(
-                                "Менеджер запущен, а служба не работает?",
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            )
-                            Text(
-                                "На MediaTek у Shizuku 13.6.0 известен сбой UserService. У thedjchi есть исправление, Next продолжает эту ветку. Форк может помочь с запуском службы, но не гарантирует исправление DNS.",
-                                color = AbColors.Muted,
-                                lineHeight = 23.sp,
-                            )
-                            TextButton(onClick = {
-                                openUrl("https://github.com/thedjchi/Shizuku/releases")
-                            }) { Text("thedjchi → релизы") }
-                            TextButton(onClick = {
-                                openUrl("https://github.com/rushiranpise/Shizuku-Next/releases")
-                            }) { Text("Shizuku-Next → релизы") }
-                            Text(
-                                "При смене менеджера могут отличаться пакет и подпись APK. Следуйте его инструкции установки; AliceBridge не удаляет менеджеры автоматически.",
-                                color = AbColors.Muted,
-                                fontSize = 13.sp,
-                            )
-                        }
-                        Action(
-                            if (shizukuReady) "Использовать Shizuku" else "Сначала запустите службу и выдайте доступ",
-                            enabled =
-                            shizukuReady && !state.running,
-                        ) {
-                            if (!dev.alicebridge.bridge.ShizukuNetwork.permitted()) {
-                                toast("Нужно разрешение Shizuku")
-                                return@Action
-                            }
-                            method = ConnectionMethod.SHIZUKU
-                            if (selected != null) {
-                                page = "prepare"
-                            } else {
-                                val saved = state.session
-                                if (saved != null && !state.running) {
-                                    repository.save(saved.copy(method = ConnectionMethod.SHIZUKU, legacyWpa = false))
-                                    page = "home"
-                                    service("START")
-                                } else {
-                                    page = "home"
+                        val installedManagers = remember {
+                            listOf(
+                                "moe.shizuku.privileged.api",
+                                "com.hamondev.shevery",
+                                "af.shizuku.plus.api",
+                                "eu.darken.porter",
+                                "kerneldroid.nightzuku",
+                            ).mapNotNull { pkg ->
+                                try {
+                                    val info = packageManager.getApplicationInfo(pkg, 0)
+                                    pkg to packageManager.getApplicationLabel(info).toString()
+                                } catch (_: Exception) {
+                                    null
                                 }
                             }
                         }
+                        GuideScreen(
+                            shizukuInstalled = shizukuInstalled,
+                            shizukuRunning = shizukuRunning,
+                            shizukuAllowed = shizukuAllowed,
+                            shizukuReady = shizukuReady,
+                            busy = state.running,
+                            phoneLabel = "${Build.MANUFACTURER} ${Build.MODEL} · Android ${Build.VERSION.RELEASE}",
+                            installedManagers = installedManagers,
+                            onRequestShizuku = onRequestShizuku,
+                            onOpenShizukuManager = onOpenShizukuManager,
+                            onOpenUrl = onOpenUrl,
+                            onOpenPackage = { pkg ->
+                                packageManager.getLaunchIntentForPackage(pkg)?.let { startActivity(it) }
+                                    ?: toast("У менеджера нет экрана запуска")
+                            },
+                            onUseShizuku = {
+                                if (!dev.alicebridge.bridge.ShizukuNetwork.permitted()) {
+                                    toast("Нужно разрешение Shizuku")
+                                } else {
+                                    method = ConnectionMethod.SHIZUKU
+                                    if (selected != null) {
+                                        page = "prepare"
+                                    } else {
+                                        val saved = state.session
+                                        if (saved != null && !state.running) {
+                                            repository.save(
+                                                saved.copy(method = ConnectionMethod.SHIZUKU, legacyWpa = false),
+                                            )
+                                            page = "home"
+                                            service("START")
+                                        } else {
+                                            page = "home"
+                                        }
+                                    }
+                                }
+                            },
+                        )
                     }
                     "settings" -> SettingsScreen(
                         initialResolver = config.getString("resolver", "78.24.223.83").orEmpty(),
