@@ -19,19 +19,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -45,7 +40,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.FileProvider
@@ -53,13 +47,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.alicebridge.app.setup.SetupViewModel
-import dev.alicebridge.app.ui.components.Action
-import dev.alicebridge.app.ui.components.CardBox
-import dev.alicebridge.app.ui.components.CopyRow
-import dev.alicebridge.app.ui.components.Eyebrow
-import dev.alicebridge.app.ui.components.Heading
 import dev.alicebridge.app.ui.screens.FindScreen
 import dev.alicebridge.app.ui.screens.GuideScreen
+import dev.alicebridge.app.ui.screens.HomeScreen
 import dev.alicebridge.app.ui.screens.JournalScreen
 import dev.alicebridge.app.ui.screens.ModelsScreen
 import dev.alicebridge.app.ui.screens.PrepareScreen
@@ -74,8 +64,6 @@ import dev.alicebridge.domain.PhoneRootStage
 import dev.alicebridge.domain.ProbeResult
 import dev.alicebridge.domain.SetupPhase
 import dev.alicebridge.domain.SetupSession
-import dev.alicebridge.domain.ShizukuRecovery
-import dev.alicebridge.domain.ToolAccessPolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -444,602 +432,56 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.spacedBy(18.dp),
             ) {
                 when (page) {
-                    "home" -> {
-                        Spacer(Modifier.height(6.dp))
-                        if (state.error.isNotBlank()) {
-                            CardBox {
-                                Text(
-                                    if (state.session?.method ==
-                                        ConnectionMethod.SHIZUKU
-                                    ) {
-                                        "Не удалось продолжить с Shizuku"
-                                    } else {
-                                        "Нужна ваша помощь"
-                                    },
-                                    color = AbColors.Peach,
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold,
-                                )
-                                Text(state.error, lineHeight = 23.sp)
-                                if (state.session?.method == ConnectionMethod.DFROOT) {
-                                    val ksu = config.getString("ksu", "").orEmpty()
-                                    if (ksu.isNotBlank()) {
-                                        TextButton(onClick = {
-                                            packageManager.getLaunchIntentForPackage(ksu)?.let { startActivity(it) }
-                                        }) { Text("Открыть KernelSU") }
-                                    }
-                                    TextButton(onClick = {
-                                        page = "guide"
-                                    }) { Text("DFRoot не подошёл? Попробовать Shizuku") }
-                                } else if (state.session?.method == ConnectionMethod.SHIZUKU) {
-                                    val chip = (Build.SOC_MANUFACTURER + " " + Build.SOC_MODEL).lowercase()
-                                    val advice = ShizukuRecovery.advice(
-                                        state.error,
-                                        chip.contains("mediatek") || chip.contains("mtk"),
-                                    )
-                                    Text(
-                                        advice.title,
-                                        fontSize = 18.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = AbColors.Purple,
-                                    )
-                                    Text(advice.detail, color = AbColors.Muted, lineHeight = 22.sp)
-                                    Text("Другие варианты Shizuku", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                                    Text(
-                                        "Сначала откройте установленный менеджер, перезапустите его службу и проверьте, что AliceBridge разрешён доступ. Затем повторите подготовку здесь.",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                        lineHeight = 20.sp,
-                                    )
-                                    Text(
-                                        "Если ошибка повторяется, можно попробовать другой вариант Shizuku. У разных сборок отличаются исправления и поведение на оболочках Android: один менеджер может не запускать нужную сетевую службу, а другой — работать на том же телефоне. Ссылки ниже открывают страницы скачивания.",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                        lineHeight = 20.sp,
-                                    )
-                                    Text(
-                                        "Как сменить менеджер:\n1. Остановите службу в прежнем менеджере.\n2. Установите выбранный вариант и запустите его службу по инструкции менеджера.\n3. Заново разрешите AliceBridge доступ.\n4. Вернитесь сюда и нажмите «Повторить подготовку Shizuku». Одновременно должна работать одна служба.",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                        lineHeight = 20.sp,
-                                    )
-                                    if (!advice.offerForks) {
-                                        Text(
-                                            "Сначала проверьте причину выше: смена менеджера не гарантирует исправление DNS или сервера.",
-                                            color = AbColors.Peach,
-                                            fontSize = 13.sp,
-                                        )
-                                    }
-                                    TextButton(onClick = {
-                                        openUrl("https://github.com/rushiranpise/Shizuku-Next/releases")
-                                    }) { Text("Shizuku-Next → попробовать другую сборку") }
-                                    TextButton(onClick = {
-                                        openUrl("https://github.com/thedjchi/Shizuku/releases")
-                                    }) { Text("thedjchi / Shizuku → ещё один вариант") }
-                                    TextButton(onClick = {
-                                        openUrl("https://github.com/HmnDev-Tech/shevery/releases")
-                                    }) { Text("HyperOS → попробовать Shevery") }
-                                    Action("Повторить подготовку Shizuku", enabled = !state.busy) {
-                                        service("RESTORE_NETWORK")
-                                    }
-                                    TextButton(onClick = { page = "journal" }) { Text("Открыть журнал ошибки") }
-                                    TextButton(onClick = { page = "guide" }) { Text("Инструкция и другие менеджеры") }
-                                }
-                            }
-                        }
-                        if (state.session == null) {
-                            Eyebrow("НАСТРОЙКА С ANDROID")
-                            Heading("Ваша Алиса.\nВаши возможности.")
-                            Text(
-                                "Выберите точную модель. Покажем сброс настроек, подготовим телефон и будем следить за запросами колонки.",
-                                color = AbColors.Muted,
-                                lineHeight = 24.sp,
+                    "home" -> HomeScreen(
+                        state = state,
+                        activeModelName = activeModel?.name,
+                        retailStep = retailStep,
+                        phaseTitle = { phaseTitle(it) },
+                        phaseDetail = { phaseDetail(it) },
+                        savedKsuPkg = config.getString("ksu", "").orEmpty(),
+                        passwordEditor = passwordEditor,
+                        passwordDraft = passwordDraft,
+                        passwordApply = passwordApply,
+                        passwordNote = passwordNote,
+                        onCopy = onCopy,
+                        onOpenUrl = onOpenUrl,
+                        onStartSetup = { page = "models" },
+                        onFindExisting = { page = "find-models" },
+                        onOpenGuide = { page = "guide" },
+                        onOpenJournal = { page = "journal" },
+                        onOpenManual = { startActivity(Intent(this@MainActivity, ManualActivity::class.java)) },
+                        onOpenTools = { startActivity(Intent(this@MainActivity, ToolsActivity::class.java)) },
+                        onOpenToolsWifi = {
+                            startActivity(
+                                Intent(this@MainActivity, ToolsActivity::class.java).putExtra("page", "wifi"),
                             )
-                            Action("Начать настройку") { page = "models" }
-                        } else if (!state.running) {
-                            Eyebrow("СОХРАНЁННЫЙ СЕАНС")
-                            Heading("Продолжим настройку")
-                            CardBox {
-                                Text(
-                                    activeModel?.name ?: state.session!!.modelId,
-                                    fontSize = 23.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                )
-                                Text(
-                                    "Сначала проверим последний адрес ADB. Если колонка уже доступна, сразу продолжим с её состояния. Иначе восстановим прежнюю точку — без повторного сброса.",
-                                    color = AbColors.Muted,
-                                    lineHeight = 23.sp,
-                                )
-                                if (state.session!!.currentVersion.isNotBlank()) {
-                                    Text(
-                                        "Последняя версия: ${state.session!!.currentVersion}",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                    )
-                                }
+                        },
+                        onOpenTerminal = { startActivity(Intent(this@MainActivity, TerminalActivity::class.java)) },
+                        onServiceStart = { service("START") },
+                        onServiceStop = { service("STOP") },
+                        onRestoreNetwork = { service("RESTORE_NETWORK") },
+                        onSelectCandidate = { ip -> service("SELECT", ip) },
+                        onRestartHome = {
+                            val latest = repository.state.value
+                            if (latest.hotspotReady && latest.startupGate.ready) {
+                                service("RESTART_HOME")
+                            } else {
+                                toast("Дождитесь успешной проверки точки и DNS")
                             }
-                            Action("Продолжить настройку") { service("START") }
-                            TextButton(onClick = { page = "models" }) { Text("Начать заново") }
-                        }
-                        if (!state.running) {
-                            OutlinedButton(onClick = {
-                                page = "find-models"
-                            }, enabled = !state.busy, modifier = Modifier.fillMaxWidth()) {
-                                Text("Подключить настроенную колонку")
-                            }
-                            OutlinedButton(onClick = {
-                                startActivity(Intent(this@MainActivity, ManualActivity::class.java))
-                            }, enabled = !state.busy, modifier = Modifier.fillMaxWidth()) {
-                                Text("Ручная настройка прошивки")
-                            }
-                            Text(
-                                "Колонка уже настроена и ADB включён? Подключите телефон к той же Wi-Fi сети — найдём её без сброса и точки доступа.",
-                                color = AbColors.Muted,
-                                fontSize = 13.sp,
-                            )
-                        }
-                        if (state.session != null) {
-                            val stationAddress = state.session!!.stationIp.ifBlank { state.session!!.lastAdbAddress }
-                            if (stationAddress.isNotBlank()) {
-                                CardBox {
-                                    CopyRow(
-                                        if (state.session!!.adbVerified) "IP колонки" else "Последний IP колонки",
-                                        stationAddress,
-                                        onCopy,
-                                    )
-                                    if (!state.session!!.adbVerified) {
-                                        Text(
-                                            "Проверяем связь. После перезагрузки адрес может измениться.",
-                                            color = AbColors.Muted,
-                                            fontSize = 13.sp,
-                                        )
-                                    }
-                                }
-                            } else if (state.candidates.isNotEmpty()) {
-                                CardBox {
-                                    state.candidates.forEach { ip ->
-                                        CopyRow("Найдено устройство · проверяем Алису", ip, onCopy)
-                                    }
-                                }
-                            }
-                        }
-                        if (state.running) {
-                            Eyebrow(activeModel?.name?.uppercase() ?: "НАСТРОЙКА")
-                            val trafficWaiting =
-                                state.session?.phase == SetupPhase.WAITING_STATION &&
-                                    state.backendStatus in setOf("network_activity", "client_traffic")
-                            Heading(
-                                retailStep?.title
-                                    ?: if (state.session?.adbVerified ==
-                                        true
-                                    ) {
-                                        "Алиса на связи"
-                                    } else if (trafficWaiting) {
-                                        "Запросы поступают"
-                                    } else {
-                                        state.headline
-                                    },
-                            )
-                            CardBox {
-                                Text(
-                                    "ЧТО ПРОИСХОДИТ СЕЙЧАС",
-                                    color = AbColors.Purple,
-                                    fontSize = 12.sp,
-                                    letterSpacing = 1.sp,
-                                )
-                                if (!state.directMode &&
-                                    (state.busy || state.phoneRoot.stage == PhoneRootStage.WAITING_PERMISSION)
-                                ) {
-                                    if (state.busy) {
-                                        LinearProgressIndicator(
-                                            Modifier.fillMaxWidth(),
-                                            color = AbColors.Purple,
-                                        )
-                                    }
-                                    val gate = state.startupGate
-                                    if (state.session?.method == ConnectionMethod.DFROOT) {
-                                        (
-                                            if (state.phoneRoot.existing) {
-                                                listOf(
-                                                    "Готовый root телефона" to state.phoneRoot.active,
-                                                    "Права AliceBridge · UID 0" to state.phoneRoot.permission,
-                                                )
-                                            } else {
-                                                listOf(
-                                                    "KernelSU установлен и выбран" to state.phoneRoot.manager,
-                                                    "Root телефона активен" to state.phoneRoot.active,
-                                                    "Права AliceBridge · UID 0" to state.phoneRoot.permission,
-                                                )
-                                            }
-                                            ).forEach { (name, result) ->
-                                            Row(
-                                                Modifier.fillMaxWidth(),
-                                                horizontalArrangement = Arrangement.SpaceBetween,
-                                            ) {
-                                                Text(name, color = AbColors.Muted, fontSize = 13.sp)
-                                                Text(
-                                                    if (result ==
-                                                        ProbeResult.PASSED
-                                                    ) {
-                                                        "Готово"
-                                                    } else {
-                                                        "Ожидаем"
-                                                    },
-                                                    color = if (result ==
-                                                        ProbeResult.PASSED
-                                                    ) {
-                                                        AbColors.Green
-                                                    } else {
-                                                        AbColors.Muted
-                                                    },
-                                                    fontSize = 13.sp,
-                                                )
-                                            }
-                                        }
-                                    }
-                                    listOf(
-                                        "Точка доступа" to gate.hotspot,
-                                        "DNS · UDP" to gate.dnsUdp,
-                                        "DNS · TCP" to gate.dnsTcp,
-                                        "Доступность сервера" to gate.serverHttp,
-                                        "Статус через DNS" to gate.feedback,
-                                    ).forEach { (name, result) ->
-                                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                            Text(name, color = AbColors.Muted, fontSize = 13.sp)
-                                            Text(
-                                                if (result ==
-                                                    ProbeResult.PASSED
-                                                ) {
-                                                    "Готово"
-                                                } else {
-                                                    "Ожидаем"
-                                                },
-                                                color = if (result ==
-                                                    ProbeResult.PASSED
-                                                ) {
-                                                    AbColors.Green
-                                                } else {
-                                                    AbColors.Muted
-                                                },
-                                                fontSize = 13.sp,
-                                            )
-                                        }
-                                    }
-                                }
-                                val s = state.session!!
-                                Text(
-                                    if (state.busy ||
-                                        state.phoneRoot.stage == PhoneRootStage.WAITING_PERMISSION
-                                    ) {
-                                        state.headline
-                                    } else {
-                                        retailStep?.title
-                                            ?: if (trafficWaiting) "Сеанс активен" else phaseTitle(s)
-                                    },
-                                    fontSize = 24.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                )
-                                Text(
-                                    if (state.busy ||
-                                        state.phoneRoot.stage == PhoneRootStage.WAITING_PERMISSION
-                                    ) {
-                                        state.detail
-                                    } else {
-                                        retailStep?.detail
-                                            ?: if (trafficWaiting) {
-                                                "Запросы из сети телефона доходят до сервера. Продолжаем искать колонку по ADB; повторная проверка обновлений для этого не нужна."
-                                            } else {
-                                                phaseDetail(
-                                                    s,
-                                                )
-                                            }
-                                    },
-                                    color = AbColors.Muted,
-                                    lineHeight = 23.sp,
-                                )
-                                if (s.totalBytes > 0) {
-                                    LinearProgressIndicator(progress = {
-                                        (s.transferredBytes.toFloat() / s.totalBytes).coerceIn(0f, 1f)
-                                    }, modifier = Modifier.fillMaxWidth(), color = AbColors.Purple)
-                                    Text(
-                                        "Передача файла: ${s.transferredBytes * 100 / s.totalBytes}% · установка подтверждается отдельно",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                    )
-                                }
-                                if (s.currentVersion.isNotBlank()) {
-                                    Text(
-                                        "Полученная версия: ${s.currentVersion}",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                    )
-                                }
-                                if (s.targetVersion.isNotBlank()) {
-                                    Text(
-                                        "Целевая версия: ${s.targetVersion}",
-                                        color = AbColors.Muted,
-                                        fontSize = 13.sp,
-                                    )
-                                }
-                                if (state.backend.isNotBlank()) {
-                                    Text(
-                                        state.backend,
-                                        color = if (state.backendStatus in
-                                            listOf("ambiguous", "stale", "unreachable", "tls_error")
-                                        ) {
-                                            AbColors.Peach
-                                        } else {
-                                            AbColors.Muted
-                                        },
-                                        fontSize = 13.sp,
-                                    )
-                                }
-                            }
-                            if (state.phoneRoot.stage == PhoneRootStage.WAITING_PERMISSION) {
-                                CardBox {
-                                    Text(
-                                        "Разрешите AliceBridge в KernelSU",
-                                        fontSize = 21.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    Text(
-                                        "Суперпользователи → AliceBridge → разрешить. После возврата проверим права автоматически. Точка до подтверждения UID 0 не запускается.",
-                                        color = AbColors.Muted,
-                                        lineHeight = 23.sp,
-                                    )
-                                    Action("Открыть выбранный KernelSU") {
-                                        val pkg = config.getString("ksu", "").orEmpty()
-                                        packageManager.getLaunchIntentForPackage(pkg)?.let { startActivity(it) }
-                                            ?: toast("KernelSU не найден — проверьте установленный менеджер")
-                                    }
-                                    TextButton(onClick = {
-                                        service("START")
-                                    }) { Text("Права выданы · проверить ещё раз") }
-                                }
-                            }
-                            if (state.candidates.size > 1) {
-                                CardBox {
-                                    Text("Нашли несколько устройств ADB", fontWeight = FontWeight.Bold)
-                                    Text(
-                                        "Выберите нужную колонку. Автоматически переключаться между ними не будем.",
-                                        color = AbColors.Muted,
-                                    )
-                                    state.candidates.forEach { ip ->
-                                        TextButton(onClick = { service("SELECT", ip) }) { Text(ip) }
-                                    }
-                                }
-                            }
-                            if (state.session?.adbVerified == true) {
-                                CardBox {
-                                    Text("ПАНЕЛЬ КОЛОНКИ", color = AbColors.Purple, fontSize = 12.sp)
-                                    Text(
-                                        if (state.session!!.adbRoot) {
-                                            "Root подтверждён · uid=0"
-                                        } else {
-                                            "ADB подтверждён · root пока не подтверждён"
-                                        },
-                                        color = AbColors.Green,
-                                    )
-                                    state.stationInfo.filterKeys {
-                                        it in listOf("VERSION", "KERNEL", "DISK")
-                                    }.forEach { (key, value) ->
-                                        if (value.isNotBlank()) {
-                                            Text(
-                                                "$key\n$value",
-                                                color = AbColors.Muted,
-                                                fontSize = 13.sp,
-                                            )
-                                        }
-                                    }
-                                    state.tools.steps.forEach { step ->
-                                        Text(
-                                            "${step.title} · ${step.status}",
-                                            color = if (step.status ==
-                                                "Ошибка"
-                                            ) {
-                                                AbColors.Peach
-                                            } else if (step.status ==
-                                                "Готово"
-                                            ) {
-                                                AbColors.Green
-                                            } else {
-                                                AbColors.Muted
-                                            },
-                                            fontSize = 13.sp,
-                                        )
-                                    }
-                                    if (state.tools.busy) {
-                                        LinearProgressIndicator(Modifier.fillMaxWidth())
-                                        Text(state.tools.operation, color = AbColors.Purple)
-                                    }
-                                    if (state.tools.error.isNotBlank()) Text(state.tools.error, color = AbColors.Peach)
-                                    val access = ToolAccessPolicy.of(
-                                        true,
-                                        state.session?.adbRoot == true,
-                                        state.tools.profileReady,
-                                        state.session?.modelId.orEmpty(),
-                                        state.session?.modelId in listOf("lite2", "mini3") &&
-                                            state.stationInfo["VERSION"].orEmpty().contains("factory", true),
-                                    )
-                                    Action("Домашний Wi-Fi", enabled = access.wifi && !state.tools.busy) {
-                                        startActivity(
-                                            Intent(
-                                                this@MainActivity,
-                                                ToolsActivity::class.java,
-                                            ).putExtra("page", "wifi"),
-                                        )
-                                    }
-                                    if (access.wifiDisabledReason.isNotBlank()) {
-                                        Text(
-                                            access.wifiDisabledReason,
-                                            color = AbColors.Peach,
-                                            fontSize = 13.sp,
-                                            lineHeight = 20.sp,
-                                        )
-                                    }
-                                    if (access.mutationDisabledReason.isNotBlank()) {
-                                        Text(
-                                            access.mutationDisabledReason,
-                                            color = AbColors.Peach,
-                                            fontSize = 13.sp,
-                                            lineHeight = 20.sp,
-                                        )
-                                    }
-                                    if (state.tools.busy) {
-                                        Text(
-                                            "Дождитесь завершения текущей операции на колонке.",
-                                            color = AbColors.Muted,
-                                            fontSize = 13.sp,
-                                        )
-                                    }
-                                    Action("Терминал", enabled = access.terminal && !state.tools.busy) {
-                                        startActivity(Intent(this@MainActivity, TerminalActivity::class.java))
-                                    }
-                                    Action("Управление колонкой") {
-                                        startActivity(Intent(this@MainActivity, ToolsActivity::class.java))
-                                    }
-                                }
-                            }
-                            if (state.directMode &&
-                                !state.busy &&
-                                state.candidates.size <= 1 &&
-                                state.session?.adbVerified != true
-                            ) {
-                                CardBox {
-                                    Text(
-                                        "Последний адрес пока не отвечает",
-                                        fontSize = 19.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    Text(
-                                        "Продолжаем проверять ADB. Если колонка ждёт прежнюю сеть AliceBridge, восстановите точку.",
-                                        color = AbColors.Muted,
-                                        lineHeight = 23.sp,
-                                    )
-                                    Action("Восстановить точку доступа") { service("RESTORE_NETWORK") }
-                                }
-                            }
-                            if (state.hotspotReady && state.session?.adbVerified != true) {
-                                CardBox {
-                                    Text("СЕТЬ ДЛЯ АЛИСЫ", color = AbColors.Muted, fontSize = 12.sp)
-                                    CopyRow("Название", state.session!!.ssid, onCopy)
-                                    CopyRow("Пароль", state.session!!.password, onCopy)
-                                    Text(
-                                        "2,4 ГГц · ${if (state.session!!.legacyWpa) "WPA/WPA2" else "WPA2"}",
-                                        color = AbColors.Muted,
-                                        fontSize = 12.sp,
-                                    )
-                                    TextButton(onClick = {
-                                        passwordDraft = state.session!!.password
-                                        passwordEditor =
-                                            true
-                                    }) { Text("Изменить пароль точки") }
-                                    if (passwordNote.isNotBlank()) {
-                                        Text(
-                                            passwordNote,
-                                            color = AbColors.Peach,
-                                            fontSize = 13.sp,
-                                            lineHeight = 20.sp,
-                                        )
-                                    }
-                                }
-                                if (passwordEditor) {
-                                    val valid =
-                                        passwordDraft.length in 8..63 && passwordDraft.all { it.code in 32..126 }
-                                    AlertDialog(
-                                        onDismissRequest = { passwordEditor = false },
-                                        title = { Text("Пароль точки доступа") },
-                                        text = {
-                                            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                                                OutlinedTextField(
-                                                    passwordDraft,
-                                                    {
-                                                        passwordDraft = it
-                                                    },
-                                                    singleLine = true,
-                                                    label = { Text("Новый пароль") },
-                                                    visualTransformation = PasswordVisualTransformation(),
-                                                    modifier = Modifier.fillMaxWidth(),
-                                                )
-                                                Text(
-                                                    "8–63 печатных символа. Пароль не попадает в журнал.",
-                                                    color = AbColors.Muted,
-                                                    fontSize = 13.sp,
-                                                )
-                                            }
-                                        },
-                                        confirmButton = {
-                                            TextButton(enabled = valid, onClick = {
-                                                repository.save(state.session!!.copy(password = passwordDraft))
-                                                passwordEditor = false
-                                                passwordNote =
-                                                    if (state.hotspotReady) {
-                                                        "Пароль сохранён. Сейчас точка ещё работает со старым паролем."
-                                                    } else {
-                                                        "Пароль сохранён и применится при запуске точки."
-                                                    }
-                                                if (state.hotspotReady) passwordApply = true
-                                            }) { Text("Сохранить") }
-                                        },
-                                        dismissButton = {
-                                            TextButton(onClick = { passwordEditor = false }) { Text("Отмена") }
-                                        },
-                                    )
-                                }
-                                if (passwordApply) {
-                                    AlertDialog(
-                                        onDismissRequest = { passwordApply = false },
-                                        title = { Text("Применить пароль сейчас?") },
-                                        text = {
-                                            Text(
-                                                "Точка будет перезапущена с новым паролем. Колонка отключится; возможно, её потребуется снова выбрать в «Доме с Алисой». Если применить позже, старый пароль продолжит работать до перезапуска точки.",
-                                            )
-                                        },
-                                        confirmButton = {
-                                            TextButton(onClick = {
-                                                passwordApply = false
-                                                passwordNote = ""
-                                                service("RESTORE_NETWORK")
-                                            }) { Text("Перезапустить точку") }
-                                        },
-                                        dismissButton = {
-                                            TextButton(onClick = {
-                                                passwordApply = false
-                                                passwordNote =
-                                                    "Новый пароль применится при следующем запуске точки."
-                                            }) { Text("Позже") }
-                                        },
-                                    )
-                                }
-                                Action(
-                                    if (state.homeLaunching) {
-                                        "Перезапускаем «Дом с Алисой»…"
-                                    } else {
-                                        "Открыть «Дом с Алисой»"
-                                    },
-                                    enabled = !state.homeLaunching,
-                                ) {
-                                    val latest = repository.state.value
-                                    if (latest.hotspotReady &&
-                                        latest.startupGate.ready
-                                    ) {
-                                        service("RESTART_HOME")
-                                    } else {
-                                        toast("Дождитесь успешной проверки точки и DNS")
-                                    }
-                                }
-                                Text(
-                                    "Перед открытием принудительно перезапустим «Дом с Алисой», чтобы избежать зависшего подключения Bluetooth.",
-                                    color = AbColors.Muted,
-                                    fontSize = 13.sp,
-                                    lineHeight = 20.sp,
-                                )
-                            }
-                            TextButton(onClick = {
-                                service("STOP")
-                            }) { Text("Остановить сеанс и точку", color = AbColors.Muted) }
-                        }
-                    }
+                        },
+                        onOpenKsuSilent = { pkg ->
+                            packageManager.getLaunchIntentForPackage(pkg)?.let { startActivity(it) }
+                        },
+                        onOpenKsuWithFallback = { pkg ->
+                            packageManager.getLaunchIntentForPackage(pkg)?.let { startActivity(it) }
+                                ?: toast("KernelSU не найден — проверьте установленный менеджер")
+                        },
+                        onPasswordEditorChange = { passwordEditor = it },
+                        onPasswordDraftChange = { passwordDraft = it },
+                        onPasswordApplyChange = { passwordApply = it },
+                        onPasswordNoteChange = { passwordNote = it },
+                        onSavePassword = { pw -> state.session?.let { repository.save(it.copy(password = pw)) } },
+                    )
                     "models", "find-models" -> ModelsScreen(
                         catalog = catalog,
                         isFindFlow = page == "find-models",
